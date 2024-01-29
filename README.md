@@ -1,2 +1,2 @@
 # aws-learning
-aws-learning project application.
+AWS Certified DevOps Engineer Professional
