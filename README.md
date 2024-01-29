@@ -14,6 +14,10 @@ This is designed for individuals who have experience working in a DevOps role an
 - ***Policies and Standards Automation:*** Implementing systems that are highly available, scalable, and self-healing on the AWS platform.
 - ***Incident and Event Response:*** Designing, managing, and maintaining tools to automate operational processes.
 To prepare for the exam, it's recommended to have hands-on experience with various AWS services and understand how to design, manage, and maintain tools for automating operational processes. Additionally, reviewing the official exam guide provided by AWS, along with relevant AWS documentation and whitepapers, can help you prepare effectively.
+#### Cloud Computing
+Cloud computing is the on-demand delivery of compute power, database, storage, applications, and other IT resources through a cloud services platform via the internet with pay-as-you-go pricing.
+#### Types of Cloud Computing
+- 
 
 1. AWS CLI
    - Control multiple AWS services from this command line.
