@@ -17,7 +17,15 @@ To prepare for the exam, it's recommended to have hands-on experience with vario
 #### Cloud Computing
 Cloud computing is the on-demand delivery of compute power, database, storage, applications, and other IT resources through a cloud services platform via the internet with pay-as-you-go pricing.
 #### Types of Cloud Computing
-- 
+- [Private Cloud](https://aws.amazon.com/what-is/private-cloud/#:~:text=A%20private%20cloud%20is%20a,the%20control%20of%20one%20organization.)
+  - This service used by a single organization, not exposed to public.
+  - Complete self control
+  - Secure for senserive applications.
+  - Fulfill specified requirements.
+  - For example [rackspace](https://www.rackspace.com), [Hewlett Packard Enterprise (HPE)](https://www.hpe.com/emea_europe/en/home.html) and so on.
+- Public Cloud
+- Hybrid Cloud
+- On-Premises Cloud
 
 1. AWS CLI
    - Control multiple AWS services from this command line.
