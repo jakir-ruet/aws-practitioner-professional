@@ -138,25 +138,24 @@ AWS Identity and Access Management (IAM) is a web service that helps you securel
 - Users or Groups can be assigned JSON documents called policies
 - These policies define the permissions of the users
 - In AWS you apply the least privilege principle: don’t give more permissions than a user needs
-- Sample permission
+- [Policies Structure](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html)
+
+#### [Polocies Structure](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html)
+***Principal:***
+A principal is a human user or workload that can make a request for an action or operation on an AWS resource. After authentication, the principal can be granted either permanent or temporary credentials to make requests to AWS, depending on the principal type. IAM users and root user are granted permanent credentials, while roles are granted temporary credentials. As a best practice, we recommend that you require human users and workloads to access AWS resources using temporary credentials.
 ```JSON
 {
-  "Version": "2024-01-30",
-  "Statement": [
+  "Version": "2024-01-30",              // policy language version, always include
+  "Id": "Account-Permission"            // an identifier for the policy (optional)
+  "Statement": [                        // one/more individual statements (required)
     {
-      "Sid": "FirstStatement",
-      "Effect": "Allow",
-      "Action": ["iam:ChangePassword"],
-      "Resource": "*"
+      "Sid": "FirstStatement",          // an identifier for the statement (optional)
+      "Effect": "Allow",                // whether the statement allows/denies access (Allow, Deny)
+      "Action": ["iam:ChangePassword"], // list of actions this policy allows/denies
+      "Resource": "*"                   // list of resources to which the actions applied to
     },
     {
       "Sid": "SecondStatement",
-      "Effect": "Allow",
-      "Action": "s3:ListAllMyBuckets",
-      "Resource": "*"
-    },
-    {
-      "Sid": "ThirdStatement",
       "Effect": "Allow",
       "Action": [
         "s3:List*",
@@ -166,36 +165,45 @@ AWS Identity and Access Management (IAM) is a web service that helps you securel
         "arn:aws:s3:::confidential-data",
         "arn:aws:s3:::confidential-data/*"
       ],
-      "Condition": {"Bool": {"aws:MultiFactorAuthPresent": "true"}}
+      "Condition": {"Bool": {"aws:MultiFactorAuthPresent": "true"}} // conditions for when this policyis in effect  (optional)
     }
   ]
 }
 ```
+#### Create IAM user in Hands on Class.
+- Go the IAM section & press 'Create User'.
+- Give the user name (JakirIam) as you like.
+- Select the user type
+  - Sepecify a user in Identity Center (Recommended)
+  - I want to create an IAM user (selected)
+  - Give the password as you like
+- Press Next
+- Create user group including define the permissions.
+- Give the tag name (optional)
+- Download credential csv file
+- IAM user created.
+- Create Access keys (Access & Secret Access key)
 
-
-
-
--------------------------------------------------------------------------------------------------
-  AWS CLI
-   - Control multiple AWS services from this command line.
-   - How to [Install?](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-   - Let's me check `aws --version`
-   - If its okay then we will see `aws-cli/2.15.4 Python/3.11.6 Darwin/23.2.0 exe/x86_64 prompt/off`
-   - Configuration using security credential
-     - Go to AWS Management Console > Services > IAM
-     - Select the IAM User Name: Your User Name [_**NB**_: You must use IAM's Information only not Root User]
-     - Click on `Security credentials`
-     - Click on `Create access key`
-     - Copy Access ID & Secret access key
-     - Go to your Terminal and implement as below format
-     - `aws configure`
-     - AWS Access Key ID [None]: Put your ID here and press Enter.
-     - AWS Secret Access Key [None]: Put your secret key here and press Enter
-     - Default region name [None]: us-east-1
-     - Default output format [None]: json
-   - Let's me check whether the configuration is done.
-     - `aws ec2 describe-vpcs`
-     - If it is done then we will see the details of the default vpc.
+#### AWS CLI Configuration
+- Control multiple AWS services from this command line.
+- How to [Install?](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- Let's me check `aws --version`
+- If its okay then we will see `aws-cli/2.15.4 Python/3.11.6 Darwin/23.2.0 exe/x86_64 prompt/off`
+- Configuration using security credential
+ - Go to AWS Management Console > Services > IAM
+ - Select the IAM User Name: Your User Name [_**NB**_: You must use IAM's Information only not Root User]
+ - Click on `Security credentials`
+ - Click on `Create access key`
+ - Copy Access ID & Secret access key
+ - Go to your Terminal and implement as below format
+ - `aws configure`
+ - AWS Access Key ID [None]: Put your ID here and press Enter.
+ - AWS Secret Access Key [None]: Put your secret key here and press Enter
+ - Default region name [None]: us-east-1
+ - Default output format [None]: json
+- Let's me check whether the configuration is done.
+ - `aws ec2 describe-vpcs`
+ - If it is done then we will see the details of the default vpc.
 
 ## Courtesy of Jakir
 
