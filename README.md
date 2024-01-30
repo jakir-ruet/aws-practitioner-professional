@@ -27,7 +27,7 @@ Cloud computing is the on-demand delivery of compute power, database, storage, a
 - Public Cloud
   - Cloud resources owned and operated by a third- party cloud service provider delivered over the Internet.
   - [Six Advantages](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html) of Cloud Computing.
-    - Trade fixed expense (Capital Expense - ***CapEx***) for variable expense (Operational Expense - OpEx).
+    - Trade fixed expense (Capital Expense - ***CapEx***) for variable expense (Operational Expense - ***OpEx***).
       - Pay on demand: Don't own hardware.
       - Reduce Total Cost of Owership (TCO) & Operational Expense (OpEx).
     - Benefit from massive economies of scale
@@ -95,6 +95,33 @@ AWS has 3 pricing fundamentals, following the pay-as-you-go pricing model
 2. Storage: Pay for data stored in the Cloud
 3. Data transfer out of the Cloud: Data transfer IN is free
 Its the expensive issue then traditional IT
+
+#### AWS Availability Zones
+- Each region has many availability zones
+  - Usually 3, Minimum 3, Maximum 6
+  - Example: ap-southeast-2a, ap-southeast-2b, ap-southeast-2c
+- Each availability zone (AZ) is one or more discrete data centers with redundant power, networking, and connectivity
+- They’re separate from each other, so that they’re isolated from disasters
+- They’re connected with high bandwidth, ultra-low latency networking
+![Availability Zones](/img/availability-zones.png)
+
+#### Visit of the AWS Console
+- AWS has Global Services:
+  - Identity and Access Management (IAM)
+  - Route 53 (DNS service)
+  - CloudFront (Content Delivery Network)
+  - WAF (Web Application Firewall)
+- Most AWS services are Region-scoped:
+  - Amazon EC2 (Infrastructure as a Service)
+  - Elastic Beanstalk (Platform as a Service)
+  - Lambda (Function as a Service)
+  - Rekognition (Software as a Service)
+- [Region Services:](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)
+
+
+#### [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/)
+Security and Compliance is a shared responsibility between AWS and the customer. This shared model can help relieve the customer’s operational burden as AWS operates, manages and controls the components from the host operating system and virtualization layer down to the physical security of the facilities in which the service operates. The customer assumes responsibility and management of the guest operating system (including updates and security patches), other associated application software as well as the configuration of the AWS provided security group firewall. 
+![shared-responsibility-model](/img/shared-responsibility-model.png)
 
 
   AWS CLI
