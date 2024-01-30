@@ -116,17 +116,66 @@ Its the expensive issue then traditional IT
   - Elastic Beanstalk (Platform as a Service)
   - Lambda (Function as a Service)
   - Rekognition (Software as a Service)
-- [Region Services:](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)
+- See here [Region Services:](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)
 
 
 #### [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/)
 Security and Compliance is a shared responsibility between AWS and the customer. This shared model can help relieve the customer’s operational burden as AWS operates, manages and controls the components from the host operating system and virtualization layer down to the physical security of the facilities in which the service operates. The customer assumes responsibility and management of the guest operating system (including updates and security patches), other associated application software as well as the configuration of the AWS provided security group firewall. 
 ![shared-responsibility-model](/img/shared-responsibility-model.png)
 
-###  Identity & Access Management (IAM)
-Coming Tomorrow
+###  [Identity & Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)
+AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources. With IAM, you can centrally manage permissions that control which AWS resources users can access. Features of Identity and Access Management;
+- It is global service
+- Root account created by default, shouldn’t be used or shared
+- Users are people within your organization, & can be grouped
+- Groups only contain users, not other groups
+- Users don’t have to belong to a group, and user can belong to multiple groups
+- For an Example of group as follows
+![iam-user](/img/iam-user.png)
+
+#### Why use group
+- The policies define the permission to the users.
+- Users or Groups can be assigned JSON documents called policies
+- These policies define the permissions of the users
+- In AWS you apply the least privilege principle: don’t give more permissions than a user needs
+- Sample permission
+```JSON
+{
+  "Version": "2024-01-30",
+  "Statement": [
+    {
+      "Sid": "FirstStatement",
+      "Effect": "Allow",
+      "Action": ["iam:ChangePassword"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "SecondStatement",
+      "Effect": "Allow",
+      "Action": "s3:ListAllMyBuckets",
+      "Resource": "*"
+    },
+    {
+      "Sid": "ThirdStatement",
+      "Effect": "Allow",
+      "Action": [
+        "s3:List*",
+        "s3:Get*"
+      ],
+      "Resource": [
+        "arn:aws:s3:::confidential-data",
+        "arn:aws:s3:::confidential-data/*"
+      ],
+      "Condition": {"Bool": {"aws:MultiFactorAuthPresent": "true"}}
+    }
+  ]
+}
+```
 
 
+
+
+-------------------------------------------------------------------------------------------------
   AWS CLI
    - Control multiple AWS services from this command line.
    - How to [Install?](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
