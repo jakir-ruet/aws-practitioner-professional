@@ -77,15 +77,15 @@ Cloud computing is the on-demand delivery of compute power, database, storage, a
     - GCP, Azure, Rackspace, Digital Ocean, Linode
 - Platform as a Service (PaaS)
   - Removes the need for your organization to manage the underlying infrastructure
-    - for example
-      - Elastic Beanstalk (on AWS)
-      - Heroku, Google App Engine (GCP), Windows Azure (Microsoft) 
   - Focus on the deployment and management of your applications
+  - For example
+    - Elastic Beanstalk (on AWS)
+    - Heroku, Google App Engine (GCP), Windows Azure (Microsoft)
 - Software as a Service (SaaS)
   - Completed product that is run and managed by the service provider
-    - For example
-      - Many AWS services (ex: Rekognition for Machine Learning)
-      - Google Apps (Gmail), Dropbox, Zoom
+  - For example
+    - Many AWS services (ex: Rekognition for Machine Learning)
+    - Google Apps (Gmail), Dropbox, Zoom
 ##### Cloud Computing Model
 ![Cloud Computing Model](/img/cloud-computing-model.png)
 
