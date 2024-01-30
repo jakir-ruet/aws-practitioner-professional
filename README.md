@@ -205,6 +205,47 @@ A principal is a human user or workload that can make a request for an action or
  - `aws ec2 describe-vpcs`
  - If it is done then we will see the details of the default vpc.
 
+#### Users access types
+To access AWS, you have three options:
+ - AWS Management Console (protected by password + MFA)
+   - Access Keys are generated through the AWS Console
+ - AWS Command Line Interface (CLI): protected by access keys
+   - Access Key ID ~= username
+   - Secret Access Key ~= password
+ - AWS Software Developer Kit (SDK)- for code: protected by access keys
+   - Language-specific APIs (set of libraries)
+   - Enables you to access and manage AWS services programmatically
+   - Embedded within your application
+   - Supported SDKs (JavaScript, Python, PHP, .NET, Ruby, Java, Go, Node.js, C++)
+   - Mobile SDKs (Android, iOS, …)
+   - IoT Device SDKs (Embedded C, Arduino, …)
+   - Example: AWS CLI is built on AWS SDK for Python
+
+#### IAM Roles for Services
+Some AWS service will need to perform actions on your behalf
+ - To do so, we will assign permissions to AWS services with IAM Roles
+ - Common roles: 
+ - EC2 Instance Roles
+   - Lambda Function Roles
+   - Roles for CloudFormation
+
+#### IAM Security Tools
+IAM Credentials Report (account-level)
+  - a report that lists all your account's users and the status of their various credentials.
+
+ - IAM Access Advisor (user-level)
+   - Access advisor shows the service permissions granted to a user and when those services were last accessed.
+   - You can use this information to revise your policies.
+
+#### Shared Responsibility Model for IAM
+| AWS (Provider)                           | User                                                     |
+| :--------------------------------------- | :------------------------------------------------------- |
+| Infrastructure (global network security) | Users, Groups, Roles, Policies management and monitoring |
+| Configuration and vulnerability analysis | Enable MFA on all accounts                               |
+| Compliance validation                    | Rotate all your keys often                               |
+|                                          | Use IAM tools to apply appropriate permissions           |
+|                                          | Analyze access patterns & review permissions             |
+
 ## Courtesy of Jakir
 
 LinkedIn [Profile](https://www.linkedin.com/in/jakir-ruet/)
