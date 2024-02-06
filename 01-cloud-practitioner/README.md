@@ -87,7 +87,7 @@ Cloud computing is the on-demand delivery of compute power, database, storage, a
     - Many AWS services (ex: Rekognition for Machine Learning)
     - Google Apps (Gmail), Dropbox, Zoom
 ##### Cloud Computing Model
-![Cloud Computing Model](/img/cloud-computing-model.png)
+![Cloud Computing Model](./img/cloud-computing-model.png)
 
 #### Price of Cloud
 AWS has 3 pricing fundamentals, following the pay-as-you-go pricing model
@@ -103,7 +103,8 @@ Its the expensive issue then traditional IT
 - Each availability zone (AZ) is one or more discrete data centers with redundant power, networking, and connectivity
 - They’re separate from each other, so that they’re isolated from disasters
 - They’re connected with high bandwidth, ultra-low latency networking
-![Availability Zones](/img/availability-zones.png)
+
+![Availability Zones](./img/availability-zones.png)
 
 #### Visit of the AWS Console
 - AWS has Global Services:
@@ -121,7 +122,7 @@ Its the expensive issue then traditional IT
 
 #### [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/)
 Security and Compliance is a shared responsibility between AWS and the customer. This shared model can help relieve the customer’s operational burden as AWS operates, manages and controls the components from the host operating system and virtualization layer down to the physical security of the facilities in which the service operates. The customer assumes responsibility and management of the guest operating system (including updates and security patches), other associated application software as well as the configuration of the AWS provided security group firewall. 
-![shared-responsibility-model](/img/shared-responsibility-model.png)
+![shared-responsibility-model](./img/shared-responsibility-model.png)
 
 ###  [Identity & Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)
 AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources. With IAM, you can centrally manage permissions that control which AWS resources users can access. Features of Identity and Access Management;
@@ -131,7 +132,7 @@ AWS Identity and Access Management (IAM) is a web service that helps you securel
 - Groups only contain users, not other groups
 - Users don’t have to belong to a group, and user can belong to multiple groups
 - For an Example of group as follows
-![iam-user](/img/iam-user.png)
+![iam-user](./img/iam-user.png)
 
 #### Why use group
 - The policies define the permission to the users.
@@ -140,7 +141,7 @@ AWS Identity and Access Management (IAM) is a web service that helps you securel
 - In AWS you apply the least privilege principle: don’t give more permissions than a user needs
 - [Policies Structure](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html)
 
-#### [Polocies Structure](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html)
+#### [Policies Structure](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html)
 ***Principal:***
 A principal is a human user or workload that can make a request for an action or operation on an AWS resource. After authentication, the principal can be granted either permanent or temporary credentials to make requests to AWS, depending on the principal type. IAM users and root user are granted permanent credentials, while roles are granted temporary credentials. As a best practice, we recommend that you require human users and workloads to access AWS resources using temporary credentials.
 ```JSON
