@@ -4,10 +4,9 @@
 
 ## Visit Us [Lapis Soft](http://www.lapissoft.com)
 
-### AWS Certified DevOps Engineer Professional Course Consist three segments
-- AWS Certified Cloud Practitioner
-- AWS Certified Developer Associate
-- AWS Certified DevOps Engineer Professional
+### AWS Certified Developer Associate
+
+Coming Soon
 
 ## Courtesy of Jakir
 
