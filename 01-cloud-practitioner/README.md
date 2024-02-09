@@ -14,6 +14,7 @@ This is designed for individuals who have experience working in a DevOps role an
 - ***Policies and Standards Automation:*** Implementing systems that are highly available, scalable, and self-healing on the AWS platform.
 - ***Incident and Event Response:*** Designing, managing, and maintaining tools to automate operational processes.
 To prepare for the exam, it's recommended to have hands-on experience with various AWS services and understand how to design, manage, and maintain tools for automating operational processes. Additionally, reviewing the official exam guide provided by AWS, along with relevant AWS documentation and whitepapers, can help you prepare effectively.
+
 #### Cloud Computing
 Cloud computing is the on-demand delivery of compute power, database, storage, applications, and other IT resources through a cloud services platform via the internet with pay-as-you-go pricing.
 
@@ -29,7 +30,7 @@ Cloud computing is the on-demand delivery of compute power, database, storage, a
   - [Six Advantages](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html) of Cloud Computing.
     - Trade fixed expense (Capital Expense - ***CapEx***) for variable expense (Operational Expense - ***OpEx***).
       - Pay on demand: Don't own hardware.
-      - Reduce Total Cost of Owership (TCO) & Operational Expense (OpEx).
+      - Reduce Total Cost of Ownership (TCO) & Operational Expense (OpEx).
     - Benefit from massive economies of scale
       - Prices are reduced as AWS is more efficient due to large scale
     - Stop guessing capacity
@@ -86,6 +87,7 @@ Cloud computing is the on-demand delivery of compute power, database, storage, a
   - For example
     - Many AWS services (ex: Rekognition for Machine Learning)
     - Google Apps (Gmail), Dropbox, Zoom
+  
 ##### Cloud Computing Model
 ![Cloud Computing Model](./img/cloud-computing-model.png)
 
@@ -118,7 +120,6 @@ Its the expensive issue then traditional IT
   - Lambda (Function as a Service)
   - Rekognition (Software as a Service)
 - See here [Region Services:](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)
-
 
 #### [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/)
 Security and Compliance is a shared responsibility between AWS and the customer. This shared model can help relieve the customer’s operational burden as AWS operates, manages and controls the components from the host operating system and virtualization layer down to the physical security of the facilities in which the service operates. The customer assumes responsibility and management of the guest operating system (including updates and security patches), other associated application software as well as the configuration of the AWS provided security group firewall. 
@@ -170,6 +171,7 @@ A principal is a human user or workload that can make a request for an action or
     }
   ]
 }
+
 ```
 #### Create IAM user in Hands on Class.
 - Go the IAM section & press 'Create User'.
@@ -231,14 +233,13 @@ Some AWS service will need to perform actions on your behalf
    - Roles for CloudFormation
 
 #### IAM Security Tools
-IAM Credentials Report (account-level)
-  - a report that lists all your account's users and the status of their various credentials.
+- IAM Credentials Report (account-level)
+  A report that lists all your account's users and the status of their various credentials
+- IAM Access Advisor (user-level)
+  - Access advisor shows the service permissions granted to a user and when those services were last accessed.
+  - You can use this information to revise your policies.
 
- - IAM Access Advisor (user-level)
-   - Access advisor shows the service permissions granted to a user and when those services were last accessed.
-   - You can use this information to revise your policies.
-
-#### Shared Responsibility Model for IAM
+#### Shared Responsibility Model of IAM
 | AWS (Provider)                           | User                                                     |
 | :--------------------------------------- | :------------------------------------------------------- |
 | Infrastructure (global network security) | Users, Groups, Roles, Policies management and monitoring |
