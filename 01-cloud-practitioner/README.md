@@ -521,7 +521,7 @@ Illustration shown below;
 - Transparent to the applications accessing EFS
 - cost-optimized storage class for infrequent accessed files
 
-#### Shared Responsibility Model of EC2 Instance
+#### Shared Responsibility Model of Storage Volume
 | AWS (Provider)                                    | User                                               |
 | :------------------------------------------------ | :------------------------------------------------- |
 | Infrastructure                                    | Setting up backup / snapshot procedures            |
