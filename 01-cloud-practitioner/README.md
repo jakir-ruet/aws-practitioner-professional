@@ -15,7 +15,7 @@ This is designed for individuals who have experience working in a DevOps role an
 - ***Incident and Event Response:*** Designing, managing, and maintaining tools to automate operational processes.
 To prepare for the exam, it's recommended to have hands-on experience with various AWS services and understand how to design, manage, and maintain tools for automating operational processes. Additionally, reviewing the official exam guide provided by AWS, along with relevant AWS documentation and whitepapers, can help you prepare effectively.
 
-#### Cloud Computing
+### Cloud Computing
 Cloud computing is the on-demand delivery of compute power, database, storage, applications, and other IT resources through a cloud services platform via the internet with pay-as-you-go pricing.
 
 #### [Types of Cloud Computing Deployment Models](https://aws.amazon.com/types-of-cloud-computing/)
@@ -167,7 +167,7 @@ A principal is a human user or workload that can make a request for an action or
         "arn:aws:s3:::confidential-data",
         "arn:aws:s3:::confidential-data/*"
       ],
-      "Condition": {"Bool": {"aws:MultiFactorAuthPresent": "true"}} // conditions for when this policyis in effect  (optional)
+      "Condition": {"Bool": {"aws:MultiFactorAuthPresent": "true"}} // conditions for when this policies in effect  (optional)
     }
   ]
 }
@@ -177,7 +177,7 @@ A principal is a human user or workload that can make a request for an action or
 - Go the IAM section & press 'Create User'.
 - Give the user name (JakirIam) as you like.
 - Select the user type
-  - Sepecify a user in Identity Center (Recommended)
+  - Specify a user in Identity Center (Recommended)
   - I want to create an IAM user (selected)
   - Give the password as you like
 - Press Next
@@ -247,6 +247,118 @@ Some AWS service will need to perform actions on your behalf
 | Compliance validation                    | Rotate all your keys often                               |
 |                                          | Use IAM tools to apply appropriate permissions           |
 |                                          | Analyze access patterns & review permissions             |
+
+### Elastic Compute Cloud (EC2 use as IaaS)
+It is a very popular cloud-computing platform of AWS, that allows users to rent virtual computers on which to run their own computer applications. Its mainly consist to following resources.
+- Eleatic Block Storage (EBS) > Store data on virtual drives.
+- Elastic Load Balancer (ELB) > Load distribution across the EC2.
+- Auto Scaling Group (ASG) > Scaling the traffic for user utility.
+
+#### EC2 Volume & Configuration Options
+- Supported OS: Linux (recommendation), Windows or Mac OS.
+- How much compute power & cores (CPU).
+- How much random-access memory (RAM).
+- How much storage space:
+  - Network Attached (EBS & EFS)
+  - Hardware (EC2 Instance Store)
+- Network card: speed of the card, Public IP address
+- Firewall rules: security group (SG)
+- Bootstrap script (configure at first launch): EC2 User Data
+
+#### Hands On (Launching an EC2 Instance Running on Ubuntu Linux)
+
+#### EC2 Instance Overview
+As per AWS has the following naming convention: ***m5.2xlarge***
+Here
+- ***5*** > Generation (AWS improves them over time)
+- ***m*** > Instance Class
+- ***2xlarge*** > Size within the instance class
+
+[EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/?gclid=CjwKCAiAlJKuBhAdEiwAnZb7lZtz6Hg-Nr2dW7JErl0Xng7mOGfkBspN09gheGCmnx6VajROvTDejxoCc_QQAvD_BwE&trk=32f4fbd0-ffda-4695-a60c-8857fab7d0dd&sc_channel=ps&ef_id=CjwKCAiAlJKuBhAdEiwAnZb7lZtz6Hg-Nr2dW7JErl0Xng7mOGfkBspN09gheGCmnx6VajROvTDejxoCc_QQAvD_BwE:G:s&s_kwcid=AL!4422!3!536392685920!e!!g!!ec2%20instance%20types!11539707735!118057054048)
+
+- General Purpose
+  - Great for a diversity of workloads such as web servers or code repositories
+  - Balance among: Compute, Memory & Networking
+  - For t2.micro is a General Purpose EC2 instance
+
+- Compute Optimized
+  - Great for compute-intensive tasks that require high performance processors:
+  - Batch processing workloads
+  - Media transcoding
+  - High performance web servers
+  - High performance computing (HPC)
+  - Scientific modeling & machine learning
+  - Dedicated gaming servers
+
+- Memory Optimized
+  - Fast performance for workloads that process large data sets in memory
+  - Use cases:
+    - High performance, relational/non-relational databases
+    - Distributed web scale cache stores
+    - In-memory databases optimized for BI (business intelligence)
+    - Applications performing real-time processing of big unstructured data
+
+- Storage Optimized
+  - Great for storage-intensive tasks that require high, sequential read and write access to large data sets on local storage
+  - Use cases:
+    - High frequency online transaction processing (OLTP) systems
+    - Relational & NoSQL databases
+    - Cache for in-memory databases (for example, Redis)
+    - Data warehousing applications
+    - Distributed file systems
+
+Example (Instance Type)
+![Instance Type](./img/instance-types.png)
+
+#### Security Groups (SG)
+- Security Groups are the fundamental of network security in AWS. Its working like as firewall.
+- They control how traffic is allowed into or out of our EC2 Instances. Inbound traffic
+- Security groups only contain rules
+- Security groups rules can reference by IP or by security group.
+
+Illustration shown as follows;
+![Security Group](./img/security-group.png)
+
+Security Groups Deeper Dive
+- Security groups are acting as a “firewall” on EC2 instances
+- They regulate:
+  - Access to Ports
+  - Authorized IP ranges – IPv4 and IPv6
+  - Control of inbound network (from other to the instance)
+  - Control of outbound network (from the instance to other)
+
+Illustration shown as follows;
+![Security Group](./img/security-group.png)
+
+Illustration shown as follows;
+![Security Group Details](./img/sg-details.png)
+
+Security Group Diagram
+Illustration shown as follows;
+![Security Group Diagram](./img/sg-diagram.png)
+
+Security Groups Good to know
+- Can be attached to multiple instances
+- Locked down to a region / VPC combination
+- Does live “outside” the EC2 – if traffic is blocked the EC2 instance won’t see it
+- It’s good to maintain one separate security group for SSH access
+- If your application is not accessible (time out), then it’s a security group issue
+- If your application gives a “connection refused“ error, then it’s an application error or it’s not launched
+- All inbound traffic is blocked by default
+- All outbound traffic is authorized by default
+
+Illustration shown as follows;
+![SG Diagram Ref Other SG](./img/sg-diagram-ref-other-sg.png)
+
+Some important Port
+|  SL   | Port | Protocol                      |
+| :---: | :--- | :---------------------------- |
+|   1   | 21   | FTP                           |
+|   2   | 22   | SSH                           |
+|   3   | 22   | SFTP                          |
+|   4   | 80   | HTTP                          |
+|   5   | 443  | HTTPS                         |
+|   6   | 3389 | Remote Desktop Protocol (RDP) |
 
 ## Courtesy of Jakir
 
