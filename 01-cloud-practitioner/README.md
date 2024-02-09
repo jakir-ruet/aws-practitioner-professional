@@ -328,9 +328,6 @@ Security Groups Deeper Dive
   - Control of outbound network (from the instance to other)
 
 Illustration shown as follows;
-![Security Group](./img/security-group.png)
-
-Illustration shown as follows;
 ![Security Group Details](./img/sg-details.png)
 
 Security Group Diagram
