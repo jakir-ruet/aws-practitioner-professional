@@ -344,6 +344,7 @@ Security Groups Good to know
 - All inbound traffic is blocked by default
 - All outbound traffic is authorized by default
 
+SG Diagram Ref Other SG
 Illustration shown as follows;
 ![SG Diagram Ref Other SG](./img/sg-diagram-ref-other-sg.png)
 
