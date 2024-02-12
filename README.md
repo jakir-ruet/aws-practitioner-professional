@@ -467,7 +467,7 @@ Service comparison between 'dedicated instance' & 'dedicated hosts'
 | Compliance validation                    | IAM Roles assigned to EC2 & IAM user access management |
 | -                                        | Data security on your instance                         |
 
-***Types of cloud storage***
+### Types of cloud storage
 There are three types of storage in Amazon Web Services
 1. Object Storage
    - S3 Storage
@@ -481,9 +481,11 @@ There are three types of storage in Amazon Web Services
    - Elastic Block Storage (EBS)
    - EC2 Instance Storage
 
-#### 1.1- Object Storage (S3 Storage)
+Each type of storage is discussed in detail that is as follows;
+
+#### [1.1- Object Storage (S3 Storage)](https://aws.amazon.com/pm/serv-s3/?trk=b8b87cd7-09b8-4229-a529-91943319b8f5&sc_channel=ps&ef_id=CjwKCAiA_aGuBhACEiwAly57MX61bi-mAlAD0os3_jPx0l3oYV-mkTDNdI8gy4MVE8cY776K1fRZxRoCi6gQAvD_BwE:G:s&s_kwcid=AL!4422!3!536456067065!e!!g!!s3%20storage!11539706604!115473954914&gclid=CjwKCAiA_aGuBhACEiwAly57MX61bi-mAlAD0os3_jPx0l3oYV-mkTDNdI8gy4MVE8cY776K1fRZxRoCi6gQAvD_BwE)
 It is an object storage service offering industry-leading scalability, data availability, security, and performance.
-Uses of S3
+***Uses of S3***  (as like Google Drive, One Drive, Drop Box etc.)
 - Backup and storage
 - Disaster Recovery
 - Archive
@@ -494,7 +496,7 @@ Uses of S3
 - Software delivery
 - Static website
 
-Buckets
+***Buckets***
 - Amazon S3 allows people to store objects (files) in “buckets” (directories)
 - Buckets must have a globally unique name (across all regions all accounts)
 - Buckets are defined at the region level
@@ -507,7 +509,7 @@ Buckets
   - Must NOT start with the prefix xn--
   - Must NOT end with the suffix -s3alias
 
-Objects
+***Objects***
 - Objects (files) have a Key
 - The key is the FULL path:
   - s3://my-bucket/my_file.txt
@@ -523,7 +525,7 @@ Objects
 - Tags (Unicode key / value pair – up to 10) – useful for security / lifecycle
 - Version ID (if versioning is enabled)
 
-Security
+***Security***
 - User-Based
   - IAM Policies – which API calls should be allowed for a specific user from IAM
 - Resource-Based
@@ -535,7 +537,7 @@ Security
   - AND there’s no explicit DENY
 - Encryption: encrypt objects in Amazon S3 using encryption keys
 
-S3 Bucket Policies
+***S3 Bucket Policies***
 - JSON based policies
   - Resources: buckets and objects
   - Effect: Allow / Deny
@@ -545,14 +547,39 @@ S3 Bucket Policies
   - Grant public access to the bucket
   - Force objects to be encrypted at upload
   - Grant access to another account (Cross Account)
-Example
-![S3 Bucket Policies](/img/s3-bucket-policies.png)
 
-#### 1.2- Object Storage (Glacier Storage)
-***??? coming***
+Example (S3 Bucket Policies)
+```JSON
+{
+  "Version": "2024-02-12",
+  "Statement": [
+    {
+      "Sid": "PublicRead",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::my_sweet_bucket/*"
+      ]
+    }
+  ]
+}
+```
 
-#### 1.3- Object Storage (Snowball Storage)
-***??? coming***
+#### [1.2- Object Storage (Glacier Storage)](https://aws.amazon.com/pm/s3-glacier/?trk=b8b87cd7-09b8-4229-a529-91943319b8f5&sc_channel=ps&ef_id=CjwKCAiA_aGuBhACEiwAly57Mdp21CgKnEvgufcIeYZ_cnX3_6l4342RMJhP5OBESh-aP2g1mjr_dBoCxecQAvD_BwE:G:s&s_kwcid=AL!4422!3!674509861659!e!!g!!amazon%20s3%20glacier!11539706604!154273570032&gclid=CjwKCAiA_aGuBhACEiwAly57Mdp21CgKnEvgufcIeYZ_cnX3_6l4342RMJhP5OBESh-aP2g1mjr_dBoCxecQAvD_BwE)
+- The Amazon S3 Glacier storage classes are purpose-built for data archiving, providing you with the highest performance, most retrieval flexibility, and the lowest cost archive storage in the cloud.
+- Choose from three archive storage classes optimized for different access patterns and storage duration.
+- The S3 Glacier storage classes provide virtually unlimited scalability and are designed for 99.999999999% (11 nines) of data durability.
+
+#### [1.3- Object Storage (Snowball Storage)](https://aws.amazon.com/snowball/)
+Accelerate moving offline data or remote storage to the cloud. Description: Snowball is a petabyte-scale data transport solution that uses secure appliances to transfer large amounts of data into and out of the AWS cloud. Using Snowball addresses common challenges with large-scale data transfers including high network costs, long transfer times, and security concerns.
+Features:
+- A service fee for each job you run, 
+- Data transfer fees from Amazon S3,
+- The shipping costs to transport a Snowball appliance to and from your address, and 
+- The number of days you keep Snowball onsite. [For details](https://aws.amazon.com/snowball/pricing/)
 
 #### 2.1- File Storage [Elastic File System (EFS)]
 ***EFS Infrequent Access (EFS-IA)***
@@ -606,8 +633,10 @@ An EBS (Elastic Block Store) Volume is a network drive (i.e. not a physical driv
   - Setup rules to retain deleted snapshots so you can recover them after an accidental deletion
   - Specify retention (from 1 day to 1 year)
 
-#### 3.2 Block Storage (EC2 Instance Storage)
-***??? coming***
+#### [3.2 Block Storage (EC2 Instance Storage)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
+An instance store provides temporary block-level storage for your instance. This storage is located on disks that are physically attached to the host computer. Instance store is ideal for temporary storage of information that changes frequently, such as buffers, caches, scratch data, and other temporary content. It can also be used to store temporary data that you replicate across a fleet of instances, such as a load-balanced pool of web servers.
+Features:
+An instance store consists of one or more instance store volumes exposed as block devices. The size of an instance store as well as the number of devices available varies by instance type and instance size. [For more](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
 
 ***Amazon Machine Image (AMI)***
 - AMI are a customization of an EC2 instance
