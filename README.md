@@ -471,15 +471,40 @@ Service comparison between 'dedicated instance' & 'dedicated hosts'
 There are three types of storage in Amazon Web Services
 1. Object Storage
    - S3 Storage
-   - Glacier Storage
+   - S3 Glacier Storage
    - Snowball Storage
 2. File Storage
    - Elastic File System (EFS)
    - FSx Storage (Windows)
    - FSx Storage (Lustre)
 3. Block Storage
-   - Elastic Block Storage (EBS)
+   - [Elastic Block Storage (EBS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html)
+     - SSD Storage volumes
+       - General Purpose (GP2) volumes
+       - Provisioned IOPS SSD (io1) volumes
+       - Provisioned IOPS SSD (io2) volumes
+     - HDD Storage
+       - Throughput Optimized (ST1)
+       - Cold HDD (SC1)
+     - Magnetic Storage
    - EC2 Instance Storage
+
+IOPS (eye-ops):
+Input/Output Operation per Second is use as I/O performance management measurement to characterize computer storage devices like HDD, SSD & Storage Area Network (SAN). This Operations (reads or writes) that a storage system can perform in one second. It focuses on the speed at which individual read and write operations can be completed. Its measure in KiB.
+- Maximum amount of data that a volume type counts as 'Single I/O'.
+- I/O size capped at 256 KiB for SSD.
+- I/O size capped at 1024 KiB for HDD.
+- SSD volumes handle small/random I/O more efficiently than HDD volumes.
+
+IOPS Calculation:
+Average Seek Time = (Read Time + Write Time)/2
+IOPS = 1 / (RPM Average Latency Time + Average Seek Time)
+Suppose, Rotational Speed = 15,000, RPM Average Latency Time = 3 ms = 0.003 Seconds, Average Seek Time = {4.2 (R) + 4.45 (W)}/2 = 4.45 ms = 0.0045 Second
+
+IOPS = 1 / (0.003 + 0.0045) = 133 IOPS (Approximately)
+
+Throughput
+Its refers to the rate at which data is transferred successfully between two points in a system, such as between a storage device and a server, or within a network. Throughput can be affected by IOPS & packet size.
 
 Each type of storage is discussed in detail that is as follows;
 
@@ -568,7 +593,7 @@ Example (S3 Bucket Policies)
 }
 ```
 
-#### [1.2- Object Storage (Glacier Storage)](https://aws.amazon.com/pm/s3-glacier/?trk=b8b87cd7-09b8-4229-a529-91943319b8f5&sc_channel=ps&ef_id=CjwKCAiA_aGuBhACEiwAly57Mdp21CgKnEvgufcIeYZ_cnX3_6l4342RMJhP5OBESh-aP2g1mjr_dBoCxecQAvD_BwE:G:s&s_kwcid=AL!4422!3!674509861659!e!!g!!amazon%20s3%20glacier!11539706604!154273570032&gclid=CjwKCAiA_aGuBhACEiwAly57Mdp21CgKnEvgufcIeYZ_cnX3_6l4342RMJhP5OBESh-aP2g1mjr_dBoCxecQAvD_BwE)
+#### [1.2- Object Storage (S3 Glacier Storage)](https://aws.amazon.com/pm/s3-glacier/?trk=b8b87cd7-09b8-4229-a529-91943319b8f5&sc_channel=ps&ef_id=CjwKCAiA_aGuBhACEiwAly57Mdp21CgKnEvgufcIeYZ_cnX3_6l4342RMJhP5OBESh-aP2g1mjr_dBoCxecQAvD_BwE:G:s&s_kwcid=AL!4422!3!674509861659!e!!g!!amazon%20s3%20glacier!11539706604!154273570032&gclid=CjwKCAiA_aGuBhACEiwAly57Mdp21CgKnEvgufcIeYZ_cnX3_6l4342RMJhP5OBESh-aP2g1mjr_dBoCxecQAvD_BwE)
 - The Amazon S3 Glacier storage classes are purpose-built for data archiving, providing you with the highest performance, most retrieval flexibility, and the lowest cost archive storage in the cloud.
 - Choose from three archive storage classes optimized for different access patterns and storage duration.
 - The S3 Glacier storage classes provide virtually unlimited scalability and are designed for 99.999999999% (11 nines) of data durability.
