@@ -374,6 +374,7 @@ EC2 Instances Purchasing Options
 |   6   | Capacity Reservations |    N/A     | reserve capacity in a specific AZ for any duration         |
 
 ***Mentioned features of each instance below as follows;***
+
 ***On Demand***
 - Pay for what you use:
   - Linux or Windows
@@ -437,6 +438,7 @@ EC2 Instances Purchasing Options
 - May share hardware with other instances in same account
 - No control over instance placement (can move hardware after Stop / Start)
 
+Service comparison between 'dedicated instance' & 'dedicated hosts'
 |  SL   | Characteristic                                      | Dedicated Instances | Dedicated Hosts |
 | :---: | :-------------------------------------------------- | :-----------------: | :-------------: |
 |   1   | Enable the use of dedicated physical servers        |          x          |        x        |
@@ -465,8 +467,122 @@ EC2 Instances Purchasing Options
 | Compliance validation                    | IAM Roles assigned to EC2 & IAM user access management |
 | -                                        | Data security on your instance                         |
 
-#### EC2 Instance Storage
-***EBS Volume***
+***Types of cloud storage***
+There are three types of storage in Amazon Web Services
+1. Object Storage
+   - S3 Storage
+   - Glacier Storage
+   - Snowball Storage
+2. File Storage
+   - Elastic File System (EFS)
+   - FSx Storage (Windows)
+   - FSx Storage (Lustre)
+3. Block Storage
+   - Elastic Block Storage (EBS)
+   - EC2 Instance Storage
+
+#### 1.1- Object Storage (S3 Storage)
+It is an object storage service offering industry-leading scalability, data availability, security, and performance.
+Uses of S3
+- Backup and storage
+- Disaster Recovery
+- Archive
+- Hybrid Cloud storage
+- Application hosting
+- Media hosting
+- Data lakes & big data analytics
+- Software delivery
+- Static website
+
+Buckets
+- Amazon S3 allows people to store objects (files) in “buckets” (directories)
+- Buckets must have a globally unique name (across all regions all accounts)
+- Buckets are defined at the region level
+- S3 looks like a global service but buckets are created in a region
+  - Naming convention
+  - No uppercase, No underscore
+  - 3-63 characters long
+  - Not an IP
+  - Must start with lowercase letter or number
+  - Must NOT start with the prefix xn--
+  - Must NOT end with the suffix -s3alias
+
+Objects
+- Objects (files) have a Key
+- The key is the FULL path:
+  - s3://my-bucket/my_file.txt
+  - s3://my-bucket/my_folder1/another_folder/my_file.txt
+- The key is composed of prefix + object name
+  - s3://my-bucket/my_folder1/another_folder/my_file.txt
+- There’s no concept of “directories” within buckets (although the UI will trick you to think otherwise)
+- Just keys with very long names that contain slashes (“/”)
+- Object values are the content of the body:
+  - Max. Object Size is 5TB (5000GB)
+  - If uploading more than 5GB, must use “multi-part upload”
+- Metadata (list of text key / value pairs – system or user metadata)
+- Tags (Unicode key / value pair – up to 10) – useful for security / lifecycle
+- Version ID (if versioning is enabled)
+
+Security
+- User-Based
+  - IAM Policies – which API calls should be allowed for a specific user from IAM
+- Resource-Based
+  - Bucket Policies – bucket wide rules from the S3 console - allows cross account
+  - Object Access Control List (ACL) – finer grain (can be disabled)
+  - Bucket Access Control List (ACL) – less common (can be disabled)
+- Note: an IAM principal can access an S3 object if
+  - The user IAM permissions ALLOW it OR the resource policy ALLOWS it
+  - AND there’s no explicit DENY
+- Encryption: encrypt objects in Amazon S3 using encryption keys
+
+S3 Bucket Policies
+- JSON based policies
+  - Resources: buckets and objects
+  - Effect: Allow / Deny
+  - Actions: Set of API to Allow or Deny
+  - Principal:The account or user to apply the policy to
+- Use S3 bucket for policy to:
+  - Grant public access to the bucket
+  - Force objects to be encrypted at upload
+  - Grant access to another account (Cross Account)
+Example
+![S3 Bucket Policies](/img/s3-bucket-policies.png)
+
+#### 1.2- Object Storage (Glacier Storage)
+***??? coming***
+
+#### 1.3- Object Storage (Snowball Storage)
+***??? coming***
+
+#### 2.1- File Storage [Elastic File System (EFS)]
+***EFS Infrequent Access (EFS-IA)***
+- Managed NFS (network file system) that can be mounted on 100s of EC2
+- EFS works with Linux EC2 instances in multi-AZ
+- Highly available, scalable, expensive (3x gp2), pay per use, no capacity planning
+- Storage class that is cost-optimized for files not accessed every day
+- Up to 92% lower cost compared to EFS Standard
+- EFS will automatically move your files to EFS-IA based on the last time they were accessed
+- Enable EFS-IA with a Lifecycle Policy
+- Example: move files that are not accessed for 60 days to EFS-IA
+- Transparent to the applications accessing EFS
+- cost-optimized storage class for infrequent accessed files
+
+#### 2.2- File Storage [FSx Storage (Windows)]
+Launch 3rd party high-performance file systems on AWS. Fully managed service
+- A fully managed, highly reliable, and scalable Windows native shared file system
+- Built on Windows File Server
+- Supports SMB protocol & Windows NTFS
+- Integrated with Microsoft Active Director y
+- Can be accessed from AWS or your on-premise infrastructure
+- Network File System for Windows servers
+
+#### 2.3- File Storage [FSx Storage (Lustre)]
+- A fully managed, high-performance, scalable file storage for High Performance Computing (HPC)
+- The name Lustre is derived from “Linux” and “cluster”
+- Machine Learning, Analytics,Video Processing, Financial Modeling, ...
+- Scales up to 100s GB/s, millions of IOPS, sub-ms latencies
+
+#### 3.1- Block Storage [Elastic Block Storage (EBS)]
 An EBS (Elastic Block Store) Volume is a network drive (i.e. not a physical drive) you can attach to your instances while they run
 - It allows your instances to persist data, even after their termination
 - They can only be mounted to one instance at a time (at the Certified Cloud Practitioner (CCP) level)
@@ -482,20 +598,6 @@ An EBS (Elastic Block Store) Volume is a network drive (i.e. not a physical driv
 - You get billed for all the provisioned capacity
 - You can increase the capacity of the drive over time
 
-***Types of cloud storage***
-There are three types of storage in Amazon Web Services
-1. Object Storage
-   - S3 Storage
-   - Glacier Storage
-   - Snowball Storage
-2. File Storage
-   - Elastic File System (EFS)
-   - FSx Storage (Windows)
-   - FSx Storage (Lustre)
-3. Block Storage
-   - Elastic Block Storage (EBS)
-   - EC2 Instance Storage
-
 ***EBS Snapshots Features***
 - EBS Snapshot Archive
   - Move a Snapshot to an ”archive tier” that is 75% cheaper
@@ -503,6 +605,9 @@ There are three types of storage in Amazon Web Services
 - Recycle Bin for EBS Snapshots
   - Setup rules to retain deleted snapshots so you can recover them after an accidental deletion
   - Specify retention (from 1 day to 1 year)
+
+#### 3.2 Block Storage (EC2 Instance Storage)
+***??? coming***
 
 ***Amazon Machine Image (AMI)***
 - AMI are a customization of an EC2 instance
@@ -528,18 +633,6 @@ There are three types of storage in Amazon Web Services
 Illustration shown below;
 ![Image builder](/img/image-builder.png)
 
-***EFS Infrequent Access (EFS-IA)***
-- Managed NFS (network file system) that can be mounted on 100s of EC2
-- EFS works with Linux EC2 instances in multi-AZ
-- Highly available, scalable, expensive (3x gp2), pay per use, no capacity planning
-- Storage class that is cost-optimized for files not accessed every day
-- Up to 92% lower cost compared to EFS Standard
-- EFS will automatically move your files to EFS-IA based on the last time they were accessed
-- Enable EFS-IA with a Lifecycle Policy
-- Example: move files that are not accessed for 60 days to EFS-IA
-- Transparent to the applications accessing EFS
-- cost-optimized storage class for infrequent accessed files
-
 #### Shared Responsibility Model of Storage Volume
 | AWS (Provider)                                    | User                                               |
 | :------------------------------------------------ | :------------------------------------------------- |
@@ -547,26 +640,6 @@ Illustration shown below;
 | Replication for data for EBS volumes & EFS drives | Setting up data encryption                         |
 | Replacing faulty hardware                         | Responsibility of any data on the drives           |
 | Ensuring their employees cannot access your data  | Understanding the risk of using EC2 Instance Store |
-
-***Amazon FSx***
-Launch 3rd party high-performance file systems on AWS. Fully managed service
-- FSx for Lustre
-- FSx for Windows File Server
-- FSx for NetApp ONTAP
-
-Amazon FSx for Windows File Server
-- A fully managed, highly reliable, and scalable Windows native shared file system
-- Built on Windows File Server
-- Supports SMB protocol & Windows NTFS
-- Integrated with Microsoft Active Director y
-- Can be accessed from AWS or your on-premise infrastructure
-- Network File System for Windows servers
-
-Amazon FSx for Lustre
-- A fully managed, high-performance, scalable file storage for High Performance Computing (HPC)
-- The name Lustre is derived from “Linux” and “cluster”
-- Machine Learning, Analytics,Video Processing, Financial Modeling, ...
-- Scales up to 100s GB/s, millions of IOPS, sub-ms latencies
 
 ***Elastic Load Balancing (ELB) & Auto Scaling Groups (ASG)***
 Scalability & High Availability
@@ -657,72 +730,6 @@ Difference between Load Balancer and Auto Scaling
 |    Purpose     | Distribute the incoming traffic | Adjust the number of resources  |
 | Algorithm used | Round-Robin algorithm or least  | Step Scaling or Target Tracking |
 
-***Simple Storage Service (S3)***
-It is an object storage service offering industry-leading scalability, data availability, security, and performance.
-Uses of S3
-- Backup and storage
-- Disaster Recovery
-- Archive
-- Hybrid Cloud storage
-- Application hosting
-- Media hosting
-- Data lakes & big data analytics
-- Software delivery
-- Static website
-
-Buckets
-- Amazon S3 allows people to store objects (files) in “buckets” (directories)
-- Buckets must have a globally unique name (across all regions all accounts)
-- Buckets are defined at the region level
-- S3 looks like a global service but buckets are created in a region
-  - Naming convention
-  - No uppercase, No underscore
-  - 3-63 characters long
-  - Not an IP
-  - Must start with lowercase letter or number
-  - Must NOT start with the prefix xn--
-  - Must NOT end with the suffix -s3alias
-
-Objects
-- Objects (files) have a Key
-- The key is the FULL path:
-  - s3://my-bucket/my_file.txt
-  - s3://my-bucket/my_folder1/another_folder/my_file.txt
-- The key is composed of prefix + object name
-  - s3://my-bucket/my_folder1/another_folder/my_file.txt
-- There’s no concept of “directories” within buckets (although the UI will trick you to think otherwise)
-- Just keys with very long names that contain slashes (“/”)
-- Object values are the content of the body:
-  - Max. Object Size is 5TB (5000GB)
-  - If uploading more than 5GB, must use “multi-part upload”
-- Metadata (list of text key / value pairs – system or user metadata)
-- Tags (Unicode key / value pair – up to 10) – useful for security / lifecycle
-- Version ID (if versioning is enabled)
-
-Security
-- User-Based
-  - IAM Policies – which API calls should be allowed for a specific user from IAM
-- Resource-Based
-  - Bucket Policies – bucket wide rules from the S3 console - allows cross account
-  - Object Access Control List (ACL) – finer grain (can be disabled)
-  - Bucket Access Control List (ACL) – less common (can be disabled)
-- Note: an IAM principal can access an S3 object if
-  - The user IAM permissions ALLOW it OR the resource policy ALLOWS it
-  - AND there’s no explicit DENY
-- Encryption: encrypt objects in Amazon S3 using encryption keys
-
-S3 Bucket Policies
-- JSON based policies
-  - Resources: buckets and objects
-  - Effect: Allow / Deny
-  - Actions: Set of API to Allow or Deny
-  - Principal:The account or user to apply the policy to
-- Use S3 bucket for policy to:
-  - Grant public access to the bucket
-  - Force objects to be encrypted at upload
-  - Grant access to another account (Cross Account)
-Example
-![S3 Bucket Policies](/img/s3-bucket-policies.png)
 ## Courtesy of Jakir
 
 [![LinkedIn][linkedin-shield-jakir]][linkedin-url-jakir]
