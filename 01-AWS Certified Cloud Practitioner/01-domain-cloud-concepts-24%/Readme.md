@@ -181,6 +181,94 @@ The ability of the system to automatically adjust capacity to maintain performan
 - `Cost Efficiency:` Only pay for what you use, enabling teams to experiment with new ideas without worrying about upfront costs.
 - `Automation:` Automate resource management and application deployment to save time and reduce human error.
 
+##### Identify design principles of the AWS Cloud
+The design principles of the AWS Cloud, primarily guided by the `AWS Well-Architected Framework`. These principles help you build secure, high-performing, resilient, and efficient infrastructure on the cloud.
+
+#### [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html)
+The AWS Well-Architected Framework helps you understand the `pros` and `cons` of decisions you make while building systems on AWS. By using the Framework you will learn architectural best practices for designing and operating `reliable`, `secure`, `efficient`, `cost-effective`, and `sustainable` systems in the cloud.
+
+##### AWS Well-Architected and the [Six Pillars](https://aws.amazon.com/architecture/well-architected/?ref=wellarchitected-wp&wa-lens-whitepapers.sort-by=item.additionalFields.sortDate&wa-lens-whitepapers.sort-order=desc&wa-guidance-whitepapers.sort-by=item.additionalFields.sortDate&wa-guidance-whitepapers.sort-order=desc)
+- Operational Excellence Pillar
+- Security Pillar
+- Reliability Pillar
+- Performance Efficiency Pillar
+- Cost Optimization Pillar
+- Sustainability Pillar
+
+##### The Six Pillars of the AWS Well-Architected Framework
+1. `Operational Excellence:` Run and monitor systems to deliver business value and continually improve processes. Key Design Principles:
+- Perform operations as code
+- Annotate documentation
+- Make frequent, small, reversible changes
+- Refine operations procedures
+- Anticipate failure
+- Learn from all operational events and failures
+
+2. `Security:` Protect information, systems, and assets while delivering business value. Key Design Principles:
+- Implement a strong identity foundation
+- Enable traceability
+- Apply security at all layers
+- Automate security best practices
+- Protect data in transit and at rest
+- Keep people away from data
+- Prepare for security events
+
+3. `Reliability:` Ensure a workload performs its intended function correctly and consistently. Key Design Principles:
+- Test recovery procedures
+- Automatically recover from failure
+- Scale horizontally to increase availability
+- Stop guessing capacity
+- Manage change in automation
+
+4. `Performance Efficiency:` Use computing resources efficiently to meet system requirements and maintain efficiency as demand changes. Key Design Principles:
+- Democratize advanced technologies
+- Go global in minutes
+- Use serverless architectures
+- Experiment more often
+- Consider mechanical sympathy (use the right tool for the job)
+
+5. `Cost Optimization:` Avoid unnecessary costs and understand where money is being spent. Key Design Principles:
+- Adopt a consumption model
+- Measure overall efficiency
+- Stop spending money on undifferentiated heavy lifting
+- Analyze and attribute expenditures
+- Use managed and serverless services to reduce costs
+
+6. `Sustainability (Introduced in 2021):` Minimize environmental impact of running cloud workloads. Key Design Principles:
+- Understand your impact
+- Establish sustainability goals
+- Maximize utilization
+- Reduce downstream impact (e.g., client-side optimization)
+- Continually innovate for sustainability
+
+**Summary of Pillar**
+| **Pillar**             | **Focus Area**                                        |
+| ---------------------- | ----------------------------------------------------- |
+| Operational Excellence | Monitoring, incident response, continuous improvement |
+| Security               | Identity, access, detection, data protection          |
+| Reliability            | Fault tolerance, recovery, scaling                    |
+| Performance Efficiency | Optimal resource selection and usage                  |
+| Cost Optimization      | Spend control, budgeting, resource management         |
+| Sustainability         | Environmental impact and energy efficiency            |
+
+#### Understand the benefits of and strategies for migration to the AWS Cloud.
+Migrating to the AWS Cloud offers a wide range of benefits and follows well-defined strategies to ensure a successful transition.
+
+##### [Cloud Adoption Framework (CAF):](https://aws.amazon.com/what-is/cloud-adoption-framework/)
+A cloud adoption framework (CAF) is a set of best practices, tools, and guidance that helps organizations get started with cloud technologies. Moving to the cloud is challenging due to legacy technologies, complex application interdependencies, existing infrastructure bottlenecks, plus knowledge and skill gaps. The cloud adoption framework helps organizations identify and mitigate risks, manage costs, and ensure compliance as they move their workloads to the cloud. It also provides guidance on how to optimize governance and security in the cloud for improved efficiency.
+
+##### Benefits of a cloud adoption framework?
+- Reduce business risk
+- Accelerate innovation
+- Enhance agility
+
+##### Use cases of cloud adoption frameworks?
+- Resource organization
+- Technology adoption
+- Process improvement
+
+
+
 ##### Price of Cloud
 AWS has 3 pricing fundamentals, following the pay-as-you-go pricing model
 1. Compute: Pay for compute time
