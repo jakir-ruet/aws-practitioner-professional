@@ -15,13 +15,6 @@ This is designed for individuals who have experience working in a DevOps role an
 - ***Incident and Event Response:*** Designing, managing, and maintaining tools to automate operational processes.
 To prepare for the exam, it's recommended to have hands-on experience with various AWS services and understand how to design, manage, and maintain tools for automating operational processes. Additionally, reviewing the official exam guide provided by AWS, along with relevant AWS documentation and whitepapers, can help you prepare effectively.
 
-
-
-
-
-
-
-
 ###  [Identity & Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)
 AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources. With IAM, you can centrally manage permissions that control which AWS resources users can access. Features of Identity and Access Management;
 - It is global service
