@@ -1,0 +1,2 @@
+#### 03 Domain - Cloud Technology and Services
+This is the **largest domain** on the AWS Certified Cloud Practitioner (CLF-C02) exam, focusing on **core AWS services** and how they enable businesses to build, deploy, and operate applications in the cloud.
