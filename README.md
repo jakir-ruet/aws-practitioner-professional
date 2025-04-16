@@ -1,10 +1,69 @@
 ## More About Me – [Take a Look!](http://www.mjakaria.me) 
 
-### AWS Certified DevOps Engineer Professional
+### Welcome to Cloud Computing (AWS)
 #### This Course Consist three segments
-- [AWS Certified Cloud Practitioner](https://github.com/jakir-ruet/aws-beginners-professionals/tree/master/01-AWS%20Certified%20Cloud%20Practitioner)
-- [AWS Certified Developer Associate](https://github.com/jakir-ruet/aws-beginners-professionals/tree/master/02-AWS%20Certified%20Developer%20Associate)
-- [AWS Certified DevOps Engineer Professional](https://github.com/jakir-ruet/aws-beginners-professionals/tree/master/03-AWS%20Certified%20DevOps%20Engineer%20Professional)
+- [AWS Certified Cloud Practitioner - DVA-02](https://aws.amazon.com/certification/certified-cloud-practitioner/)
+- [AWS Certified Developer Associate - CLF-02](https://aws.amazon.com/certification/certified-developer-associate/)
+- [AWS Certified DevOps Engineer Professional - DOP-C02](https://aws.amazon.com/certification/certified-devops-engineer-professional/)
+
+### [AWS Certified Cloud Practitioner - DVA-02](https://aws.amazon.com/certification/certified-cloud-practitioner/)
+#### Introduction
+The AWS Certified Cloud Practitioner exam is designed for individuals who can demonstrate foundational knowledge of the AWS Cloud, independent of a specific job role. The exam validates a candidate’s ability to complete the following tasks: 
+- Explain the value of the AWS Cloud. 
+- Understand and explain the AWS shared responsibility model. 
+- Understand security best practices. 
+- Understand AWS Cloud costs, economics, and billing practices. 
+- Describe and position the core AWS services, including compute, network, database, and storage services. 
+- Identify AWS services for common use cases.
+
+#### Target Candidate
+The target candidate has up to 6 months of exposure to AWS Cloud design, implementation, and/or operations. This certification is ideal for candidates who are from non-IT backgrounds. These candidates might be in the early stages of pursuing an AWS Cloud career or might work with people in AWS Cloud roles. 
+
+#### Recommended AWS Knowledge 
+The target candidate should have AWS knowledge in the following areas: 
+- AWS Cloud concepts 
+- Security and compliance in the AWS Cloud 
+- Core AWS services 
+- Economics of the AWS Cloud
+
+#### Not Need to Know (Job tasks that are out of scope for the target candidate)
+The following list contains job tasks that the target candidate is not expected to be able to 
+perform. This list is non-exhaustive. These tasks are out of scope for the exam: 
+- Coding 
+- Cloud architecture design 
+- Troubleshooting 
+- Implementation 
+- Load and performance testing 
+Refer to `Appendix A` for a list of technologies and concepts that might appear on the exam, a list of in-scope AWS services and features, and a list of out-of-scope AWS services and features.
+
+#### Exam Content 
+Response types `>` There are two types of questions on the exam: 
+- `Multiple choice:` Has `one correct` response and three incorrect responses (distractors) 
+- `Multiple response:` Has `two or more correct` responses out of five or more response 
+options
+
+#### Instructions
+- Select one or more responses that `best complete` the statement or answer the question.
+- Distractors, or incorrect answers, are response options that a candidate with incomplete knowledge or skill might choose. 
+- Distractors are generally plausible responses that match the content area. 
+- Unanswered questions are scored as `incorrect`; there is `no penalty` for guessing. 
+- The exam includes `50` questions that affect your score.
+
+#### Exam Score
+| SL  | Title           | Marks                                        |
+| --- | --------------- | -------------------------------------------- |
+| 1   | Total Questions | 65 (50 Scored + 15 Un-scored)                |
+| 2   | Passing Score   | 700/1000                                     |
+| 3   | Scoring Model   | Compensatory (Pass Overall, Not per Section) |
+| 4   | Validity        | 3 Years                                      |
+
+The exam has the following content domains and weightings:
+| Domain | Description                   | Weight |
+| ------ | ----------------------------- | ------ |
+| 1      | Cloud Concepts                | 24%    |
+| 2      | Security and Compliance       | 30%    |
+| 3      | Cloud Technology and Services | 34%    |
+| 4      | Billing, Pricing, and Support | 12%    |
 
 #### AWS CLI Configuration
 - Control multiple AWS services from this command line.
@@ -26,6 +85,1297 @@
 - Let's me check whether the configuration is done.
  - `aws ec2 describe-vpcs`
  - If it is done then we will see the details of the default vpc.
+
+#### Domain 1: Cloud Concepts
+##### Cloud Computing
+Cloud computing is the on-demand delivery of compute power, database, storage, applications, and other IT resources through a cloud services platform via the internet with pay-as-you-go pricing.
+
+##### [Types of Cloud Computing Deployment Models](https://aws.amazon.com/types-of-cloud-computing/)
+- [Private Cloud](https://aws.amazon.com/what-is/private-cloud/#:~:text=A%20private%20cloud%20is%20a,the%20control%20of%20one%20organization.)
+  - This service used by a single organization, not exposed to public.
+  - Complete self control
+  - Secure for sensitive applications.
+  - Fulfill specified requirements.
+  - For example [RackSpace](https://www.rackspace.com), [Hewlett Packard Enterprise (HPE)](https://www.hpe.com/emea_europe/en/home.html) and so on.
+- Public Cloud
+  - Cloud resources owned and operated by a third- party cloud service provider delivered over the Internet.
+  - [Six Advantages](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html) of Cloud Computing.
+    - Trade fixed expense (Capital Expense - ***CapEx***) for variable expense (Operational Expense - ***OpEx***).
+      - Pay on demand: Don't own hardware.
+      - Reduce Total Cost of Ownership (TCO) & Operational Expense (OpEx).
+    - Benefit from massive economies of scale
+      - Prices are reduced as AWS is more efficient due to large scale
+    - Stop guessing capacity
+      - Scale based on actual measured usage
+    - Increase speed and agility
+    - Stop spending money running and maintaining data centers
+    - Go global in minutes
+  - For example AWS, Google Cloud Platform (GCP) & Microsoft Azure.
+- [Hybrid Cloud](https://aws.amazon.com/hybrid/)
+  - Keep some servers on premises and extend some capabilities to the Cloud
+  - Control over sensitive assets in your private infrastructure
+  - Flexibility and cost- effectiveness of the public cloud
+  - For example, On-premises with Public cloud.
+
+##### The Five Characteristics of Cloud Computing
+1. On-demand self service:
+   Users can provision resources and use them without human interaction from the service provider
+2. Broad network access:
+   Resources available over the network, and can be accessed by diverse client platforms
+3. Multi-tenancy and resource pooling:
+   Multiple customers can share the same infrastructure and applications with security and privacy.
+   Multiple customers are serviced from the same physical resources
+4. Rapid elasticity and scalability:
+   Automatically and quickly acquire and dispose resources when needed
+   Quickly and easily scale based on demand
+5. Measured service:
+   Usage is measured, users pay correctly for what they have used
+
+##### Problems solved by the Cloud
+- Flexibility: change resource types when needed
+- Cost-Effectiveness: pay as you go, for what you use
+- Scalability: accommodate larger loads by making hardware stronger or adding additional nodes
+- Elasticity: ability to scale out and scale-in when needed
+- High-availability and fault-tolerance: build across data centers
+- Agility: rapidly develop, test and launch software applications
+
+##### [Types of Cloud Computing Model](https://aws.amazon.com/types-of-cloud-computing/)
+- Infrastructure as a Service (IaaS)
+  - Provide building blocks for cloud IT
+  - Provides networking, computers, data storage space
+  - Highest level of flexibility
+  - Easy parallel with traditional on-premises IT
+  - For example
+    - Amazon EC2 (on AWS)
+    - GCP, Azure, Rackspace, Digital Ocean, Linode
+- Platform as a Service (PaaS)
+  - Removes the need for your organization to manage the underlying infrastructure
+  - Focus on the deployment and management of your applications
+  - For example
+    - Elastic Beanstalk (on AWS)
+    - Heroku, Google App Engine (GCP), Windows Azure (Microsoft)
+- Software as a Service (SaaS)
+  - Completed product that is run and managed by the service provider
+  - For example
+    - Many AWS services (ex: Rekognition for Machine Learning)
+    - Google Apps (Gmail), Dropbox, Zoom
+  
+##### Cloud Computing Model
+![Cloud Computing Model](/img/cloud-computing-model.png)
+
+##### Highly Available and Scalable Resources
+High availability means your application or service remains **accessible and operational** even when one or more components fail. Key Features:
+- Redundancy
+- Failover mechanisms
+- Health checks and monitoring
+
+##### AWS Services Supporting High Availability:
+| Service                         | High Availability Feature                         |
+| ------------------------------- | ------------------------------------------------- |
+| **Amazon EC2**                  | Use Auto Scaling + Load Balancer across AZs       |
+| **Elastic Load Balancer (ELB)** | Distributes traffic across multiple instances/AZs |
+| **Amazon RDS (Multi-AZ)**       | Automatic failover to standby instance            |
+| **Amazon S3**                   | Stores data across multiple AZs                   |
+| **Route 53**                    | DNS-level failover and health checks              |
+| **Amazon DynamoDB**             | Automatically replicates data across multiple AZs |
+
+##### Scalability, Elasticity & Agility
+Both Scalability and Elasticity are core cloud concepts that help applications handle varying loads efficiently — but they are `not the same` thing.
+
+###### Scalability
+The ability of a system to increase or decrease its capacity (usually compute, storage, or throughput) based on workload. Types of Scalability:
+- Vertical Scaling (Scaling Up/Down)
+  - Add more power (CPU/RAM) to an existing instance.
+  - Example: Change an EC2 instance from `t2.micro` to `t3.large`.
+- Horizontal Scaling (Scaling Out/In)
+  - Add or remove multiple instances to distribute the load.
+  - Example: Add more EC2 instances to a load balancer group.
+
+- AWS Services That Support Scalability:
+  - EC2 Auto Scaling
+  - Elastic Load Balancing
+  - Amazon RDS (Read Replicas for horizontal read scalability)
+  - Amazon DynamoDB (auto scaling read/write capacity)
+
+###### Elasticity
+The ability of the system to automatically adjust capacity to maintain performance as demand changes in real-time. Think of it as automated and reactive scalability.
+- AWS Services That Provide Elasticity:
+  - EC2 Auto Scaling Groups (ASG): Automatically increase/decrease EC2 instances based on demand.
+  - AWS Lambda: Automatically scales based on the number of incoming requests.
+  - Amazon Aurora Serverless: Automatically adjusts database capacity.
+
+###### Key Differences Between Scalability and Elasticity
+| Feature        | Scalability                              | Elasticity                                 |
+| -------------- | ---------------------------------------- | ------------------------------------------ |
+| Focus          | Capacity expansion                       | Real-time responsiveness                   |
+| Trigger        | Manual or rule-based                     | Automated and reactive                     |
+| Example        | Add more EC2 instances with Auto Scaling | Lambda scales automatically with requests  |
+| Resource Usage | Grows with load (needs configuration)    | Expands/contracts on demand without effort |
+
+###### Agility in AWS
+**Agility** in cloud computing refers to the ability to **quickly adapt** to changes in demand or business needs by leveraging scalable, flexible, and automated cloud resources. In AWS, agility allows businesses to deploy, scale, and modify their infrastructure with minimal time and effort.
+
+###### Agility vs Traditional IT
+| Aspect           | Traditional IT                         | Cloud Agility (AWS)                   |
+| ---------------- | -------------------------------------- | ------------------------------------- |
+| Deployment Speed | Slow, manual provisioning of hardware  | Fast, automated resource provisioning |
+| Scalability      | Limited by hardware, requires planning | Auto-scaling based on demand          |
+| Flexibility      | Difficult to change configurations     | Easily adaptable to meet new needs    |
+| Cost Efficiency  | High upfront costs                     | Pay-as-you-go, no upfront investment  |
+
+###### Key Features of Agility
+- `Rapid Deployment:` Launch services, applications, and infrastructure quickly without needing to wait for physical hardware or lengthy configuration processes.
+- `Flexibility and Adaptability:` Change infrastructure configurations in real-time to meet new demands or operational requirements.
+- `Cost Efficiency:` Only pay for what you use, enabling teams to experiment with new ideas without worrying about upfront costs.
+- `Automation:` Automate resource management and application deployment to save time and reduce human error.
+
+##### Architecting for the Cloud
+The design principles of the AWS Cloud, primarily guided by the `AWS Well-Architected Framework`. These principles help you build secure, high-performing, resilient, and efficient infrastructure on the cloud.
+
+###### [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html)
+The AWS Well-Architected Framework helps you understand the `pros` and `cons` of decisions you make while building systems on AWS. By using the Framework you will learn architectural best practices for designing and operating `reliable`, `secure`, `efficient`, `cost-effective`, and `sustainable` systems in the cloud.
+
+###### AWS Well-Architected and the [Six Pillars](https://aws.amazon.com/architecture/well-architected/?ref=wellarchitected-wp&wa-lens-whitepapers.sort-by=item.additionalFields.sortDate&wa-lens-whitepapers.sort-order=desc&wa-guidance-whitepapers.sort-by=item.additionalFields.sortDate&wa-guidance-whitepapers.sort-order=desc)
+- Operational Excellence Pillar
+- Security Pillar
+- Reliability Pillar
+- Performance Efficiency Pillar
+- Cost Optimization Pillar
+- Sustainability Pillar
+
+###### The Six Pillars of the AWS Well-Architected Framework
+1. `Operational Excellence:` Run and monitor systems to deliver business value and continually improve processes. Key Design Principles:
+- Perform operations as code
+- Annotate documentation
+- Make frequent, small, reversible changes
+- Refine operations procedures
+- Anticipate failure
+- Learn from all operational events and failures
+
+2. `Security:` Protect information, systems, and assets while delivering business value. Key Design Principles:
+- Implement a strong identity foundation
+- Enable traceability
+- Apply security at all layers
+- Automate security best practices
+- Protect data in transit and at rest
+- Keep people away from data
+- Prepare for security events
+
+3. `Reliability:` Ensure a workload performs its intended function correctly and consistently. Key Design Principles:
+- Test recovery procedures
+- Automatically recover from failure
+- Scale horizontally to increase availability
+- Stop guessing capacity
+- Manage change in automation
+
+4. `Performance Efficiency:` Use computing resources efficiently to meet system requirements and maintain efficiency as demand changes. Key Design Principles:
+- Democratize advanced technologies
+- Go global in minutes
+- Use serverless architectures
+- Experiment more often
+- Consider mechanical sympathy (use the right tool for the job)
+
+5. `Cost Optimization:` Avoid unnecessary costs and understand where money is being spent. Key Design Principles:
+- Adopt a consumption model
+- Measure overall efficiency
+- Stop spending money on undifferentiated heavy lifting
+- Analyze and attribute expenditures
+- Use managed and serverless services to reduce costs
+
+6. `Sustainability (Introduced in 2021):` Minimize environmental impact of running cloud workloads. Key Design Principles:
+- Understand your impact
+- Establish sustainability goals
+- Maximize utilization
+- Reduce downstream impact (e.g., client-side optimization)
+- Continually innovate for sustainability
+
+###### Summary of Pillar
+| **Pillar**             | **Focus Area**                                        |
+| ---------------------- | ----------------------------------------------------- |
+| Operational Excellence | Monitoring, incident response, continuous improvement |
+| Security               | Identity, access, detection, data protection          |
+| Reliability            | Fault tolerance, recovery, scaling                    |
+| Performance Efficiency | Optimal resource selection and usage                  |
+| Cost Optimization      | Spend control, budgeting, resource management         |
+| Sustainability         | Environmental impact and energy efficiency            |
+
+###### Migration to the AWS Cloud.
+Migrating to the AWS Cloud offers a wide range of benefits and follows well-defined strategies to ensure a successful transition.
+
+###### Resources to support the `Cloud Migration Journey`
+AWS offers a comprehensive suite of tools and services to facilitate cloud migration, including automated processes and specialized expertise. Key resources include `AWS Migration Hub`, `AWS Application Migration Service (MGN)`, `AWS Database Migration Service (DMS)`, and `AWS Application Discovery Service`. Additionally, services like `AWS Migration Acceleration Program (MAP)` and `Cloud Migration Factory` on AWS provide tailored guidance and support for large-scale migrations. 
+- [AWS Migration Evaluator](https://aws.amazon.com/migration-evaluator/?p=ft&c=mg&z=3)
+  Helps build a business case for cloud migration by analyzing on-premises infrastructure usage and costs. What it does:
+  - Collects data from on-prem environments (agentless).
+  - Provides cost projections for running workloads on AWS.
+  - Helps identify underutilized resources and potential savings.
+  - Best for: Pre-migration cost analysis and planning.
+- [AWS Application Discovery Service](https://aws.amazon.com/application-discovery/?p=ft&c=mg&z=3)
+  Discovers on-premises servers to gather information about their configuration, usage, and behavior What it does:
+  - Can use agents or agentless discovery.
+  - Collects data like CPU, memory, network usage, and running processes.
+  - Helps map application dependencies.
+  - Best for: Understanding your current environment before migration.
+- [AWS Migration Hub](https://aws.amazon.com/migration-hub/?p=ft&c=mg&z=3)
+  Centralized tracking and monitoring of migration progress across AWS services. What it does:
+  - Provides a single pane of glass for tracking application migrations.
+  - Integrates with other migration tools (like Application Migration Service and DMS).
+  - Can group resources by application for easier tracking.
+  - Best for: Managing and coordinating large-scale migrations.
+- [AWS Application Migration Service - MGN](https://aws.amazon.com/application-discovery/?p=ft&c=mg&z=3)
+  Simplifies and automates the lift-and-shift (rehost) of physical, virtual, or cloud servers to AWS. What it does:
+  - Real-time replication of source servers.
+  - Minimal downtime cutover.
+  - Automated post-launch modernization (e.g., instance type changes).
+  - Best for: Rehosting existing workloads with minimal changes.
+- [AWS Database Migration Service - DMS](https://aws.amazon.com/migration-hub/?p=ft&c=mg&z=3)
+  Migrates databases to AWS quickly and securely with minimal downtime. What it does:
+  - Supports homogenous (e.g., Oracle to Oracle) and heterogeneous (e.g., SQL Server to Aurora) migrations.
+  - Can handle on-going replication for hybrid scenarios.
+  - Best for: Database-specific migrations, both one-time and continuous replication.
+
+![Here's a comparison table that highlights the key differences between the AWS migration-related services you mentioned:](/img/cloud-migration.png)
+
+###### Migrate and Modernize on AWS `Data Transfer Services Journey`
+AWS Data Transfer Services, which help you move data to, from, and within the AWS Cloud — whether online, offline, in real-time, or bulk.
+- [AWS Snow Family](https://aws.amazon.com/snowball/) > `Snowcone / Snowball / Snowmobile`
+  - Use case: Physical data transfer.
+  - Snowcone: Up to 8 TB.
+  - Snowball: ~50–80 TB per device.
+  - Snowmobile: For exabyte-scale transfers.
+  - Best for: Large offline transfers or when bandwidth is limited.
+- [AWS Transfer Family](https://aws.amazon.com/aws-transfer-family/?c=mt&sec=srv)
+  - Use case: Managed SFTP, FTPS, FTP servers.
+  - Supports: S3, EFS as backends.
+  - Best for: Legacy systems integration via file transfer protocols.
+- [AWS Mainframe Modernization Service](https://aws.amazon.com/mainframe-modernization/?c=mt&sec=srv)
+- [AWS DataSync](https://aws.amazon.com/datasync/?c=mt&sec=srv) > `Online`
+  - Use case: Automated data transfer between on-prem storage and AWS.
+  - Supports: NFS, SMB, Amazon S3, EFS, FSx.
+  - Pros: Fast, secure, can run on schedule.
+  - Best for: Recurring or large-scale data migration.
+- Developer-Friendly Tools
+  - AWS CLI & SDKs
+  - Amazon Kinesis Data Firehose
+    - Use case: Real-time streaming data to AWS services (S3, Redshift, etc.).
+    - Best for: Logs, metrics, real-time data pipelines.
+  - AWS Glue
+    - Use case: ETL (Extract, Transform, Load).
+    - Supports: S3, RDS, Redshift, JDBC, and more.
+    - Best for: Data lakes, data warehouse migrations.
+
+![Here's a comparison table that highlights the key differences between the AWS Data Transfer-related services you mentioned:](/img/data-transfer.png)
+
+##### [Cloud Adoption Framework (CAF):](https://aws.amazon.com/cloud-adoption-framework/)
+It's leverages AWS experience and best practices to help you digitally transform and accelerate your business outcomes through innovative use of AWS. AWS CAF identifies specific organizational capabilities that underpin successful cloud transformations. These capabilities provide best practice guidance that helps you improve your cloud readiness. AWS CAF groups its capabilities in `six` perspectives: 
+- Business, 
+- People, 
+- Governance, 
+- Platform, 
+- Security, and 
+- Operations. 
+
+###### How AWS CAF brings tangible benefits across different business goals:
+1. Reduced Business Risk
+   - Resilience & Continuity: By leveraging AWS's global infrastructure and built-in redundancy, organizations reduce the risk of outages and data loss.
+   - Security Best Practices: The CAF emphasizes a strong security posture, helping identify and address vulnerabilities early in the cloud journey.
+   - Regulatory Compliance: The framework guides compliance with industry and government regulations, reducing legal and financial risk.
+2. Improved ESG (Environmental, Social, and Governance) Performance
+   - Environmental: Migrating to AWS can reduce carbon emissions as AWS operates on renewable energy and efficiently manages data centers.
+   - Social: Upskilling employees for cloud roles creates new career opportunities and enhances workforce development.
+   - Governance: CAF promotes transparency, accountability, and strong governance models that align with ethical and compliance standards.
+3. Increased Revenue
+   - Faster Time-to-Market: With cloud agility, businesses can innovate faster, roll out products more quickly, and capitalize on market opportunities.
+   - Customer Experience: Enhanced digital services lead to better customer satisfaction and retention.
+   - Global Reach: Access to AWS's global infrastructure supports expansion into new regions and customer bases.
+4. Increased Operational Efficiency
+   - Automation & Optimization: CAF encourages automating routine tasks and optimizing cloud resources, reducing manual work and costs.
+   - Scalability & Flexibility: Resources can be scaled up or down based on demand, avoiding overprovisioning
+   - Process Improvements: The framework helps streamline operations through best practices, monitoring, and continuous improvement models.
+
+##### [Cloud Economics](https://aws.amazon.com/economics/)
+Cloud economics refers to the financial principles and business value derived from cloud computing. It helps organizations understand how to optimize costs, `improve return on investment (ROI)`, and maximize the value of cloud adoption.
+
+##### Price of Cloud
+AWS has 3 pricing fundamentals, following the pay-as-you-go pricing model
+1. Compute: Pay for compute time
+2. Storage: Pay for data stored in the Cloud
+3. Data transfer out of the Cloud: Data transfer IN is free
+Its the expensive issue then traditional IT
+
+###### Core Aspects/Concepts of Cloud Economics
+1. Pay-as-You-Go Pricing
+   - You only pay for what you use (compute, storage, bandwidth, etc.).
+   - No need for large upfront capital expenditures (`CAPEX`).
+   - Costs become operational expenses (`OPEX`), which can be easier to manage and scale.
+   - ![Understanding the difference between Capital Expenditures (CAPEX) and Operational Expenses (OPEX) is crucial when comparing traditional IT to cloud-based models.](/img/capex-opex.png)
+2. Elasticity & Scalability
+   - Automatically scale resources up or down based on demand.
+   - Reduces over-provisioning and avoids paying for unused infrastructure.
+   - Helps manage seasonal spikes and fluctuating workloads efficiently.
+3. Total Cost of Ownership (TCO)
+   - TCO in the cloud includes infrastructure, software, support, labor, and training.
+   - Cloud often lowers TCO by reducing hardware costs, energy consumption, and maintenance.
+4. Return on Investment (ROI)
+   - Cloud accelerates time-to-market, drives innovation, and enhances customer experiences—leading to higher ROI.
+   - Faster provisioning and deployment can unlock revenue sooner.
+5. Economies of Scale
+   - Cloud providers like AWS serve millions of customers, enabling them to offer lower prices due to scale.
+   - Over time, cloud costs often decrease as providers pass on savings.
+6. Cost Transparency & Management
+   - Cloud platforms provide tools for real-time monitoring, usage reports, and alerts.
+   - Services like AWS Cost Explorer or AWS Budgets help optimize spending and identify waste.
+7. Consumption-Based Forecasting
+   - Budgeting in the cloud shifts from fixed infrastructure costs to demand-based forecasting.
+   - Enables more agile and accurate financial planning.
+
+###### BYOL (Bring Your Own License)?
+BYOL is a licensing model that lets you use your existing software licenses (like Windows, SQL Server, Oracle, etc.) when migrating or deploying workloads on AWS. Instead of buying new licenses through AWS, you "bring" the ones you already own—usually through volume licensing agreements from Microsoft, Oracle, etc.
+
+##### IaC, Provisioning - CloudFormation, Terraform
+- Faster deployments: Automate the creation and management of infrastructure.
+- Consistency: Reduce errors by using templates.
+- Scalability: Easily replicate environments.
+- Better management: Track changes with version control.
+- Example: AWS CloudFormation lets you define your entire infrastructure in code (Infrastructure as Code, or IaC).
+
+##### Compute Services
+##### Storage Services
+##### Amazon VPC, Networking & Hybrid
+##### DNS, Load Balancing & Auto Scaling
+##### Database Services
+##### Application Integration Services
+
+#### 02 Domain - [Security and Compliance](https://aws.amazon.com/products/security/)
+In AWS, **security** is a shared responsibility between AWS and the customer. To help customers fulfill their responsibilities, AWS provides **security services, documentation, and tools**.
+
+##### Overview
+- Identity and access management
+- Detection and response
+- Data protection
+- Compliance
+- Network and application protection
+
+##### Different Ways of Provisioning and Operating in the AWS Cloud
+AWS offers several methods for provisioning and managing resources:
+- AWS Management Console
+  - A web-based GUI to interact with AWS services.
+  - Best for beginners and manual operations.
+- AWS CLI (Command Line Interface)
+  - Text-based tool to script and automate tasks.
+  - Useful for developers and admins who prefer terminal-based control.
+- AWS SDKs (Software Development Kits)
+  - Libraries available for languages like Python (Boto3), JavaScript, Java, etc.
+  - Ideal for integrating AWS into applications programmatically.
+- AWS CloudFormation
+  - Infrastructure as Code (IaC) tool to define AWS resources in JSON or YAML.
+  - Great for replicable, consistent deployments.
+- AWS CDK (Cloud Development Kit)
+  - Define infrastructure using familiar programming languages like TypeScript or Python.
+  - Combines IaC with real code logic.
+- Terraform (by HashiCorp)
+  - Third-party IaC tool, cloud-agnostic.
+  - Popular for managing infrastructure across multiple cloud providers.
+- AWS Systems Manager
+  - Provides operational insights and automation tools for managing resources securely at scale.
+
+##### Different Ways to Access AWS Services
+- You can interact with AWS in several ways:
+- AWS Management Console
+- AWS CLI
+- AWS SDKs/APIs
+- AWS CloudShell – Browser-based shell preconfigured with CLI tools.
+- AWS Tools for PowerShell – For Windows users to script AWS tasks.
+- Programmatic Access via APIs and Lambda functions.
+
+##### Connectivity Options
+Several ways to connect to AWS resources:
+- Internet Access (Public endpoints)
+  - Using the internet to access AWS services like S3, EC2.
+- Virtual Private Network (VPN)
+  - Secure connection between on-premises and AWS over the internet.
+- AWS Direct Connect
+  - Dedicated, private network connection to AWS.
+  - Lower latency and more secure than VPN.
+- VPC Peering
+  - Connects two VPCs for communication.
+- AWS Transit Gateway
+  - Central hub to connect multiple VPCs and on-premises networks.
+- Elastic Load Balancing (ELB)
+  - Automatically distributes incoming application traffic.
+- AWS PrivateLink
+  - Private connectivity to AWS services without using public IPs.
+
+##### AWS global infrastructure.
+###### AWS Availability Zones
+- Each region has many availability zones
+  - Usually 3, Minimum 3, Maximum 6
+  - Example: ap-southeast-2a, ap-southeast-2b, ap-southeast-2c
+- Each availability zone (AZ) is one or more discrete data centers with redundant power, networking, and connectivity
+- They’re separate from each other, so that they’re isolated from disasters
+- They’re connected with high bandwidth, ultra-low latency networking
+
+![Availability Zones](/img/availability-zones.png)
+
+###### Visit of the AWS Console
+- AWS has Global Services:
+  - Identity and Access Management (IAM)
+  - Route 53 (DNS service)
+  - CloudFront (Content Delivery Network)
+  - WAF (Web Application Firewall)
+- Most AWS services are Region-scoped:
+  - Amazon EC2 (Infrastructure as a Service)
+  - Elastic Beanstalk (Platform as a Service)
+  - Lambda (Function as a Service)
+  - Rekognition (Software as a Service)
+- See here [Region Services:](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/)
+
+######  [Identity & Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)
+AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources. With IAM, you can centrally manage permissions that control which AWS resources users can access. Features of Identity and Access Management;
+- It is global service
+- Root account created by default, shouldn’t be used or shared
+- Users are people within your organization, & can be grouped
+- Groups only contain users, not other groups
+- Users don’t have to belong to a group, and user can belong to multiple groups
+- For an Example of group as follows
+![iam-user](/img/iam-user.png)
+
+##### Why use group
+- The policies define the permission to the users.
+- Users or Groups can be assigned JSON documents called policies
+- These policies define the permissions of the users
+- In AWS you apply the least privilege principle: don’t give more permissions than a user needs
+- [Policies Structure](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html)
+
+##### [Policies Structure](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html)
+***Principal:***
+A principal is a human user or workload that can make a request for an action or operation on an AWS resource. After authentication, the principal can be granted either permanent or temporary credentials to make requests to AWS, depending on the principal type. IAM users and root user are granted permanent credentials, while roles are granted temporary credentials. As a best practice, we recommend that you require human users and workloads to access AWS resources using temporary credentials.
+```JSON
+{
+  "Version": "2024-01-30",              // policy language version, always include
+  "Id": "Account-Permission"            // an identifier for the policy (optional)
+  "Statement": [                        // one/more individual statements (required)
+    {
+      "Sid": "FirstStatement",          // an identifier for the statement (optional)
+      "Effect": "Allow",                // whether the statement allows/denies access (Allow, Deny)
+      "Action": ["iam:ChangePassword"], // list of actions this policy allows/denies
+      "Resource": "*"                   // list of resources to which the actions applied to
+    },
+    {
+      "Sid": "SecondStatement",
+      "Effect": "Allow",
+      "Action": [
+        "s3:List*",
+        "s3:Get*"
+      ],
+      "Resource": [
+        "arn:aws:s3:::confidential-data",
+        "arn:aws:s3:::confidential-data/*"
+      ],
+      "Condition": {"Bool": {"aws:MultiFactorAuthPresent": "true"}} // conditions for when this policies in effect  (optional)
+    }
+  ]
+}
+```
+
+##### Create IAM user in Hands on Class.
+- Go the IAM section & press 'Create User'.
+- Give the user name (JakirIam) as you like.
+- Select the user type
+  - Specify a user in Identity Center (Recommended)
+  - I want to create an IAM user (selected)
+  - Give the password as you like
+- Press Next
+- Create user group including define the permissions.
+- Give the tag name (optional)
+- Download credential csv file
+- IAM user created.
+- Create Access keys (Access & Secret Access key)
+
+##### Users access types
+To access AWS, you have three options:
+ - AWS Management Console (protected by password + MFA)
+   - Access Keys are generated through the AWS Console
+ - AWS Command Line Interface (CLI): protected by access keys
+   - Access Key ID ~= username
+   - Secret Access Key ~= password
+ - AWS Software Developer Kit (SDK)- for code: protected by access keys
+   - Language-specific APIs (set of libraries)
+   - Enables you to access and manage AWS services programmatically
+   - Embedded within your application
+   - Supported SDKs (JavaScript, Python, PHP, .NET, Ruby, Java, Go, Node.js, C++)
+   - Mobile SDKs (Android, iOS, …)
+   - IoT Device SDKs (Embedded C, Arduino, …)
+   - Example: AWS CLI is built on AWS SDK for Python
+
+##### IAM Roles for Services
+Some AWS service will need to perform actions on your behalf
+ - To do so, we will assign permissions to AWS services with IAM Roles
+ - Common roles: 
+ - EC2 Instance Roles
+   - Lambda Function Roles
+   - Roles for CloudFormation
+
+##### IAM Security Tools
+- IAM Credentials Report (account-level)
+  A report that lists all your account's users and the status of their various credentials
+- IAM Access Advisor (user-level)
+  - Access advisor shows the service permissions granted to a user and when those services were last accessed.
+  - You can use this information to revise your policies.
+
+##### Shared Responsibility Model of IAM
+| AWS (Provider)                           | User                                                     |
+| :--------------------------------------- | :------------------------------------------------------- |
+| Infrastructure (global network security) | Users, Groups, Roles, Policies management and monitoring |
+| Configuration and vulnerability analysis | Enable MFA on all accounts                               |
+| Compliance validation                    | Rotate all your keys often                               |
+| -                                        | Use IAM tools to apply appropriate permissions           |
+| -                                        | Analyze access patterns & review permissions             |
+
+##### [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/)
+Security and Compliance is a shared responsibility between AWS and the customer. This shared model can help relieve the customer’s operational burden as AWS operates, manages and controls the components from the host operating system and virtualization layer down to the physical security of the facilities in which the service operates. The customer assumes responsibility and management of the guest operating system (including updates and security patches), other associated application software as well as the configuration of the AWS provided security group firewall. 
+![shared-responsibility-model](/img/shared-responsibility-model.png)
+
+##### AWS Responsibilities (Security of the Cloud)
+AWS takes care of the infrastructure that runs all the services in the AWS Cloud:
+- Physical security of data centers
+- Hardware and networking
+- Storage, compute, database infrastructure
+- Hypervisor, AWS global network, and foundation services
+- Patch management of the AWS-managed infrastructure
+
+##### Customer Responsibilities (Security in the Cloud)
+Customers are responsible for everything they put in the cloud:
+- Securing your data
+- Managing identity & access (IAM)
+- Configuring security groups & firewall rules
+- Application-level security
+- Patching OS (on EC2, for example)
+- Encryption of your data (if not managed by AWS)
+
+##### Shared Responsibilities
+Some responsibilities are shared, depending on the service and use case:
+- AWS manages infrastructure-level encryption, but you manage application-level encryption.
+- AWS offers compliance certifications, but you need to ensure your workloads follow them.
+
+##### Here’s how customer responsibilities shift depending on the service
+[Comparison](/img/security-share-responsibilty.png)
+
+##### Key Security Components in AWS
+- Identity and Access Management
+  1. AWS Identity and Access Management (IAM) - Securely manage identities and access to AWS services and resources.
+  2. AWS IAM Identity Center - Centrally manage workforce access to multiple AWS accounts and applications.
+  3. Amazon Cognito - Implement secure, frictionless customer identity and access management that scales.
+  4. Amazon Verified Permissions - Manage fine-grained permissions and authorization within custom applications.
+  5. AWS Directory Service - Gain efficiency with a fully managed Microsoft Active Directory service.
+  6. AWS Resource Access Manager - Simply and securely share your AWS resources across multiple accounts.
+  7. AWS Organizations - Centrally manage your environment as you scale your AWS resources.
+
+- Detection and Response
+  1. Amazon GuardDuty - Protect AWS accounts with intelligent threat detection.
+  2. Amazon Inspector - Automated and continual vulnerability management at scale.
+  3. AWS Security Hub - Automate AWS security checks and centralize security alerts.
+  4. Amazon Security Lake - Automatically centralize your security data in a few steps.
+  5. Amazon Detective - Analyze and visualize security data to investigate potential security issues.
+  6. AWS Security Incident Response - Prepare for, respond to, and recover from security events
+  7. AWS Config - Assess, audit, and evaluate configurations of your resources.
+  8. Amazon CloudWatch - Observe and monitor resources and applications on AWS, on premises, and on other clouds.
+  9. AWS CloudTrail - Track user activity and API usage.
+  10. AWS IoT Device Defender - Security management across your IoT devices and fleets.
+  11. AWS Elastic Disaster Recovery - Scalable, cost-effective application recovery to AWS.
+
+- Network and Application Protection
+  1. AWS Firewall Manager - Centrally configure and manage firewall rules across your accounts.
+  2. AWS Network Firewall - Deploy network firewall security across your VPCs.
+  3. AWS Shield - Maximize application availability and responsiveness with managed DDoS protection.
+  4. AWS Verified Access - Provide secure access to corporate applications without a VPN.
+  5. AWS Web Application Firewall (WAF) - Protect your web applications from common exploits.
+  6. Amazon Route 53 Resolver DNS Firewall - Filter and control outbound DNS traffic for your VPCs.
+
+- Data Protection
+  1. Amazon Macie - Discover and protect your sensitive data at scale.
+  2. AWS Key Management Service (AWS KMS) - Create and control keys to encrypt or digitally sign your data.
+  3. AWS CloudHSM - Manage single-tenant hardware security modules (HSMs) on AWS.
+  4. AWS Certificate Manager - Provision and manage SSL/TLS certificates with AWS services and connected resources.
+  5. AWS Payment Cryptography - Simplify cryptography operations in your cloud-hosted payment applications.
+  6. AWS Private Certificate Authority - Create private certificates to identify resources and protect data.
+  7. AWS Secrets Manager - Centrally manage the lifecycle of secrets.
+
+- Compliance
+  1. AWS Artifact - No cost, self-service portal for on-demand access to AWS’ compliance reports.
+  2. AWS Audit Manager - Continually audit your AWS usage to simplify risk and compliance assessment.
+
+##### Compliance and Governance concepts
+AWS compliance and governance concepts, benefits of cloud security, and how to handle logs related to cloud security:
+
+##### AWS Compliance and Governance Concepts
+- Shared Responsibility Model
+  - AWS manages security of the cloud (hardware, software, networking).
+  - Customers manage security in the cloud (data, access, applications).
+- Compliance Programs
+  - AWS supports a broad set of industry certifications (e.g., HIPAA, PCI-DSS, SOC 1/2/3, ISO 27001).
+  - AWS Artifact provides on-demand access to compliance reports.
+- Governance Tools
+  - AWS Organizations – Manage and govern multiple AWS accounts.
+  - Service Control Policies (SCPs) – Set permission guardrails.
+  - AWS Config – Track resource configurations and compliance over time.
+  - AWS Control Tower – Automates landing zone setup with built-in governance.
+
+##### Benefits of Cloud Security (e.g., Encryption)
+- Data Protection
+  - Encryption at rest and in transit (via AWS KMS, TLS, etc.).
+  - Automatic key rotation and policy enforcement.
+- Scalability and Flexibility
+  - Security tools scale with your infrastructure.
+  - Integrates with services like Amazon GuardDuty and Amazon Inspector for threat detection.
+- Identity and Access Management
+  - AWS IAM for fine-grained access control.
+  - MFA and role-based access enhance security posture.
+- Continuous Monitoring
+  - Real-time visibility with CloudWatch, CloudTrail, and AWS Security Hub.
+
+##### Where to Capture and Locate Cloud Security Logs
+- [AWS CloudTrail](https://docs.aws.amazon.com/cloudtrail/)
+  It's a service that records and monitors actions taken in your AWS account, providing a history of API calls and user activity.
+  - Logs all API calls and account activity across services.
+  - Useful for auditing, compliance, and incident response.
+  - Stored in S3, can be analyzed with Athena or CloudWatch Logs Insights.
+- [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_architecture.html)
+  It's a monitoring service for Amazon Web Services (AWS) cloud resources and applications. It collects data, including metrics, logs, and events, to provide a comprehensive view of resource utilization, application performance, and operational health, according to Amazon AWS. 
+  - Monitors logs, metrics, and events.
+  - Collects application logs, system logs, and custom logs.
+  - Enables setting alarms and automated responses.
+- [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)
+  Flow log data can be published to the following locations: Amazon CloudWatch Logs, Amazon S3, or Amazon Data Firehose.
+  - Capture network traffic metadata.
+  - Useful for diagnosing network issues or detecting suspicious activity.
+- [AWS Config](https://docs.aws.amazon.com/controltower/latest/userguide/config.html)
+  AWS Config provides a detailed view of the resources associated with your AWS account, including how they are configured, how they are related to one another, and how the configurations and their relationships have changed over time.
+  - Logs changes to resource configurations.
+  - Useful for compliance monitoring and audit trails.
+- [Amazon GuardDuty](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/guard-duty-rds-protection.html)
+  Amazon GuardDuty uses AI and ML with integrated threat intelligence from AWS and leading third parties to help protect your AWS accounts, workloads, and data from threats.
+  - Threat detection service that generates security findings from logs.
+  - Pulls from VPC Flow Logs, CloudTrail, and DNS logs.
+
+##### Security Groups (SG)
+- Security Groups are the fundamental of network security in AWS. Its working like as firewall.
+- They control how traffic is allowed into or out of our EC2 Instances. Inbound traffic
+- Security groups only contain rules
+- Security groups rules can reference by IP or by security group.
+
+Illustration shown as follows;
+![Security Group](/img/security-group.png)
+
+##### Security Groups Deeper Dive
+- Security groups are acting as a “firewall” on EC2 instances
+- They regulate:
+  - Access to Ports
+  - Authorized IP ranges – IPv4 and IPv6
+  - Control of inbound network (from other to the instance)
+  - Control of outbound network (from the instance to other)
+
+Illustration shown as follows;
+![Security Group Details](/img/sg-details.png)
+
+Security Group Diagram
+Illustration shown as follows;
+![Security Group Diagram](/img/sg-diagram.png)
+
+##### Security Groups Good to know
+- Can be attached to multiple instances
+- Locked down to a region / VPC combination
+- Does live “outside” the EC2 – if traffic is blocked the EC2 instance won’t see it
+- It’s good to maintain one separate security group for SSH access
+- If your application is not accessible (time out), then it’s a security group issue
+- If your application gives a “connection refused“ error, then it’s an application error or it’s not launched
+- All inbound traffic is blocked by default
+- All outbound traffic is authorized by default
+
+##### SG Diagram Ref Other SG
+Illustration shown as follows;
+![SG Diagram Ref Other SG](/img/sg-diagram-ref-other-sg.png)
+
+##### Some important Port
+|  SL   | Port | Protocol                      |
+| :---: | :--- | :---------------------------- |
+|   1   | 21   | FTP                           |
+|   2   | 22   | SSH                           |
+|   3   | 22   | SFTP                          |
+|   4   | 80   | HTTP                          |
+|   5   | 443  | HTTPS                         |
+|   6   | 3389 | Remote Desktop Protocol (RDP) |
+
+##### [Network Access Control List (ACL)](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html)
+A network access control list (ACL) allows or denies specific inbound or outbound traffic at the subnet level. You can use the default network ACL for your VPC, or you can create a custom network ACL for your VPC with rules that are similar to the rules for your security groups in order to add an additional layer of security to your VPC.
+
+##### [Web Application Firewall (WAF)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-awswaf.html)
+AWS WAF is a web application firewall that helps secure your web applications and APIs by blocking requests before they reach your servers. For more information, see Accelerate and protect your websites using CloudFront and AWS WAF and Guidelines for Implementing AWS WAF.
+
+##### Firewalls and DDoS Protection
+##### Network Firewall and DNS Firewall
+##### AWS Resource Access Manager (AWS RAM)
+##### Logging and Auditing
+
+#### 03-domain-cloud-technology-services
+This is the **largest domain** on the AWS Certified Cloud Practitioner (CLF-C02) exam, focusing on **core AWS services** and how they enable businesses to build, deploy, and operate applications in the cloud.
+
+##### AWS Compute Services
+AWS offers a wide range of compute services for diverse workloads, from virtual servers to serverless functions and container orchestration. Key services include Amazon EC2 (Elastic Compute Cloud), AWS Fargate, AWS Lambda, Amazon ECS (Elastic Container Service) and Amazon EKS (Elastic Kubernetes Service), along with other specialized services like AWS Batch and Lightsail. 
+
+##### Elastic Compute Cloud (EC2 use as IaaS)
+It is a very popular cloud-computing platform of AWS, that allows users to rent virtual computers on which to run their own computer applications. Its mainly consist to following resources.
+- Eleatic Block Storage (EBS) > Store data on virtual drives.
+- Elastic Load Balancer (ELB) > Load distribution across the EC2.
+- Auto Scaling Group (ASG) > Scaling the traffic for user utility.
+
+##### EC2 Volume & Configuration Options
+- Supported OS: Linux (recommendation), Windows or Mac OS.
+- How much compute power & cores (CPU).
+- How much random-access memory (RAM).
+- How much storage space:
+  - Network Attached (EBS & EFS)
+  - Hardware (EC2 Instance Store)
+- Network card: speed of the card, Public IP address
+- Firewall rules: security group (SG)
+- Bootstrap script (configure at first launch): EC2 User Data
+
+##### EC2 Instance Overview
+As per AWS has the following naming convention: ***m5.2xlarge***
+Here
+- ***5*** > Generation (AWS improves them over time)
+- ***m*** > Instance Class
+- ***2xlarge*** > Size within the instance class
+
+[EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/?gclid=CjwKCAiAlJKuBhAdEiwAnZb7lZtz6Hg-Nr2dW7JErl0Xng7mOGfkBspN09gheGCmnx6VajROvTDejxoCc_QQAvD_BwE&trk=32f4fbd0-ffda-4695-a60c-8857fab7d0dd&sc_channel=ps&ef_id=CjwKCAiAlJKuBhAdEiwAnZb7lZtz6Hg-Nr2dW7JErl0Xng7mOGfkBspN09gheGCmnx6VajROvTDejxoCc_QQAvD_BwE:G:s&s_kwcid=AL!4422!3!536392685920!e!!g!!ec2%20instance%20types!11539707735!118057054048)
+
+- General Purpose
+  - Great for a diversity of workloads such as web servers or code repositories
+  - Balance among: Compute, Memory & Networking
+  - For t2.micro is a General Purpose EC2 instance
+
+- Compute Optimized
+  - Great for compute-intensive tasks that require high performance processors:
+  - Batch processing workloads
+  - Media transcoding
+  - High performance web servers
+  - High performance computing (HPC)
+  - Scientific modeling & machine learning
+  - Dedicated gaming servers
+
+- Memory Optimized
+  - Fast performance for workloads that process large data sets in memory
+  - Use cases:
+    - High performance, relational/non-relational databases
+    - Distributed web scale cache stores
+    - In-memory databases optimized for BI (business intelligence)
+    - Applications performing real-time processing of big unstructured data
+
+- Storage Optimized
+  - Great for storage-intensive tasks that require high, sequential read and write access to large data sets on local storage
+  - Use cases:
+    - High frequency online transaction processing (OLTP) systems
+    - Relational & NoSQL databases
+    - Cache for in-memory databases (for example, Redis)
+    - Data warehousing applications
+    - Distributed file systems
+
+Example (Instance Type)
+![Instance Type](/img/instance-types.png)
+
+EC2 Instances Purchasing Options
+|  SL   | Instance Name         |   Period   | Description                                                |
+| :---: | :-------------------- | :--------: | :--------------------------------------------------------- |
+|   1   | On-Demand             | Short Time | short workload, predictable pricing, pay by second         |
+|   1   | Reserved Instances    | 1-3 Years  | long workloads with flexible instances                     |
+|   2   | Savings Plans         | 1-3 Years  | commitment to an amount of usage, long workload            |
+|   3   | Spot Instances        | Short Time | short workloads, cheap, can lose instances (less reliable) |
+|   4   | Dedicated Hosts       | Long Time  | book an entire physical server, control instance placement |
+|   5   | Dedicated Instances   |    N/A     | no other customers will share your hardware                |
+|   6   | Capacity Reservations |    N/A     | reserve capacity in a specific AZ for any duration         |
+
+##### Mentioned features of each instance below as follows
+###### On Demand
+- Pay for what you use:
+  - Linux or Windows
+    - Billing per second, after the first minute 
+    - All other operating systems - billing per hour
+- Has the highest cost but no upfront payment
+- No long-term commitment
+- Recommended for short-term and un-interrupted workloads, where you can't predict how the application will behave
+
+###### Reserved Instances
+- Up to 72% discount compared to On-demand
+- You reserve a specific instance attributes (Instance Type, Region,Tenancy, OS)
+- Reservation Period
+  - 1 year (+discount) or 
+  - 3 years (+++discount)
+- Payment Options
+  - No Upfront (+), 
+  - Partial Upfront (++), 
+  - All Upfront (+++)
+- Reserved Instance’s Scope: Regional or Zonal (reserve capacity in an AZ)
+- Recommended for steady-state usage applications (think database)
+- You can buy and sell in the Reserved Instance Marketplace
+- Convertible Reserved Instance
+  - Can change the EC2 instance type, instance family, OS, scope and tenancy
+  - Up to 66% discount
+
+###### Savings Plans
+- Get a discount based on long-term usage
+  - up to 72% - same as Reserved Instance’s
+  - Commit to a certain type of usage ($10/hour for 1 or 3 years)
+- Usage beyond EC2 Savings Plans is billed at the On-Demand price
+- Locked to a specific instance family & AWS region (e.g., M5 in us-east-1)
+- Flexible across:
+  - Instance Size (e.g., m5.xlarge, m5.2xlarge)
+  - OS (e.g., Linux, Windows)
+  - Tenancy (Host, Dedicated, Default)
+
+###### Spot Instances
+- Can get a discount of up to 90% compared to On-demand
+- Instances that you can ***lose*** at any point of time if your max price is less than the current spot price
+- The MOST ***cost-efficient*** instances in AWS
+- Useful for workloads that are resilient to failure • Batch jobs
+  - Data analysis
+  - Image processing
+  - Any distributed workloads
+  - Workloads with a flexible start and end time
+  - Not suitable for critical jobs or databases
+
+###### Dedicated Hosts
+- A physical server with EC2 instance capacity fully dedicated to your use
+- Allows you address compliance requirements and use your existing server- bound software licenses (per-socket, per-core, pe—VM software licenses)
+- Purchasing Options:
+  - On-demand – pay per second for active Dedicated Host
+  - Reserved - 1 or 3 years (No Upfront,Partial Upfront,All Upfront)
+- The most expensive option
+- Useful for software that have complicated licensing model (BYOL – Bring Your Own License)
+- Or for companies that have strong regulatory or compliance needs
+
+###### Dedicated Instances
+- Instances run on hardware that’s dedicated to you
+- May share hardware with other instances in same account
+- No control over instance placement (can move hardware after Stop / Start)
+
+###### Service comparison between 'dedicated instance' & 'dedicated hosts'
+|  SL   | Characteristic                                      | Dedicated Instances | Dedicated Hosts |
+| :---: | :-------------------------------------------------- | :-----------------: | :-------------: |
+|   1   | Enable the use of dedicated physical servers        |          x          |        x        |
+|   2   | Per instance billing (subject to $2 per region fee) |          x          |        -        |
+|   3   | Per host billing                                    |          -          |        x        |
+|   4   | Visibility of sockets, cores, host ID               |          -          |        x        |
+|   5   | Affinity between a host and instance                |          -          |        x        |
+|   6   | Targeted instance placement                         |          -          |        x        |
+|   7   | Automatic instance placement                        |          x          |        x        |
+|   8   | Add capacity using an allocation request            |          -          |        x        |
+
+###### Capacity Reservations
+- Reserve On-Demand instances capacity in a specific AZ for any duration
+- You always have access to EC2 capacity when you need it
+- No time commitment (create/cancel anytime), no billing discounts
+- Combine with Regional Reserved Instances and Savings Plans to benefit from billing discounts
+- You’re charged at On-Demand rate whether you run instances or not
+- Suitable for short-term, uninterrupted workloads that needs to be in a specific AZ
+
+##### Shared Responsibility Model of EC2 Instance
+| AWS (Provider)                           | User                                                   |
+| :--------------------------------------- | :----------------------------------------------------- |
+| Infrastructure (global network security) | Security Groups rules                                  |
+| Isolation on physical hosts              | Operating-system patches and updates                   |
+| Replacing faulty hardware                | Software and utilities installed on the EC2 instance   |
+| Compliance validation                    | IAM Roles assigned to EC2 & IAM user access management |
+| -                                        | Data security on your instance                         |
+
+##### [AWS Database Service](https://aws.amazon.com/free/database/?gclid=EAIaIQobChMInunfv-LZjAMVSqtmAh1omStKEAAYASAAEgK7I_D_BwE&trk=a049d6a3-611f-4ee9-9d3b-e88a4b66272f&sc_channel=ps&ef_id=EAIaIQobChMInunfv-LZjAMVSqtmAh1omStKEAAYASAAEgK7I_D_BwE:G:s&s_kwcid=AL!4422!3!548730526963!p!!g!!amazon%20cloud%20database!11542049405!107751951010&gbraid=0AAAAADjHtp8v8DEsy08OPZK56vPhBTqVe)
+AWS offers a wide range of database services, covering everything from traditional relational databases to modern NoSQL, in-memory, and graph databases. Here's a breakdown of the major ones by type:
+- Relational Databases (SQL)
+  - [Amazon RDS (Relational Database Service)](https://aws.amazon.com/rds/?p=ft&c=db&z=3)
+    - Fully managed database service for SQL-based engines.
+    - Supports: MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, Aurora.
+    - Handles backups, patching, scaling, etc.
+  - [Amazon Aurora](https://aws.amazon.com/rds/aurora/)
+    - High-performance, cloud-native relational database.
+    - Compatible with MySQL and PostgreSQL.
+    - Up to 5x faster than standard MySQL, with built-in replication and high availability.
+    - Serverless version: Aurora Serverless v2 (auto-scales capacity).
+- NoSQL Databases
+  - Amazon DynamoDB
+    - Fully managed key-value and document NoSQL database.
+    - Ultra-fast, scalable, and serverless.
+    - Ideal for real-time apps, gaming, IoT, serverless apps.
+  - Amazon ElastiCache
+    - In-memory caching service.
+    - Supports: Redis and Memcached.
+    - Great for speeding up apps with frequently accessed data (e.g., sessions, leaderboards).
+- Amazon Keyspaces (for Apache Cassandra)
+  - Managed Cassandra-compatible NoSQL database.
+  - Serverless and scalable.
+- Graph, Time Series, and Ledger
+  - Amazon Neptune
+    - Graph database for highly connected data.
+    - Supports: Gremlin and SPARQL.
+    - Use cases: social networks, recommendation engines, fraud detection.
+
+##### AWS Network Services
+###### Elastic Load Balancing (ELB) & Auto Scaling Groups (ASG)
+Scalability & High Availability
+- Scalability means that an application/system can handle greater loads by adapting. There are two kinds of scalability:
+  - Vertical Scalability
+  - Horizontal Scalability (= elasticity)
+- Scalability is linked but different to High Availability
+
+###### Vertical Scalability
+- Vertical Scalability means increasing the size/capacity of the instance
+- For example, your application runs on a t2.micro to t2.large
+- Vertical scalability is very common for ***non distributed systems***, such as a ***database***.
+- There’s usually a limit to how much you can vertically scale (hardware limit)
+
+###### Horizontal Scalability
+- Horizontal Scalability means increasing the number of instances/systems for your application
+- Horizontal scaling implies distributed systems.
+- This is very common for web applications/modern applications
+- It’s easy to horizontally scale thanks the cloud offerings such as EC2
+
+###### High Availability
+- High Availability usually goes hand in hand with horizontal scaling
+- High availability means running your application/system in at least 2 Availability Zones
+- The goal of high availability is to survive a data center loss (disaster)
+
+###### High Availability & Scalability For EC2
+- Vertical Scaling: Increase instance size (scale up/down)
+  - From: t2.nano - 0.5G of RAM, 1 vCPU - To: u-12tb1.metal – 12.3 TB of RAM, 448 vCPUs
+- Horizontal Scaling: Increase number of instances (scale out/in)
+  - Auto Scaling Group
+  - Load Balancer
+- High Availability: Run instances for the same application across multi AZ
+  - Auto Scaling Group multi AZ
+  - Load Balancer multi AZ
+
+##### What is load balancing?***
+- Load balancers are servers that forward internet traffic to multiple servers (EC2 Instances) downstream.
+![Load Balancing](/img/load-balancing.png)
+
+###### Why use a load balancer?
+- Spread load across multiple downstream instances
+- Expose a single point of access (DNS) to your application
+- Seamlessly handle failures of downstream instances
+- Do regular health checks to your instances
+- Provide SSL termination (HTTPS) for your websites
+- High availability across zones
+
+###### Why use an Elastic Load Balancer?
+- An ELB (Elastic Load Balancer) is a managed load balancer.
+  - AWS guarantees that it will be working
+  - AWS takes care of upgrades, maintenance, high availability
+  - AWS provides only a few configuration knobs
+- It costs less to setup your own load balancer but it will be a lot more effort on your end (maintenance, integrations)
+- 4 kinds of load balancers offered by AWS:
+  - Application Load Balancer (HTTP / HTTPS only) – Layer 7 (APS TNDP)
+    - 7 Layer (Application > Presentation > Session > Transport > Network > Data Link > Physical)
+  - Network Load Balancer (ultra-high performance, allows for TCP) – Layer 4
+    - 4 Layer (Application > Transport > Internet > Network)
+  - Gateway Load Balancer – Layer 3
+  - Classic Load Balancer (retired in 2023) – Layer 4 & 7
+![Elastic Load Balancer](/img/elastic-load-balancer.png)
+
+###### What’s an Auto Scaling Group?
+- In real-life, the load on your websites and application can change
+- In the cloud, you can create and get rid of servers very quickly
+- The goal of an Auto Scaling Group (ASG) is to:
+- Scale out (add EC2 instances) to match an increased load
+- Scale in (remove EC2 instances) to match a decreased load
+- Ensure we have a minimum and a maximum number of machines running
+- Automatically register new instances to a load balancer
+- Replace unhealthy instances
+- Cost Savings: only run at an optimal capacity (principle of the cloud)
+
+###### Auto Scaling Group
+![Auto Scaling Group](/img/auto-scaling-group.png)
+
+###### Auto Scaling Group with Load Balancer
+![Auto Scaling Group with Load Balancer](/img/auto-scaling-group-load-balancer.png)
+
+###### Difference between Load Balancer and Auto Scaling
+|    Factors     | Load Balancer                   | Auto Scaling                    |
+| :------------: | :------------------------------ | :------------------------------ |
+|    Purpose     | Distribute the incoming traffic | Adjust the number of resources  |
+| Algorithm used | Round-Robin algorithm or least  | Step Scaling or Target Tracking |
+
+##### AWS Storage Services
+There are three types of storage in Amazon Web Services
+1. Object Storage
+   - S3 Storage
+   - S3 Glacier Storage
+   - Snowball Storage
+2. File Storage
+   - Elastic File System (EFS)
+   - FSx Storage (Windows)
+   - FSx Storage (Lustre)
+3. Block Storage
+   - [Elastic Block Storage (EBS)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html)
+     - SSD Storage volumes
+       - General Purpose (GP2) volumes
+       - Provisioned IOPS SSD (io1) volumes
+       - Provisioned IOPS SSD (io2) volumes
+     - HDD Storage
+       - Throughput Optimized (ST1)
+       - Cold HDD (SC1)
+     - Magnetic Storage
+   - EC2 Instance Storage
+
+###### IOPS (eye-ops):
+Input/Output Operation per Second is use as I/O performance management measurement to characterize computer storage devices like HDD, SSD & Storage Area Network (SAN). This Operations (reads or writes) that a storage system can perform in one second. It focuses on the speed at which individual read and write operations can be completed. Its measure in KiB.
+- Maximum amount of data that a volume type counts as 'Single I/O'.
+- I/O size capped at 256 KiB for SSD.
+- I/O size capped at 1024 KiB for HDD.
+- SSD volumes handle small/random I/O more efficiently than HDD volumes.
+
+###### IOPS Calculation:
+Average Seek Time = (Read Time + Write Time)/2
+IOPS = 1 / (RPM Average Latency Time + Average Seek Time)
+Suppose, Rotational Speed = 15,000, RPM Average Latency Time = 3 ms = 0.003 Seconds, Average Seek Time = {4.2 (R) + 4.45 (W)}/2 = 4.45 ms = 0.0045 Second
+
+IOPS = 1 / (0.003 + 0.0045) = 133 IOPS (Approximately)
+
+###### Throughput
+Its refers to the rate at which data is transferred successfully between two points in a system, such as between a storage device and a server, or within a network. Throughput can be affected by IOPS & packet size.
+
+##### Each type of storage is discussed in detail that is as follows;
+###### [1.1- Object Storage (S3 Storage)](https://aws.amazon.com/pm/serv-s3/?trk=b8b87cd7-09b8-4229-a529-91943319b8f5&sc_channel=ps&ef_id=CjwKCAiA_aGuBhACEiwAly57MX61bi-mAlAD0os3_jPx0l3oYV-mkTDNdI8gy4MVE8cY776K1fRZxRoCi6gQAvD_BwE:G:s&s_kwcid=AL!4422!3!536456067065!e!!g!!s3%20storage!11539706604!115473954914&gclid=CjwKCAiA_aGuBhACEiwAly57MX61bi-mAlAD0os3_jPx0l3oYV-mkTDNdI8gy4MVE8cY776K1fRZxRoCi6gQAvD_BwE)
+It is an object storage service offering industry-leading scalability, data availability, security, and performance.
+***Uses of S3***  (as like Google Drive, One Drive, Drop Box etc.)
+- Backup and storage
+- Disaster Recovery
+- Archive
+- Hybrid Cloud storage
+- Application hosting
+- Media hosting
+- Data lakes & big data analytics
+- Software delivery
+- Static website
+
+***Buckets***
+- Amazon S3 allows people to store objects (files) in “buckets” (directories)
+- Buckets must have a globally unique name (across all regions all accounts)
+- Buckets are defined at the region level
+- S3 looks like a global service but buckets are created in a region
+  - Naming convention
+  - No uppercase, No underscore
+  - 3-63 characters long
+  - Not an IP
+  - Must start with lowercase letter or number
+  - Must NOT start with the prefix xn--
+  - Must NOT end with the suffix -s3alias
+
+***Objects***
+- Objects (files) have a Key
+- The key is the FULL path:
+  - s3://my-bucket/my_file.txt
+  - s3://my-bucket/my_folder1/another_folder/my_file.txt
+- The key is composed of prefix + object name
+  - s3://my-bucket/my_folder1/another_folder/my_file.txt
+- There’s no concept of “directories” within buckets (although the UI will trick you to think otherwise)
+- Just keys with very long names that contain slashes (“/”)
+- Object values are the content of the body:
+  - Max. Object Size is 5TB (5000GB)
+  - If uploading more than 5GB, must use “multi-part upload”
+- Metadata (list of text key / value pairs – system or user metadata)
+- Tags (Unicode key / value pair – up to 10) – useful for security / lifecycle
+- Version ID (if versioning is enabled)
+
+***Security***
+- User-Based
+  - IAM Policies – which API calls should be allowed for a specific user from IAM
+- Resource-Based
+  - Bucket Policies – bucket wide rules from the S3 console - allows cross account
+  - Object Access Control List (ACL) – finer grain (can be disabled)
+  - Bucket Access Control List (ACL) – less common (can be disabled)
+- Note: an IAM principal can access an S3 object if
+  - The user IAM permissions ALLOW it OR the resource policy ALLOWS it
+  - AND there’s no explicit DENY
+- Encryption: encrypt objects in Amazon S3 using encryption keys
+
+***S3 Bucket Policies***
+- JSON based policies
+  - Resources: buckets and objects
+  - Effect: Allow / Deny
+  - Actions: Set of API to Allow or Deny
+  - Principal:The account or user to apply the policy to
+- Use S3 bucket for policy to:
+  - Grant public access to the bucket
+  - Force objects to be encrypted at upload
+  - Grant access to another account (Cross Account)
+
+Example (S3 Bucket Policies)
+```JSON
+{
+  "Version": "2024-02-12",
+  "Statement": [
+    {
+      "Sid": "PublicRead",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::my_sweet_bucket/*"
+      ]
+    }
+  ]
+}
+```
+
+###### [1.2- Object Storage (S3 Glacier Storage)](https://aws.amazon.com/pm/s3-glacier/?trk=b8b87cd7-09b8-4229-a529-91943319b8f5&sc_channel=ps&ef_id=CjwKCAiA_aGuBhACEiwAly57Mdp21CgKnEvgufcIeYZ_cnX3_6l4342RMJhP5OBESh-aP2g1mjr_dBoCxecQAvD_BwE:G:s&s_kwcid=AL!4422!3!674509861659!e!!g!!amazon%20s3%20glacier!11539706604!154273570032&gclid=CjwKCAiA_aGuBhACEiwAly57Mdp21CgKnEvgufcIeYZ_cnX3_6l4342RMJhP5OBESh-aP2g1mjr_dBoCxecQAvD_BwE)
+- The Amazon S3 Glacier storage classes are purpose-built for data archiving, providing you with the highest performance, most retrieval flexibility, and the lowest cost archive storage in the cloud.
+- Choose from three archive storage classes optimized for different access patterns and storage duration.
+- The S3 Glacier storage classes provide virtually unlimited scalability and are designed for 99.999999999% (11 nines) of data durability.
+
+###### [1.3- Object Storage (Snowball Storage)](https://aws.amazon.com/snowball/)
+Accelerate moving offline data or remote storage to the cloud. Description: Snowball is a petabyte-scale data transport solution that uses secure appliances to transfer large amounts of data into and out of the AWS cloud. Using Snowball addresses common challenges with large-scale data transfers including high network costs, long transfer times, and security concerns.
+Features:
+- A service fee for each job you run, 
+- Data transfer fees from Amazon S3,
+- The shipping costs to transport a Snowball appliance to and from your address, and 
+- The number of days you keep Snowball onsite. [For details](https://aws.amazon.com/snowball/pricing/)
+
+###### 2.1- File Storage [Elastic File System (EFS)]
+***EFS Infrequent Access (EFS-IA)***
+- Managed NFS (network file system) that can be mounted on 100s of EC2
+- EFS works with Linux EC2 instances in multi-AZ
+- Highly available, scalable, expensive (3x gp2), pay per use, no capacity planning
+- Storage class that is cost-optimized for files not accessed every day
+- Up to 92% lower cost compared to EFS Standard
+- EFS will automatically move your files to EFS-IA based on the last time they were accessed
+- Enable EFS-IA with a Lifecycle Policy
+- Example: move files that are not accessed for 60 days to EFS-IA
+- Transparent to the applications accessing EFS
+- cost-optimized storage class for infrequent accessed files
+
+###### 2.2- File Storage [FSx Storage (Windows)]
+Launch 3rd party high-performance file systems on AWS. Fully managed service
+- A fully managed, highly reliable, and scalable Windows native shared file system
+- Built on Windows File Server
+- Supports SMB protocol & Windows NTFS
+- Integrated with Microsoft Active Director y
+- Can be accessed from AWS or your on-premise infrastructure
+- Network File System for Windows servers
+
+###### 2.3- File Storage [FSx Storage (Lustre)]
+- A fully managed, high-performance, scalable file storage for High Performance Computing (HPC)
+- The name Lustre is derived from “Linux” and “cluster”
+- Machine Learning, Analytics,Video Processing, Financial Modeling, ...
+- Scales up to 100s GB/s, millions of IOPS, sub-ms latencies
+
+###### 3.1- Block Storage [Elastic Block Storage (EBS)]
+An EBS (Elastic Block Store) Volume is a network drive (i.e. not a physical drive) you can attach to your instances while they run
+- It allows your instances to persist data, even after their termination
+- They can only be mounted to one instance at a time (at the Certified Cloud Practitioner (CCP) level)
+- They are bound to a specific availability zone
+- Analogy:Think of them as a “network USB stick”
+- Free tier: 30 GB of free EBS storage of type General Purpose (SSD) or Magnetic per month
+- It uses the network to communicate the instance, which means there might be a bit of latency
+- It can be detached from an EC2 instance and attached to another one quickly
+- It’s locked to an Availability Zone (AZ)
+- An EBS Volume in ***us-east-1a*** cannot be attached to ***us-east-1b***
+- To move a volume across, you first need to snapshot it
+- Have a provisioned capacity (size in GBs, and IOPS)
+- You get billed for all the provisioned capacity
+- You can increase the capacity of the drive over time
+
+- **EBS Snapshots Features**
+  - EBS Snapshot Archive
+    - Move a Snapshot to an ”archive tier” that is 75% cheaper
+    - Takes within 24 to 72 hours for restoring the archive
+  - Recycle Bin for EBS Snapshots
+    - Setup rules to retain deleted snapshots so you can recover them after an accidental deletion
+    - Specify retention (from 1 day to 1 year)
+
+###### [3.2 Block Storage (EC2 Instance Storage)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
+An instance store provides temporary block-level storage for your instance. This storage is located on disks that are physically attached to the host computer. Instance store is ideal for temporary storage of information that changes frequently, such as buffers, caches, scratch data, and other temporary content. It can also be used to store temporary data that you replicate across a fleet of instances, such as a load-balanced pool of web servers.
+Features:
+An instance store consists of one or more instance store volumes exposed as block devices. The size of an instance store as well as the number of devices available varies by instance type and instance size. [For more](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html)
+
+- **Amazon Machine Image (AMI)**
+  - AMI are a customization of an EC2 instance
+    - You add your own software, configuration, operating system, monitoring... 
+    - Faster boot/configuration time because all your software is pre-packaged
+  - AMI are built for a specific region (and can be copied across regions)
+  - You can launch EC2 instances from:
+    - A Public AMI: AWS provided
+    - Your own AMI: you make and maintain them yourself
+    - An AWS Marketplace AMI: an AMI someone else made (and potentially sells)
+
+- **AMI Process (from an EC2 instance)**
+  - Start an EC2 instance and customize it
+  - Stop the instance (for data integrity)
+  - Build an AMI – this will also create EBS snapshots 
+  - Launch instances from other AMIs
+
+- **EC2 Image Builder**
+  - Used to automate the creation ofVirtual Machines or container images
+  - Automate the creation, maintain, validate and test EC2 AMIs
+  - Can be run on a schedule (weekly, whenever packages are updated, etc...)
+  - Free service (only pay for the underlying resources)
+Illustration shown below;
+![Image builder](/img/image-builder.png)
+
+###### Shared Responsibility Model of Storage Volume
+| AWS (Provider)                                    | User                                               |
+| :------------------------------------------------ | :------------------------------------------------- |
+| Infrastructure                                    | Setting up backup / snapshot procedures            |
+| Replication for data for EBS volumes & EFS drives | Setting up data encryption                         |
+| Replacing faulty hardware                         | Responsibility of any data on the drives           |
+| Ensuring their employees cannot access your data  | Understanding the risk of using EC2 Instance Store |
+
+###### Services from other in-scope AWS Service Categories
+- Application Integration Services
+  These services help applications communicate and process events or messages reliably.
+  - Amazon EventBridge: Event bus for building event-driven applications at scale.
+  - Amazon SNS (Simple Notification Service): Pub/sub messaging for decoupled microservices.
+  - Amazon SQS (Simple Queue Service): Managed message queuing for distributed systems.
+- Business Application Services
+  Enable customer service and communication workflows.
+  - Amazon Connect: Cloud-based contact center service.
+  - Amazon SES (Simple Email Service): Scalable email sending for marketing or transactional purposes.
+- Customer Engagement Services
+  These services support customer success and AWS account management.
+  - AWS Activate for Startups: Credits, training, and support for startup growth.
+  - AWS IQ: Connects customers with AWS-certified freelancers and consultants.
+  - AWS Managed Services (AMS): Operational support and automation for AWS infrastructure.
+  - AWS Support: Tiered support plans offering guidance and troubleshooting.
+- Developer Tools
+  Helps developers build, test, and deliver code quickly and securely.
+  - AWS AppConfig: Feature flagging and configuration management.
+  - AWS Cloud9: Cloud-based IDE for writing, running, and debugging code.
+  - AWS CloudShell: Browser-based shell for command-line access to AWS.
+  - AWS CodeArtifact: Artifact repository for software packages.
+  - AWS CodeBuild: Continuous integration service to compile and test code.
+  - AWS CodeCommit: Fully managed Git-based source control.
+  - AWS CodeDeploy: Automates code deployments to compute services.
+  - AWS CodePipeline: CI/CD pipeline orchestration tool.
+  - AWS CodeStar: Unified interface for software development.
+  - AWS X-Ray: Distributed tracing system for analyzing and debugging applications.
+- End-User Computing Services
+  Provides remote desktops and application streaming for users.
+  - Amazon AppStream 2.0: Stream desktop apps to users over the web.
+  - Amazon WorkSpaces: Managed virtual desktops in the cloud.
+  - Amazon WorkSpaces Web: Secure browser access to internal websites and apps.
+- Frontend Web and Mobile Services
+  Helps developers build full-stack web and mobile applications.
+  - AWS Amplify: Set of tools to build, ship, and host full-stack applications.
+  - AWS AppSync: Managed GraphQL service for querying and syncing data in real-time.
+- IoT Services
+  Connect and manage IoT devices and edge computing.
+  - AWS IoT Core: Secure device communication with cloud apps and services.
+  - AWS IoT Greengrass: Brings AWS compute, messaging, and data caching to edge devices.
+
+#### 04-domain-billing-pricing-support
+
+### [AWS Certified Developer Associate - CLF-02](https://aws.amazon.com/certification/certified-developer-associate/)
+
+### [AWS Certified DevOps Engineer Professional - DOP-C02](https://aws.amazon.com/certification/certified-devops-engineer-professional/)
 
 ## With Regards, `Jakir`
 
