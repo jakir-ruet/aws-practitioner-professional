@@ -651,7 +651,7 @@ Some responsibilities are shared, depending on the service and use case:
 - AWS manages infrastructure-level encryption, but you manage application-level encryption.
 - AWS offers compliance certifications, but you need to ensure your workloads follow them.
 
-[Comparison](/img/security-share-responsibilty.png)
+![Comparison](/img/security-share-responsibilty.png)
 
 ##### Key Security Components in AWS
 - Identity and Access Management
@@ -1422,10 +1422,10 @@ It's a software development practice aimed at improving the quality and speed of
      The new rule receives a selected service as the event target. You might want to set up a target service to send notifications, capture state information, take corrective action, initiate events, or take other actions. When you add your target, you must also grant permissions to EventBridge to allow it to invoke the selected target service.
 - Polling:
  It is when your application periodically requests updates from the server. Polling is a simple way to receive updates from a remote server. Your application sends a request to the server at regular intervals, and the server will respond with any updates that have occurred since the last request. Polling is easy to implement and can be a good choice for applications that don't need to receive updates very frequently. However, polling can be inefficient if your application needs to receive updates very quickly, or if the server is slow to respond.
-  ![Polling](./img/polling.png)
+  ![Polling](/img/polling.png)
 - Webhooks:
   Webhooks are when the server sends updates to your application as they happen. Webhooks are a more efficient way to receive updates from a remote server. When you register a webhook with a server, the server will send an HTTP POST request to your application's URL whenever an event occurs. This means that your application will only receive updates when they happen, which can save bandwidth and improve performance. Webhooks are more complex to implement than polling, but they are a good choice for applications that need to receive updates very quickly, or if the server is slow to respond.
-  ![Webhooks](./img/webhook.png)
+  ![Webhooks](/img/webhooks.png)
 
 ***NB:*** Events are the default & recommended.
 
