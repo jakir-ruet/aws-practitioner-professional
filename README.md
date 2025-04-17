@@ -312,6 +312,7 @@ Deployment strategies define how you want to deliver your software. Organization
   - All-at-once deployment
   - Rolling Deployment
   - Immutable Deployment
+
 Deployment Matrix
 | Deployment Strategy | Amazon ECS | AWS Lambda | Amazon EC2/on-premises |
 | ------------------- | ---------- | ---------- | ---------------------- |
