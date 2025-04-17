@@ -299,19 +299,65 @@ The AWS Well-Architected Framework helps you understand the `pros` and `cons` of
 | Cost Optimization      | Spend control, budgeting, resource management         |
 | Sustainability         | Environmental impact and energy efficiency            |
 
+##### Management and Governance
+###### [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html)
+AWS Organizations is a service from Amazon Web Services that lets you centrally manage and govern multiple AWS accounts. It’s especially useful for businesses that want to create separate AWS accounts for different departments, projects, or teams while still keeping control from a central location.
+**Features for AWS Organizations**
+- Manage your AWS accounts
+- Define and manage your organization
+- Secure and monitor your accounts
+- Share resources across accounts
+- Audit your environment for compliance
+- Centrally manage billing and costs
+
+###### [AWS Control Tower](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-CTower.html)
+AWS Control Tower offers a straightforward way to set up and govern an AWS multi-account environment, following prescriptive best practices. AWS Control Tower orchestration extends the capabilities of AWS Organizations. AWS Control Tower applies preventive and detective controls (guardrails) to help keep your organizations and accounts from divergence from best practices (drift).
+**Features for AWS Control Tower**
+- Set up multi-account environment quickly
+- Automation and built-in governance
+- Preconfigured Controls
+- Integrate third-party software at scale
+
+**Comparison between AWS Organization and AWS Control Tower**
+| Feature              | **AWS Organizations**                                        | **AWS Control Tower**                                               |
+| -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------- |
+| **Purpose**          | Manually manage multiple AWS accounts, billing, and policies | Automate the setup of a secure, compliant multi-account environment |
+| **Setup Complexity** | Low-level, manual setup required                             | High-level, guided setup with automation                            |
+| **Account Creation** | Manually create accounts via CLI/API or console              | Automates account creation via **Account Factory**                  |
+| **Governance**       | Uses **Service Control Policies (SCPs)**                     | Uses SCPs, plus **Guardrails** (prebuilt SCPs and AWS Config rules) |
+| **Landing Zone**     | You build your own                                           | Prebuilt landing zone architecture (AWS best practices)             |
+| **UI**               | No dedicated UI – uses AWS Console/CLI                       | Dedicated dashboard for governance and account management           |
+| **Ideal For**        | Advanced users, custom setups                                | Medium to large organizations looking for fast, standardized setup  |
+
+###### [AWS Systems Manager](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-ssm.html)
+AWS Systems Manager is a collection of capabilities that enable visibility and control of your AWS resources. The following Systems Manager capabilities work with Organizations across all of the AWS accounts in your organization:
+###### [AWS Service Catalog](https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/aws-service-catalog.html)
+AWS Service Catalog enables organizations to create and manage catalogs of IT services that are approved for AWS. These IT services can include everything from virtual machine images, servers, software, databases, and more to complete multi-tier application architectures.
+###### [AWS Config](https://docs.aws.amazon.com/controltower/latest/userguide/config.html)
+AWS Config provides a detailed view of the resources associated with your AWS account, including how they are configured, how they are related to one another, and how the configurations and their relationships have changed over time.
+###### [AWS Trusted Advisor](https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html)
+Trusted Advisor draws upon best practices learned from serving hundreds of thousands of AWS customers. Trusted Advisor inspects your AWS environment, and then makes recommendations when opportunities exist to save money, improve system availability and performance, or help close security gaps.
+
 ##### Deployment, [Migration & Transfer](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/migration-services.html) to the AWS Cloud.
 In AWS (Amazon Web Services), deployment, migration, and transfer are key concepts related to moving applications, data, or infrastructure into or within the cloud. Here's a breakdown of each:
 
 ###### [Deployment](https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/deployment-strategies.html)
 Deployment strategies define how you want to deliver your software. Organizations follow different deployment strategies based on their business model. Some choose to deliver software that is fully tested, and others might want their users to provide feedback and let their users evaluate under development features (such as Beta releases). The following section discusses various deployment strategies.
 - Deployment Models:
-  - In-place deployments
-  - Blue/Green Deployment
-  - Canary Deployment
-  - Linear deployment
-  - All-at-once deployment
-  - Rolling Deployment
-  - Immutable Deployment
+  - [In-place deployments](https://docs.aws.amazon.com/whitepapers/latest/overview-deployment-options/in-place-deployments.html)
+    An in-place deployment is a deployment strategy that updates the application version without replacing any infrastructure components. In an in-place deployment, the previous version of the application on each compute resource is stopped, the latest application is installed, and the new version of the application is started and validated.
+  - [Blue/Green Deployment](https://docs.aws.amazon.com/whitepapers/latest/blue-green-deployments/welcome.html)
+    The blue/green deployment technique enables you to release applications by shifting traffic between two identical environments that are running different versions of the application. Blue/green deployments can mitigate common risks associated with deploying software, such as downtime and rollback capability.
+  - [Canary Deployment](https://docs.aws.amazon.com/whitepapers/latest/overview-deployment-options/canary-deployments.html)
+    Canary deployments are a type of blue/green deployment strategy that is more risk-averse. This strategy involves a phased approach in which traffic is shifted to a new version of the application in two increments. The first increment is a small percentage of the traffic, which is referred to as the canary group.
+  - [Linear deployment](https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/deployment-strategies.html)
+    Linear deployment means traffic is shifted in equal increments with an equal number of minutes between each increment. You can choose from predefined linear options that specify the percentage of traffic shifted in each increment and the number of minutes between each increment.
+  - [All-at-once deployment](https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/deployment-strategies.html)
+    All-at-once deployment means all traffic is shifted from the original environment to the replacement environment all at once.
+  - [Rolling Deployment](https://docs.aws.amazon.com/whitepapers/latest/overview-deployment-options/rolling-deployments.html)
+    A rolling deployment is a deployment strategy that slowly replaces previous versions of an application with new versions of an application by completely replacing the infrastructure on which the application is running.
+  - [Immutable Deployment](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environmentmgmt-updates-immutable.html)
+    Immutable environment updates are an alternative to rolling updates. Immutable environment updates ensure that configuration changes that require replacing instances are applied efficiently and safely. If an immutable environment update fails, the rollback process requires only terminating an Auto Scaling group.
 
 Deployment Matrix
 | Deployment Strategy | Amazon ECS | AWS Lambda | Amazon EC2/on-premises |
@@ -422,137 +468,6 @@ It's leverages AWS experience and best practices to help you digitally transform
    - Automation & Optimization: CAF encourages automating routine tasks and optimizing cloud resources, reducing manual work and costs.
    - Scalability & Flexibility: Resources can be scaled up or down based on demand, avoiding overprovisioning
    - Process Improvements: The framework helps streamline operations through best practices, monitoring, and continuous improvement models.
-
-##### [Cloud Economics](https://aws.amazon.com/economics/)
-Cloud economics refers to the financial principles and business value derived from cloud computing. It helps organizations understand how to optimize costs, `improve return on investment (ROI)`, and maximize the value of cloud adoption.
-
-##### Price of Cloud
-AWS has 3 pricing fundamentals, following the pay-as-you-go pricing model
-1. Compute: Pay for compute time
-2. Storage: Pay for data stored in the Cloud
-3. Data transfer out of the Cloud: Data transfer in is free
-Its the expensive issue then traditional IT
-
-###### Core Aspects/Concepts of Cloud Economics
-1. Pay-as-You-Go Pricing
-   - You only pay for what you use (compute, storage, bandwidth, etc.).
-   - No need for large upfront capital expenditures (`CAPEX`).
-   - Costs become operational expenses (`OPEX`), which can be easier to manage and scale.
-   - ![Understanding the difference between Capital Expenditures (CAPEX) and Operational Expenses (OPEX) is crucial when comparing traditional IT to cloud-based models.](/img/capex-opex.png)
-2. Elasticity & Scalability
-   - Automatically scale resources up or down based on demand.
-   - Reduces over-provisioning and avoids paying for unused infrastructure.
-   - Helps manage seasonal spikes and fluctuating workloads efficiently.
-3. Total Cost of Ownership (TCO)
-   - TCO in the cloud includes infrastructure, software, support, labor, and training.
-   - Cloud often lowers TCO by reducing hardware costs, energy consumption, and maintenance.
-4. Return on Investment (ROI)
-   - Cloud accelerates time-to-market, drives innovation, and enhances customer experiences—leading to higher ROI.
-   - Faster provisioning and deployment can unlock revenue sooner.
-5. Economies of Scale
-   - Cloud providers like AWS serve millions of customers, enabling them to offer lower prices due to scale.
-   - Over time, cloud costs often decrease as providers pass on savings.
-6. Cost Transparency & Management
-   - Cloud platforms provide tools for real-time monitoring, usage reports, and alerts.
-   - Services like AWS Cost Explorer or AWS Budgets help optimize spending and identify waste.
-7. Consumption-Based Forecasting
-   - Budgeting in the cloud shifts from fixed infrastructure costs to demand-based forecasting.
-   - Enables more agile and accurate financial planning.
-
-###### On Demand
-- Pay for what you use:
-  - Linux or Windows
-    - Billing per second, after the first minute 
-    - All other operating systems - billing per hour
-- Has the highest cost but no upfront payment
-- No long-term commitment
-- Recommended for short-term and un-interrupted workloads, where you can't predict how the application will behave
-
-###### Reserved Instances
-- Up to 72% discount compared to On-demand
-- You reserve a specific instance attributes (Instance Type, Region,Tenancy, OS)
-- Reservation Period
-  - 1 year (+discount) or 
-  - 3 years (+++discount)
-- Payment Options
-  - No Upfront (+), 
-  - Partial Upfront (++), 
-  - All Upfront (+++)
-- Reserved Instance’s Scope: Regional or Zonal (reserve capacity in an AZ)
-- Recommended for steady-state usage applications (think database)
-- You can buy and sell in the Reserved Instance Marketplace
-- Convertible Reserved Instance
-  - Can change the EC2 instance type, instance family, OS, scope and tenancy
-  - Up to 66% discount
-
-###### Savings Plans
-- Get a discount based on long-term usage
-  - up to 72% - same as Reserved Instance’s
-  - Commit to a certain type of usage ($10/hour for 1 or 3 years)
-- Usage beyond EC2 Savings Plans is billed at the On-Demand price
-- Locked to a specific instance family & AWS region (e.g., M5 in us-east-1)
-- Flexible across:
-  - Instance Size (e.g., m5.xlarge, m5.2xlarge)
-  - OS (e.g., Linux, Windows)
-  - Tenancy (Host, Dedicated, Default)
-
-###### Spot Instances
-- Can get a discount of up to 90% compared to On-demand
-- Instances that you can ***lose*** at any point of time if your max price is less than the current spot price
-- The MOST ***cost-efficient*** instances in AWS
-- Useful for workloads that are resilient to failure • Batch jobs
-  - Data analysis
-  - Image processing
-  - Any distributed workloads
-  - Workloads with a flexible start and end time
-  - Not suitable for critical jobs or databases
-
-###### Dedicated Hosts
-- A physical server with EC2 instance capacity fully dedicated to your use
-- Allows you address compliance requirements and use your existing server- bound software licenses (per-socket, per-core, pe—VM software licenses)
-- Purchasing Options:
-  - On-demand – pay per second for active Dedicated Host
-  - Reserved - 1 or 3 years (No Upfront,Partial Upfront,All Upfront)
-- The most expensive option
-- Useful for software that have complicated licensing model (BYOL – Bring Your Own License)
-- Or for companies that have strong regulatory or compliance needs
-
-###### Dedicated Instances
-- Instances run on hardware that’s dedicated to you
-- May share hardware with other instances in same account
-- No control over instance placement (can move hardware after Stop / Start)
-
-###### Service comparison between 'dedicated instance' & 'dedicated hosts'
-|  SL   | Characteristic                                      | Dedicated Instances | Dedicated Hosts |
-| :---: | :-------------------------------------------------- | :-----------------: | :-------------: |
-|   1   | Enable the use of dedicated physical servers        |          x          |        x        |
-|   2   | Per instance billing (subject to $2 per region fee) |          x          |        -        |
-|   3   | Per host billing                                    |          -          |        x        |
-|   4   | Visibility of sockets, cores, host ID               |          -          |        x        |
-|   5   | Affinity between a host and instance                |          -          |        x        |
-|   6   | Targeted instance placement                         |          -          |        x        |
-|   7   | Automatic instance placement                        |          x          |        x        |
-|   8   | Add capacity using an allocation request            |          -          |        x        |
-
-###### Capacity Reservations
-- Reserve On-Demand instances capacity in a specific AZ for any duration
-- You always have access to EC2 capacity when you need it
-- No time commitment (create/cancel anytime), no billing discounts
-- Combine with Regional Reserved Instances and Savings Plans to benefit from billing discounts
-- You’re charged at On-Demand rate whether you run instances or not
-- Suitable for short-term, uninterrupted workloads that needs to be in a specific AZ
-
-##### Shared Responsibility Model of EC2 Instance
-| AWS (Provider)                           | User                                                   |
-| :--------------------------------------- | :----------------------------------------------------- |
-| Infrastructure (global network security) | Security Groups rules                                  |
-| Isolation on physical hosts              | Operating-system patches and updates                   |
-| Replacing faulty hardware                | Software and utilities installed on the EC2 instance   |
-| Compliance validation                    | IAM Roles assigned to EC2 & IAM user access management |
-| -                                        | Data security on your instance                         |
-
-###### BYOL (Bring Your Own License)?
-BYOL is a licensing model that lets you use your existing software licenses (like Windows, SQL Server, Oracle, etc.) when migrating or deploying workloads on AWS. Instead of buying new licenses through AWS, you "bring" the ones you already own—usually through volume licensing agreements from Microsoft, Oracle, etc.
 
 ##### IaC, Provisioning - CloudFormation, Terraform
 - Faster deployments: Automate the creation and management of infrastructure.
@@ -1352,6 +1267,58 @@ Illustration shown below;
   - AWS IoT Greengrass: Brings AWS compute, messaging, and data caching to edge devices.
 
 #### 04-domain-billing-pricing-support
+##### AWS Pricing Fundamentals
+AWS Pricing Fundamentals is something every AWS user should understand — it helps you use AWS more efficiently and avoid surprise bills. Let's break it down into key principles and pricing models.
+- Pay-as-you-go
+- You only pay for what you use.
+- No upfront costs or long-term contracts (unless you choose them for savings).
+- Pay less when you reserve
+- Reserved Instances (RIs) or Savings Plans let you commit to usage over 1 or 3 years for big discounts (up to 72%).
+- Pay less with more usage
+- Some services have tiered pricing (like S3 and Data Transfer) — the more you use, the less you pay per unit.
+- Free tier
+- Many services include a free usage allowance for 12 months or always-free (e.g., Lambda, S3, DynamoDB, CloudWatch).
+
+**AWS Pricing Models**
+| Model             | Applies To                    | Description                                           |
+| ----------------- | ----------------------------- | ----------------------------------------------------- |
+| **On-Demand**     | EC2, RDS, Lambda, etc.        | Pay per use, flexible, no commitments                 |
+| **Reserved**      | EC2, RDS, ElastiCache         | Commit for 1 or 3 years for big discounts             |
+| **Savings Plans** | EC2, Lambda, Fargate          | up to 72%, Flexible alternative to Reserved Instances |
+| **Spot**          | EC2                           | Up to 90% off for interruptible workloads             |
+| **Tiered**        | S3, CloudFront, Data Transfer | Lower unit prices at higher usage volumes             |
+| **Request-based** | Lambda, API Gateway, DynamoDB | Charged per request or execution                      |
+| **Per-GB/IO**     | S3, EBS, Data Transfer        | Based on size or read/write operations                |
+
+**Cost-Saving Tips**
+- Use **Spot Instances** for fault-tolerant or test workloads.
+- Reserve capacity with **Savings Plans** or **RIs** for predictable usage.
+- Store infrequently accessed data in **S3 Infrequent Access** or **Glacier**.
+- Use **Auto Scaling** to avoid idle resources.
+- Monitor usage with **Cost Explorer** and set **budgets**.
+
+###### [Core AWS Pricing Concepts](https://aws.amazon.com/economics/)
+Cloud economics refers to the financial principles and business value derived from cloud computing. It helps organizations understand how to optimize costs, `improve return on investment (ROI)`, and maximize the value of cloud adoption.
+
+##### Price of Cloud
+AWS has 3 pricing fundamentals, following the pay-as-you-go pricing model
+1. Compute: Pay for compute time
+2. Storage: Pay for data stored in the Cloud
+3. Data transfer out of the Cloud: Data transfer in is free
+Its the expensive issue then traditional IT
+
+###### BYOL (Bring Your Own License)?
+BYOL is a licensing model that lets you use your existing software licenses (like Windows, SQL Server, Oracle, etc.) when migrating or deploying workloads on AWS. Instead of buying new licenses through AWS, you "bring" the ones you already own—usually through volume licensing agreements from Microsoft, Oracle, etc.
+
+##### Amazon EC2 Pricing Use Cases
+##### Pricing for other AWS Services
+##### AWS Pricing Calculator - `HOL`
+##### AWS Support Plans
+##### Consolidated Billing
+##### Cost Allocation Tags
+##### AWS Cost Management Tools
+##### AWS Cost Explorer - `HOL`
+
 
 ### [AWS Certified Cloud Practitioner - DVA-02](https://aws.amazon.com/certification/certified-cloud-practitioner/)
 #### Exam Overview
