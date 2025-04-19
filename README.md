@@ -1492,28 +1492,36 @@ The software development lifecycle (SDLC) outlines several tasks required to bui
 
 ##### What are SDLC models?
 A software development lifecycle (SDLC) model conceptually presents SDLC in an organized fashion to help organizations implement it. Different models arrange the SDLC phases in varying chronological order to optimize the development cycle. We look at some popular SDLC models below.
+
 1. Waterfall
 The waterfall model arranges all the phases sequentially so that each new phase depends on the outcome of the previous phase. Conceptually, the design flows from one phase down to the next, like that of a waterfall.
+
 | **Pros**                                          | **Cons**                                                                                          |
 | ------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | Provides discipline to project management.        | Little room for changes once a phase is complete.                                                 |
 | Tangible output at the end of each phase.         | Changes can affect delivery time, cost, and quality.                                              |
 | Suitable for small software development projects. | Not flexible for larger, more complex projects with evolving requirements.                        |
 | Tasks are easy to arrange and manage.             | Requires accurate pre-definition of requirements, which can be difficult in dynamic environments. |
+
 2. Iterative
 The iterative process suggests that teams begin software development with a small subset of requirements. Then, they iteratively enhance versions over time until the complete software is ready for production. The team produces a new software version at the end of each iteration.
+
 | **Pros**                                    | **Cons**                                     |
 | ------------------------------------------- | -------------------------------------------- |
 | Easy to identify and manage risks.          | Repeated cycles could lead to scope changes. |
 | Requirements can change between iterations. | Can result in underestimation of resources.  |
+
 3. Spiral
 The spiral model combines the iterative model's small repeated cycles with the waterfall model's linear sequential flow to prioritize risk analysis. You can use the spiral model to ensure software's gradual release and improvement by building prototypes at each phase.
+
 | **Pros**                                                | **Cons**                                                    |
 | ------------------------------------------------------- | ----------------------------------------------------------- |
 | Suitable for large and complex projects.                | Can be expensive for smaller projects with a limited scope. |
 | Well-suited for projects that require frequent changes. |                                                             |
+
 4. Agile
 The agile model arranges the SDLC phases into several development cycles. The team iterates through the phases rapidly, delivering only small, incremental software changes in each cycle. They continuously evaluate requirements, plans, and results so that they can respond quickly to change. The agile model is both iterative and incremental, making it more efficient than other process models.
+
 | **Pros**                                                         | **Cons**                                                                 |
 | ---------------------------------------------------------------- | ------------------------------------------------------------------------ |
 | Rapid development cycles help identify and address issues early. | Overreliance on customer feedback could lead to excessive scope changes. |
