@@ -1471,6 +1471,7 @@ Some of the tools commonly used to manage Agile projects include:
 
 #### [SDLC (Software Development Lifecycle)](https://aws.amazon.com/what-is/sdlc/)
 The software development lifecycle (SDLC) is the cost-effective and time-efficient process that development teams use to design and build high-quality software. The goal of SDLC is to minimize project risks through forward planning so that software meets customer expectations during production and beyond. This methodology outlines a series of steps that divide the software development process into tasks you can assign, complete, and measure.
+![Software Development Lifecycle](/img/sdlc.png)
 
 ##### SDLC important?
 Software development can be challenging to manage due to changing requirements, technology upgrades, and cross-functional collaboration. The software development lifecycle (SDLC) methodology provides a systematic management framework with specific deliverables at every stage of the software development process. As a result, all stakeholders agree on software development goals and requirements upfront and also have a plan to achieve those goals.
@@ -1526,61 +1527,6 @@ The agile model arranges the SDLC phases into several development cycles. The te
 | ---------------------------------------------------------------- | ------------------------------------------------------------------------ |
 | Rapid development cycles help identify and address issues early. | Overreliance on customer feedback could lead to excessive scope changes. |
 | Allows engagement with customers and stakeholders for feedback.  | Could result in the project being ended midway or altered excessively.   |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-- **SDLC Automation:** Implementing and managing continuous delivery systems and methodologies.
-- **Configuration Management and Infrastructure as Code (IaC):** Implementing and managing the deployment pipeline, including infrastructure as code (IaC).
-- **Monitoring and Logging:** Implementing monitoring and logging systems on AWS.
-- **Policies and Standards Automation:** Implementing systems that are highly available, scalable, and self-healing on the AWS platform.
-- **Incident and Event Response:** Designing, managing, and maintaining tools to automate operational processes.
-
-To prepare for the exam, it's recommended to have hands-on experience with various AWS services and understand how to design, manage, and maintain tools for automating operational processes. Additionally, reviewing the official exam guide provided by AWS, along with relevant AWS documentation and whitepapers, can help you prepare effectively.
 
 ##### [Continuos Integration/Continuos Development (CI/CD)](https://docs.aws.amazon.com/whitepapers/latest/cicd_for_5g_networks_on_aws/cicd-on-aws.html)
 It's a software development practice aimed at improving the quality and speed of software delivery. CI/CD pipelines are often implemented using various tools and technologies such as Jenkins, GitLab CI/CD, Travis CI, CircleCI, and others. These tools automate the stages of building, testing, and deployment, enabling development teams to release software more frequently, reliably, and efficiently. We could complete the CI/CD in seven steps (technology stack).
