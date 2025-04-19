@@ -1411,6 +1411,7 @@ DevOps is all about the integration of development and operations through a set 
 
 #### What is Agile?
 Agile is an `iterative and incremental approach` to project management and software development that focuses on `collaboration`, `customer feedback`, and `rapid releases`. Agile is mainly about developing software in `small`, `manageable pieces` while `maintaining flexibility` and a `strong focus` on customer needs. It’s about how the team works together to build software, how they adapt to changes, and how they deliver value quickly.
+
 ![Agile Methodology](/img/agile.png)
 
 #### Agile Manifesto?
@@ -1455,6 +1456,7 @@ There are several frameworks and methodologies under Agile, including:
 - `Sprint Review:` At the end of a sprint, the team demonstrates the work completed.
 - `Sprint Retrospective:` The team reviews what went well, what didn’t, and how to improve.
 The Agile process generally follows a cyclical flow where the team iterates through the same process repeatedly to improve and deliver value.
+
 ![Agile Process Flow/Workflow](/img/agile-framework.jpg)
 
 ##### Tools for Agile
@@ -1467,10 +1469,12 @@ Some of the tools commonly used to manage Agile projects include:
 - ClickUp
 
 #### Comparison between DevOps and Agile in terms of their key aspects:
+
 ![Comparison between DevOps and Agile](/img/devops-agile.png)
 
 #### [SDLC (Software Development Lifecycle)](https://aws.amazon.com/what-is/sdlc/)
 The software development lifecycle (SDLC) is the cost-effective and time-efficient process that development teams use to design and build high-quality software. The goal of SDLC is to minimize project risks through forward planning so that software meets customer expectations during production and beyond. This methodology outlines a series of steps that divide the software development process into tasks you can assign, complete, and measure.
+
 ![Software Development Lifecycle](/img/sdlc.png)
 
 ##### SDLC important?
@@ -1550,9 +1554,12 @@ It's a software development practice aimed at improving the quality and speed of
      The new rule receives a selected service as the event target. You might want to set up a target service to send notifications, capture state information, take corrective action, initiate events, or take other actions. When you add your target, you must also grant permissions to EventBridge to allow it to invoke the selected target service.
 - Polling:
  It is when your application periodically requests updates from the server. Polling is a simple way to receive updates from a remote server. Your application sends a request to the server at regular intervals, and the server will respond with any updates that have occurred since the last request. Polling is easy to implement and can be a good choice for applications that don't need to receive updates very frequently. However, polling can be inefficient if your application needs to receive updates very quickly, or if the server is slow to respond.
+
   ![Polling](/img/polling.jpg)
+  
 - Webhooks:
   Webhooks are when the server sends updates to your application as they happen. Webhooks are a more efficient way to receive updates from a remote server. When you register a webhook with a server, the server will send an HTTP POST request to your application's URL whenever an event occurs. This means that your application will only receive updates when they happen, which can save bandwidth and improve performance. Webhooks are more complex to implement than polling, but they are a good choice for applications that need to receive updates very quickly, or if the server is slow to respond.
+
   ![Webhooks](/img/webhooks.jpg)
 
 ***NB:*** Events are the default & recommended.
