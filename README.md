@@ -1356,6 +1356,12 @@ In some DevOps models, quality assurance and security teams may also become more
 
 These teams use practices to automate processes that historically have been manual and slow. They use a technology stack and tooling which help them operate and evolve applications quickly and reliably. These tools also help engineers independently accomplish tasks (for example, deploying code or provisioning infrastructure) that normally would have required help from other teams, and this further increases a team’s velocity.
 
+#### Four Pillars of DevOps
+- Automation
+- Quality
+- Monitoring
+- Testing
+
 #### Benefits of DevOps
 - Speed
 - Rapid Delivery
@@ -1463,19 +1469,108 @@ Some of the tools commonly used to manage Agile projects include:
 #### Comparison between DevOps and Agile in terms of their key aspects:
 ![Comparison between DevOps and Agile](/img/devops-agile.png)
 
+#### [SDLC (Software Development Lifecycle)](https://aws.amazon.com/what-is/sdlc/)
+The software development lifecycle (SDLC) is the cost-effective and time-efficient process that development teams use to design and build high-quality software. The goal of SDLC is to minimize project risks through forward planning so that software meets customer expectations during production and beyond. This methodology outlines a series of steps that divide the software development process into tasks you can assign, complete, and measure.
+
+##### SDLC important?
+Software development can be challenging to manage due to changing requirements, technology upgrades, and cross-functional collaboration. The software development lifecycle (SDLC) methodology provides a systematic management framework with specific deliverables at every stage of the software development process. As a result, all stakeholders agree on software development goals and requirements upfront and also have a plan to achieve those goals.
+
+**Here are some benefits of SDLC:**
+- Increased visibility of the development process for all stakeholders involved
+- Efficient estimation, planning, and scheduling
+- Improved risk management and cost estimation
+- Systematic software delivery and better customer satisfaction
+
+##### How does SDLC work?
+The software development lifecycle (SDLC) outlines several tasks required to build a software application. The development process goes through several stages as developers add new features and fix bugs in the software. The details of the SDLC process vary for different teams. However, we outline some common SDLC phases below.
+1. `Plan`- Establish project goals, conduct cost-benefit analysis, and gather requirements from stakeholders. Create a Software Requirements Specification (SRS) document to guide the project.
+2. `Design`- Analyze requirements and decide on technology, architecture, and integration with existing systems. Plan the system’s structure and user interface.
+3. `Implement`- Develop the software by coding it in incremental tasks. Use version control and perform code reviews to ensure quality.
+4. `Test`- Conduct automated and manual tests to identify bugs and ensure the software meets the requirements. Testing often overlaps with development.
+5. `Deploy`- Move the software from a test environment to production, ensuring a smooth transition without disrupting user access.
+6. `Maintain`- Fix bugs, update software, and monitor performance to ensure ongoing stability, security, and user satisfaction.
+
+##### What are SDLC models?
+A software development lifecycle (SDLC) model conceptually presents SDLC in an organized fashion to help organizations implement it. Different models arrange the SDLC phases in varying chronological order to optimize the development cycle. We look at some popular SDLC models below.
+1. Waterfall
+The waterfall model arranges all the phases sequentially so that each new phase depends on the outcome of the previous phase. Conceptually, the design flows from one phase down to the next, like that of a waterfall.
+| **Pros**                                          | **Cons**                                                                                          |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Provides discipline to project management.        | Little room for changes once a phase is complete.                                                 |
+| Tangible output at the end of each phase.         | Changes can affect delivery time, cost, and quality.                                              |
+| Suitable for small software development projects. | Not flexible for larger, more complex projects with evolving requirements.                        |
+| Tasks are easy to arrange and manage.             | Requires accurate pre-definition of requirements, which can be difficult in dynamic environments. |
+2. Iterative
+The iterative process suggests that teams begin software development with a small subset of requirements. Then, they iteratively enhance versions over time until the complete software is ready for production. The team produces a new software version at the end of each iteration.
+| **Pros**                                    | **Cons**                                     |
+| ------------------------------------------- | -------------------------------------------- |
+| Easy to identify and manage risks.          | Repeated cycles could lead to scope changes. |
+| Requirements can change between iterations. | Can result in underestimation of resources.  |
+3. Spiral
+The spiral model combines the iterative model's small repeated cycles with the waterfall model's linear sequential flow to prioritize risk analysis. You can use the spiral model to ensure software's gradual release and improvement by building prototypes at each phase.
+| **Pros**                                                | **Cons**                                                    |
+| ------------------------------------------------------- | ----------------------------------------------------------- |
+| Suitable for large and complex projects.                | Can be expensive for smaller projects with a limited scope. |
+| Well-suited for projects that require frequent changes. |                                                             |
+4. Agile
+The agile model arranges the SDLC phases into several development cycles. The team iterates through the phases rapidly, delivering only small, incremental software changes in each cycle. They continuously evaluate requirements, plans, and results so that they can respond quickly to change. The agile model is both iterative and incremental, making it more efficient than other process models.
+| **Pros**                                                         | **Cons**                                                                 |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Rapid development cycles help identify and address issues early. | Overreliance on customer feedback could lead to excessive scope changes. |
+| Allows engagement with customers and stakeholders for feedback.  | Could result in the project being ended midway or altered excessively.   |
 
 
 
 
 
 
-This is designed for individuals who have experience working in a DevOps role and using AWS services. This certification validates your knowledge and skills in various areas related to implementing and managing continuous delivery systems and methodologies on the AWS platform. Key topics covered in the AWS Certified DevOps Engineer – Professional exam include:
 
-- ***SDLC Automation:*** Implementing and managing continuous delivery systems and methodologies.
-- ***Configuration Management and Infrastructure as Code (IaC):*** Implementing and managing the deployment pipeline, including infrastructure as code (IaC).
-- ***Monitoring and Logging:*** Implementing monitoring and logging systems on AWS.
-- ***Policies and Standards Automation:*** Implementing systems that are highly available, scalable, and self-healing on the AWS platform.
-- ***Incident and Event Response:*** Designing, managing, and maintaining tools to automate operational processes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- **SDLC Automation:** Implementing and managing continuous delivery systems and methodologies.
+- **Configuration Management and Infrastructure as Code (IaC):** Implementing and managing the deployment pipeline, including infrastructure as code (IaC).
+- **Monitoring and Logging:** Implementing monitoring and logging systems on AWS.
+- **Policies and Standards Automation:** Implementing systems that are highly available, scalable, and self-healing on the AWS platform.
+- **Incident and Event Response:** Designing, managing, and maintaining tools to automate operational processes.
 
 To prepare for the exam, it's recommended to have hands-on experience with various AWS services and understand how to design, manage, and maintain tools for automating operational processes. Additionally, reviewing the official exam guide provided by AWS, along with relevant AWS documentation and whitepapers, can help you prepare effectively.
 
