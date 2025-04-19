@@ -1345,6 +1345,130 @@ BYOL is a licensing model that lets you use your existing software licenses (lik
 | 4   | Troubleshooting and Optimization | 18%    |
 
 ### [AWS Certified DevOps Engineer Professional - DOP-C02](https://aws.amazon.com/certification/certified-devops-engineer-professional/)
+#### [DevOps Model](https://aws.amazon.com/devops/what-is-devops/)
+DevOps is the combination of `cultural philosophies`, `practices`, and tools that increases an organization’s `ability to deliver applications` and services at `high velocity`: evolving and improving products at a faster pace than organizations using traditional software development and infrastructure management processes. This speed enables organizations to better serve their customers and compete more effectively in the market.
+![DevOps Model](/img/devops.png)
+
+#### How DevOps Works
+Under a DevOps model, development and operations teams are no longer `siloed`. Sometimes, these two teams are merged into a single team where the engineers work across the entire application lifecycle, from development and test to deployment to operations, and develop a range of skills not limited to a single function.
+
+In some DevOps models, quality assurance and security teams may also become more tightly integrated with development and operations and throughout the application lifecycle. When security is the focus of everyone on a DevOps team, this is sometimes referred to as DevSecOps.
+
+These teams use practices to automate processes that historically have been manual and slow. They use a technology stack and tooling which help them operate and evolve applications quickly and reliably. These tools also help engineers independently accomplish tasks (for example, deploying code or provisioning infrastructure) that normally would have required help from other teams, and this further increases a team’s velocity.
+
+#### Benefits of DevOps
+- Speed
+- Rapid Delivery
+- Reliability
+- Scale
+- Improved Collaboration
+- Security
+
+#### Why DevOps Matters
+DevOps matters because it directly impacts how fast, reliable, and efficiently a company can deliver software and services to its customers. In today’s world, where users expect seamless digital experiences and rapid innovation, DevOps helps organizations stay competitive. Here’s why DevOps really matters:
+- Faster Time to Market
+- Continuous Improvement & Delivery
+- Improved Collaboration
+- Better Quality and Fewer Bugs
+- Scalability and Flexibility
+- Enhanced Security
+- Cost Efficiency
+In conclusion, DevOps matters for several reasons, including faster and more reliable service delivery, reduced bugs, optimized speed, and cost control across all aspects of development and operations.
+
+#### DevOps Cultural Philosophy
+DevOps is an agile approach to organizational change that seeks to bridge traditional, siloed divides between teams and establish new processes that facilitate greater collaboration. At its essence, a DevOps culture involves closer collaboration and a shared responsibility between development and operations for the products they create and maintain. This helps companies align their people, processes, and tools toward a more unified customer focus. 
+
+#### DevOps Practices
+DevOps is all about the integration of development and operations through a set of best practices and principles that help streamline software development, deployment, and maintenance. These practices aim to achieve faster, more reliable, and efficient software delivery while fostering collaboration between teams. Here are some of the core DevOps practices that help organizations achieve their goals:
+- Continuous Integration
+- Continuous Delivery
+- Microservices
+- Infrastructure as Code
+- Monitoring and Logging
+- Communication and Collaboration
+- Automated Testing
+
+#### Benefits of DevOps Culture:
+- Streamlined, frequent, and high-quality software releases.
+- Improved company performance and employee satisfaction.
+- Fosters trust and collaboration among teams.
+- Leads to better decision-making and higher job satisfaction.
+- Engineers experience the reward of deploying stable, high-performing software.
+- Executives benefit from improved business outcomes.
+
+#### Challenges:
+- Significant changes in workflows and buy-in at all levels (especially from leadership) are required.
+- Grassroots efforts can help demonstrate success and convince executives.
+- Building trust and autonomy can be difficult if there’s a history of conflict or silos.
+- Clear communication of the benefits of change is necessary for acceptance.
+- Tool adoption without cultural change can lead to “cargo-cult DevOps”, which focuses on the facade but ignores the core issues.
+
+#### What is Agile?
+Agile is an `iterative and incremental approach` to project management and software development that focuses on `collaboration`, `customer feedback`, and `rapid releases`. Agile is mainly about developing software in `small`, `manageable pieces` while `maintaining flexibility` and a `strong focus` on customer needs. It’s about how the team works together to build software, how they adapt to changes, and how they deliver value quickly.
+![Agile Methodology](/img/agile.png)
+
+#### Agile Manifesto?
+The Agile Manifesto is a foundational document that outlines the core values and principles of the Agile methodology. The Manifesto consists of `4` key values and `12` principles that guide Agile teams in their work. As outlined in the Agile Manifesto, there are `four` main values of Agile project management.
+
+##### `Four` pillars of Agile?
+- `Individuals over processes and tools.` Agile teams value team collaboration and teamwork over working independently and doing things "by the book.”
+- `Working software over comprehensive documentation.` The software that Agile teams develop should work. Additional work, like documentation, is not as important as developing good software.
+- `Customer collaboration over contract negotiation.` Customers are extremely important within the Agile methodology. Agile teams allow customers to guide where the software should go. Therefore, customer collaboration is more important than the finer details of contract negotiation.
+- `Responding to change over following a plan.` One of the major benefits of Agile project management is that it allows teams to be flexible. This framework allows for teams to quickly shift strategies and workflows without derailing an entire project.
+
+##### `Twelve` Agile principles?
+If the four values of the Agile model are the weight-bearing pillars of a house, then the 12 Agile principles are the rooms you can build within that house. These principles can be easily adapted to fit the needs of your software development process. The 12 principles used in Agile methodology are:
+- `Satisfy customers through early, continuous improvement and delivery.` When customers receive new updates regularly, they're more likely to see the changes they want within the product. This leads to happier, more satisfied customers—and more recurring revenue.
+- `Welcome changing requirements, even late in the project.` The Agile framework is all about adaptability. In iterative approaches like Agile, being inflexible causes more harm than good. 
+- `Deliver value frequently.` Similar to principle #1, continuous delivery of value to your customers or stakeholders frequently makes it less likely for them to churn. 
+- `Break the silos of your projects.` Cross-functional teams and collaboration is a key Agile value. The goal is for people to break out of their individual projects and collaborate more frequently. 
+- `Build projects around motivated individuals.` Agile management works best when teams are committed and actively working to achieve a goal. 
+- `The most effective way to communicate is face-to-face.` If you’re working on a distributed team, spend time communicating in ways that involve face-to-face communication like Zoom calls or daily stand-up meetings. 
+- `Working software is the primary measure of progress.` The ultimate goal of software development projects is a working product, and the Agile framework supports this by prioritizing functional software above all.
+- `Maintain a sustainable working pace.` Some aspects of Agile project management can be fast-paced, but it shouldn't be so fast that team members burn out. The goal is to maintain sustainability throughout the development process.
+- `Continuous excellence enhances agility.` If the team develops excellent code in one sprint, they can continue to build off of it the next. Continually creating great work allows teams to move faster in the future. 
+- `Simplicity is essential.` Sometimes the simplest solution is the best solution. Agile development aims to not over complicate things and find simple answers to complex problems. 
+- `Self-organizing teams generate the most value.` Similar to principle #5, proactive teams become valuable assets to the company as they strive to deliver continuous improvement.
+- `Regularly reflect and adjust your way of work to improve effectiveness.` Retrospective meetings are a common Agile practice. It's a dedicated time for Agile teams to look back and reflect on their performance and adapt their behaviors for the future.
+
+##### Agile Methodologies
+There are several frameworks and methodologies under Agile, including:
+- `Scrum` - It's a common Agile methodology for small teams and also involves sprints. The team is led by a Scrum master whose main job is to clear all obstacles for others executing the day-to-day work. 
+- `Kanban` - It's a visual approach to Agile. Teams use online Kanban board tools to represent where certain tasks are in the development process. Tasks are represented by cards on a board, and stages are represented in columns.
+- `Extreme Programming (XP)` - Typically used in software development, Extreme Programming (XP) is an Agile framework that outlines values that will allow your team to work together more effectively.  
+- `Lean` - It's  is a way of optimizing organizational processes to maximize customer value while minimizing waste and resources. It emphasizes continuous improvement and the efficient use of resources to streamline processes, reduce costs, and increase quality.
+- `Adaptive Project Framework (APF)`- It's also known as Adaptive Project Management (APM) grew from the idea that unknown factors can show up at any time during a project. 
+- `Feature-Driven Development (FDD)` - Feature Driven Development blends different Agile best practices. While still an iterative method of project management, this model focuses more on the exact features of a software that the team is working to develop.
+- `Dynamic Systems Development Method (DSDM)` - It's is an Agile method that focuses on a full project lifecycle. Because of this, DSDM has a more rigorous structure and foundation, unlike other Agile methods. 
+- `Extreme Project Management (XPM)` - This type of project management is often used for very complex projects with a high level of uncertainty. This approach involves constantly adapting processes until they lead to the desired result.
+
+##### Agile Process Flow/Workflow
+- `Backlog:` This is a list of tasks and user stories that need to be completed.
+- `Sprint Planning:` The team picks which user stories to work on for the upcoming sprint.
+- `Daily Standups:` A short meeting to discuss progress, challenges, and plans for the day.
+- `Sprint Review:` At the end of a sprint, the team demonstrates the work completed.
+- `Sprint Retrospective:` The team reviews what went well, what didn’t, and how to improve.
+The Agile process generally follows a cyclical flow where the team iterates through the same process repeatedly to improve and deliver value.
+![Agile Process Flow/Workflow](/img/agile-framework.jpg)
+
+##### Tools for Agile
+Some of the tools commonly used to manage Agile projects include:
+- Jira
+- Trello
+- Asana
+- Monday.com
+- VersionOne
+- ClickUp
+
+#### Comparison between DevOps and Agile in terms of their key aspects:
+![Comparison between DevOps and Agile](/img/devops-agile.png)
+
+
+
+
+
+
+
 This is designed for individuals who have experience working in a DevOps role and using AWS services. This certification validates your knowledge and skills in various areas related to implementing and managing continuous delivery systems and methodologies on the AWS platform. Key topics covered in the AWS Certified DevOps Engineer – Professional exam include:
 
 - ***SDLC Automation:*** Implementing and managing continuous delivery systems and methodologies.
