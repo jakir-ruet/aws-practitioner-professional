@@ -1347,7 +1347,7 @@ BYOL is a licensing model that lets you use your existing software licenses (lik
 ### [AWS Certified DevOps Engineer Professional - DOP-C02](https://aws.amazon.com/certification/certified-devops-engineer-professional/)
 #### [DevOps Model](https://aws.amazon.com/devops/what-is-devops/)
 DevOps is the combination of `cultural philosophies`, `practices`, and tools that increases an organization’s `ability to deliver applications` and services at `high velocity`: evolving and improving products at a faster pace than organizations using traditional software development and infrastructure management processes. This speed enables organizations to better serve their customers and compete more effectively in the market.
-![DevOps Model](/img/devops.png)
+![DevOps Model](/img/devops.jpg)
 
 #### How DevOps Works
 Under a DevOps model, development and operations teams are no longer `siloed`. Sometimes, these two teams are merged into a single team where the engineers work across the entire application lifecycle, from development and test to deployment to operations, and develop a range of skills not limited to a single function.
