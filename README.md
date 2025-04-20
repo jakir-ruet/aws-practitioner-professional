@@ -1564,6 +1564,8 @@ It's a software development practice aimed at improving the quality and speed of
 
 ***NB:*** Events are the default & recommended.
 
+#### [Learning Bash Script](https://github.com/jakir-ruet/bashscript-learning)
+
 ## With Regards, `Jakir`
 
 [![LinkedIn][linkedin-shield-jakir]][linkedin-url-jakir]
