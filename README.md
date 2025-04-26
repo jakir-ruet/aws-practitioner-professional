@@ -300,6 +300,14 @@ The AWS Well-Architected Framework helps you understand the `pros` and `cons` of
 | Sustainability         | Environmental impact and energy efficiency            |
 
 ##### Management and Governance
+###### [AWS Control Tower](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-CTower.html)
+AWS Control Tower offers a straightforward way to set up and govern an AWS multi-account environment, following prescriptive best practices. AWS Control Tower orchestration extends the capabilities of AWS Organizations. AWS Control Tower applies preventive and detective controls (guardrails) to help keep your organizations and accounts from divergence from best practices (drift).
+**Features for AWS Control Tower**
+- Set up multi-account environment quickly
+- Automation and built-in governance
+- Preconfigured Controls
+- Integrate third-party software at scale
+
 ###### [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html)
 AWS Organizations is a service from Amazon Web Services that lets you centrally manage and govern multiple AWS accounts. It’s especially useful for businesses that want to create separate AWS accounts for different departments, projects, or teams while still keeping control from a central location.
 
@@ -311,16 +319,14 @@ AWS Organizations is a service from Amazon Web Services that lets you centrally 
 - Audit your environment for compliance
 - Centrally manage billing and costs
 
-###### [AWS Control Tower](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-CTower.html)
-AWS Control Tower offers a straightforward way to set up and govern an AWS multi-account environment, following prescriptive best practices. AWS Control Tower orchestration extends the capabilities of AWS Organizations. AWS Control Tower applies preventive and detective controls (guardrails) to help keep your organizations and accounts from divergence from best practices (drift).
-**Features for AWS Control Tower**
-- Set up multi-account environment quickly
-- Automation and built-in governance
-- Preconfigured Controls
-- Integrate third-party software at scale
-
 **Architechure**
 ![Architechure](/img/organization-control-tower.png)
+
+###### Landing Zone
+A Landing Zone within AWS Control Tower is a securely architected multi-account AWS environment where you enforce certain compliance and security best practices. Basically, it is the container that holds all of your organization units, accounts, users, and other resources that you want to be subject to a particular set of compliance restrictions. It automates the setup using predefined blueprints for identity management, federated access, and account structures, which include centralized logging and cross-account security audits.
+
+###### Service Control Policies
+In AWS Organizations used to manage and enforce governance rules across multiple AWS accounts. SCPs enable you to define the maximum available permissions for accounts within your organization, providing a central way to control which AWS services and actions can be accessed by users and roles in those accounts.
 
 **Comparison between AWS Organization and AWS Control Tower**
 | Feature              | **AWS Organizations**                                        | **AWS Control Tower**                                               |
