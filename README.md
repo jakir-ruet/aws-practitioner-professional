@@ -302,6 +302,7 @@ The AWS Well-Architected Framework helps you understand the `pros` and `cons` of
 ##### Management and Governance
 ###### [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html)
 AWS Organizations is a service from Amazon Web Services that lets you centrally manage and govern multiple AWS accounts. It’s especially useful for businesses that want to create separate AWS accounts for different departments, projects, or teams while still keeping control from a central location.
+
 **Features for AWS Organizations**
 - Manage your AWS accounts
 - Define and manage your organization
@@ -317,6 +318,9 @@ AWS Control Tower offers a straightforward way to set up and govern an AWS multi
 - Automation and built-in governance
 - Preconfigured Controls
 - Integrate third-party software at scale
+
+**Architechure**
+![Architechure](/img/organization-control-tower.png)
 
 **Comparison between AWS Organization and AWS Control Tower**
 | Feature              | **AWS Organizations**                                        | **AWS Control Tower**                                               |
