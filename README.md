@@ -180,7 +180,7 @@ High availability means your application or service remains **accessible and ope
 | **Amazon DynamoDB**             | Automatically replicates data across multiple AZs |
 
 ##### Scalability, Elasticity & Agility
-Both Scalability and Elasticity are core cloud concepts that help applications handle varying loads efficiently — but they are `not the same` thing.
+Scalability, Elasticity, and Agility are core principles that underpin the cloud computing model, enabling businesses to meet fluctuating demand, optimize costs, and innovate faster. These are cloud concepts that help applications handle varying loads efficiently — but they are `not the same` thing.
 
 ###### Scalability
 The ability of a system to increase or decrease its capacity (usually compute, storage, or throughput) based on workload. Types of Scalability:
@@ -204,16 +204,14 @@ The ability of the system to automatically adjust capacity to maintain performan
   - AWS Lambda: Automatically scales based on the number of incoming requests.
   - Amazon Aurora Serverless: Automatically adjusts database capacity.
 
-###### Key Differences Between Scalability and Elasticity
-| Feature        | Scalability                              | Elasticity                                 |
-| -------------- | ---------------------------------------- | ------------------------------------------ |
-| Focus          | Capacity expansion                       | Real-time responsiveness                   |
-| Trigger        | Manual or rule-based                     | Automated and reactive                     |
-| Example        | Add more EC2 instances with Auto Scaling | Lambda scales automatically with requests  |
-| Resource Usage | Grows with load (needs configuration)    | Expands/contracts on demand without effort |
-
-###### Agility in AWS
+ ###### Agility
 **Agility** in cloud computing refers to the ability to **quickly adapt** to changes in demand or business needs by leveraging scalable, flexible, and automated cloud resources. In AWS, agility allows businesses to deploy, scale, and modify their infrastructure with minimal time and effort.
+
+###### Key Features of Agility
+- `Rapid Deployment:` Launch services, applications, and infrastructure quickly without needing to wait for physical hardware or lengthy configuration processes.
+- `Flexibility and Adaptability:` Change infrastructure configurations in real-time to meet new demands or operational requirements.
+- `Cost Efficiency:` Only pay for what you use, enabling teams to experiment with new ideas without worrying about upfront costs.
+- `Automation:` Automate resource management and application deployment to save time and reduce human error.
 
 ###### Agility vs Traditional IT
 | Aspect           | Traditional IT                         | Cloud Agility (AWS)                   |
@@ -223,11 +221,13 @@ The ability of the system to automatically adjust capacity to maintain performan
 | Flexibility      | Difficult to change configurations     | Easily adaptable to meet new needs    |
 | Cost Efficiency  | High upfront costs                     | Pay-as-you-go, no upfront investment  |
 
-###### Key Features of Agility
-- `Rapid Deployment:` Launch services, applications, and infrastructure quickly without needing to wait for physical hardware or lengthy configuration processes.
-- `Flexibility and Adaptability:` Change infrastructure configurations in real-time to meet new demands or operational requirements.
-- `Cost Efficiency:` Only pay for what you use, enabling teams to experiment with new ideas without worrying about upfront costs.
-- `Automation:` Automate resource management and application deployment to save time and reduce human error.
+###### Key Differences Between Scalability and Elasticity
+| Feature        | Scalability                              | Elasticity                                 |
+| -------------- | ---------------------------------------- | ------------------------------------------ |
+| Focus          | Capacity expansion                       | Real-time responsiveness                   |
+| Trigger        | Manual or rule-based                     | Automated and reactive                     |
+| Example        | Add more EC2 instances with Auto Scaling | Lambda scales automatically with requests  |
+| Resource Usage | Grows with load (needs configuration)    | Expands/contracts on demand without effort |
 
 ##### Architecting for the Cloud
 The design principles of the AWS Cloud, primarily guided by the `AWS Well-Architected Framework`. These principles help you build secure, high-performing, resilient, and efficient infrastructure on the cloud.
