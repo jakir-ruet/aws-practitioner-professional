@@ -1,9 +1,7 @@
-# 🔄 PROCESS
+## 🔄 PROCESS
 Scrum is an Agile framework where work is delivered in short, time-boxed iterations and Sprints. Each Sprint delivers a potentially shippable product increment, allowing teams to adapt to changing requirements and continuously improve.
 
----
-
-# 👥 ROLES IN SCRUM
+## 👥 ROLES IN SCRUM
 
 ### Product Owner (PO)
 - Represents the voice of the customer.  
@@ -22,33 +20,25 @@ Scrum is an Agile framework where work is delivered in short, time-boxed iterati
 - Responsible for delivering potentially shippable increments every Sprint.  
 - **Core Responsibility:** Delivering high-quality work  
 
----
-
-# ⏱️ ITERATIONS (SPRINTS)
+## ⏱️ ITERATIONS (SPRINTS)
 - Sprints are time-boxed iterations where a fixed scope of work is executed.  
 - **Typical Length:** 1–4 weeks  
 - Once a Sprint starts, the scope is **locked**; new tasks cannot be added.  
 - **Outcome:** A working product increment that could be released.
 
----
-
-# 📏 ESTIMATION
+## 📏 ESTIMATION
 Estimation helps teams plan and forecast future work.  
 Can be done in:
 - **Hours** – Used for precise task duration  
 - **Story Points** – Abstract measure based on complexity, risk, and effort  
 *Done during backlog refinement or Sprint Planning*
 
----
-
-# 🧱 SCOPE LIMITS
+## 🧱 SCOPE LIMITS
 - The Sprint scope is limited to the team’s capacity.  
-- Overcommitting or introducing new work mid-Sprint is discouraged.  
+- Over committing or introducing new work mid-Sprint is discouraged.  
 - Focus is on maintaining sustainable pace and delivery quality.
 
----
-
-# 🧩 SCRUM EVENTS / MEETINGS
+## 🧩 SCRUM EVENTS / MEETINGS
 
 ### Sprint Planning
 - Held at the start of a Sprint (usually 1–2 hours per week of Sprint length).  
@@ -74,9 +64,7 @@ Can be done in:
   - What didn’t?  
   - What can be improved?
 
----
-
-# 📌 PRIORITIZATION
+## 📌 PRIORITIZATION
 Managed by the **Product Owner**.  
 Items in the Product Backlog are ordered based on:
 - Customer value  
@@ -85,9 +73,7 @@ Items in the Product Backlog are ordered based on:
 - Time sensitivity  
 *Helps the team stay focused on high-impact work.*
 
----
-
-# 📋 BOARD (TASK TRACKING)
+## 📋 BOARD (TASK TRACKING)
 A typical Scrum board has four key sections:
 1. **Product Backlog** – All features, fixes, and requirements (not yet selected for Sprint).  
 2. **Sprint Backlog** – Work selected for the current Sprint.  
@@ -98,9 +84,7 @@ Boards can be:
 - Physical (whiteboards with sticky notes)  
 - Digital (e.g., Jira, Trello, Azure Boards)
 
----
-
-# 📘 KEY SCRUM TERMS
+## 📘 KEY SCRUM TERMS
 
 ### Product Backlog
 A prioritized list of features, enhancements, and bug fixes maintained by the PO.
