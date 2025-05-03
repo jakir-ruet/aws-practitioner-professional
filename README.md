@@ -299,6 +299,17 @@ The AWS Well-Architected Framework helps you understand the `pros` and `cons` of
 | Cost Optimization      | Spend control, budgeting, resource management         |
 | Sustainability         | Environmental impact and energy efficiency            |
 
+###### Multi-Tenant Architectures
+Multi-tenancy in the cloud refers to an architecture where a single instance of a cloud service or application serves multiple customers (tenants). Each tenant's data, configurations, and operations are isolated, but they share the same underlying infrastructure. This approach is commonly used in cloud computing to reduce costs and maximize resource utilization while maintaining data separation and security between tenants. Three types of Multi-Tenancy:
+1. Silo Model
+2. Bridge Model
+3. Pool Model
+
+![Multi-Tenant Architectures](/img/multi-tenant-architectures.png)
+
+**Comparison Table: Silo Model vs. Bridge Model vs. Pool Model**
+![Multi-Tenant Architectures](/img/comparison-silo-bridge-pool.png)
+
 ##### Management and Governance
 ###### [AWS Control Tower](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-CTower.html)
 AWS Control Tower offers a straightforward way to set up and govern an AWS multi-account environment, following prescriptive best practices. AWS Control Tower orchestration extends the capabilities of AWS Organizations. AWS Control Tower applies preventive and detective controls (guardrails) to help keep your organizations and accounts from divergence from best practices (drift).
