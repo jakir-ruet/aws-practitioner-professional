@@ -391,23 +391,24 @@ Deployment Matrix
 
 ###### Migration
 **Prerequisite of Migration**
-| Phase       | Key Activities                                                             |
-| ----------- | -------------------------------------------------------------------------- |
-| Preparation | Current Architecture, assess environment, choose strategy                  |
-| Planning    | Estimate cost, design architecture, monolithic to microservice |
-| Migrate     | Use AWS tools (MGN, DMS), test, validate, backup, cutover                  |
-| Monitor     | Track performance with CloudWatch, CloudTrail, X-Ray, set alerts           |
-| Optimize    | Right-size resources, cost optimization, enhance security, modernize apps  |
+| Phase       | Key Activities                                                            |
+| ----------- | ------------------------------------------------------------------------- |
+| Preparation | Current Architecture, assess environment, choose strategy                 |
+| Planning    | Estimate cost, design architecture, monolithic to microservice            |
+| Migrate     | Use AWS tools (MGN, DMS), test, validate, backup, cutover                 |
+| Monitor     | Track performance with CloudWatch, CloudTrail, X-Ray, set alerts          |
+| Optimize    | Right-size resources, cost optimization, enhance security, modernize apps |
 
-**Migration Strategies (6 R’s)**
+**Migration Strategies (7 R’s)**
 | Strategy   | Description                                                              |
 | ---------- | ------------------------------------------------------------------------ |
-| Rehost     | "Lift and shift" – move applications to AWS without changes              |
+| Refactor   | Redesign application for cloud-native architecture (e.g., microservices) |
 | Replatform | "Lift, tinker, and shift" – make minimal changes (e.g., move DB to RDS)  |
 | Repurchase | Replace with SaaS solutions (e.g., move to a cloud-based CRM)            |
-| Refactor   | Redesign application for cloud-native architecture (e.g., microservices) |
-| Retire     | Decommission outdated or unused applications                             |
+| Rehost     | "Lift and shift" – move applications to AWS without changes              |
+| Relocate   | Move without modification "Lift and shift"                               |
 | Retain     | Keep some apps on-premises (temporarily or permanently)                  |
+| Retire     | Decommission outdated or unused applications                             |
 
 AWS offers a comprehensive suite of tools and services to facilitate cloud migration, including automated processes and specialized expertise. 
 - [AWS Migration Evaluator](https://aws.amazon.com/migration-evaluator/?p=ft&c=mg&z=3)
