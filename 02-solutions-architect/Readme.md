@@ -59,6 +59,7 @@ Let’s understand the problem
 - IP address length: `32 bits total`
 - /16 means 16 bits are `1 in the subnet mask`, remaining `16 bits are 0`
 - Binary & Decimal subnet mask:
+
 | Octet 1  | Octet 2  | Octet 3  | Octet 4  | Decimal Equivalent |
 | -------- | -------- | -------- | -------- | ------------------ |
 | 11111111 | 11111111 | 00000000 | 00000000 | **255.255.0.0**    |
@@ -85,6 +86,7 @@ Given:
 > Notes (Subtract 2 for network and broadcast addresses)
 
 - Subnet addresses (Host)
+
 | Subnet | Subnet ID     | First Host | Last Host      | Broadcast Address |
 | ------ | ------------- | ---------- | -------------- | ----------------- |
 | 1      | 10.0.0.0/16   | 10.0.0.1   | 10.0.255.254   | 10.0.255.255      |
