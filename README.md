@@ -4,27 +4,27 @@
 
 #### 1. Foundational (Beginner)
 
-- [AWS Certified Cloud Practitioner **CLF-C02**](https://github.com/jakir-ruet/aws-practitioner-professionals)
+- [AWS Certified Cloud Practitioner **CLF-C02**](https://github.com/jakir-ruet/aws-practitioner-professional/tree/master/01-cloud-practitioner)
 
 #### 2. Associate Level
 
-- [AWS Certified Solutions Architect – Associate **SAA-C03**](https://github.com/jakir-ruet/aws-practitioner-professionals)
-- [AWS Certified Developer – Associate **DVA-C02**](https://github.com/jakir-ruet/aws-practitioner-professionals)
-- [AWS Certified SysOps Administrator – Associate **SOA-C02**](https://github.com/jakir-ruet/aws-practitioner-professionals)
+- [AWS Certified Solutions Architect – Associate **SAA-C03**](https://github.com/jakir-ruet/aws-practitioner-professional/tree/master/02-solutions-architect)
+- [AWS Certified Developer – Associate **DVA-C02**](https://github.com/jakir-ruet/aws-practitioner-professional/tree/master/02-solutions-architect)
+- [AWS Certified SysOps Administrator – Associate **SOA-C02**](https://github.com/jakir-ruet/aws-practitioner-professional)
 
 #### 3. Professional Level
 
-- [AWS Certified Solutions Architect – Professional **SAP-C02**](https://github.com/jakir-ruet/aws-practitioner-professionals)
-- [AWS Certified DevOps Engineer – Professional **DOP-C02**](https://github.com/jakir-ruet/aws-practitioner-professionals)
+- [AWS Certified Solutions Architect – Professional **SAP-C02**](https://github.com/jakir-ruet/aws-practitioner-professional)
+- [AWS Certified DevOps Engineer – Professional **DOP-C02**](https://github.com/jakir-ruet/aws-practitioner-professional/tree/master/03-devops-engineer)
 
 #### 4. Specialty Level
 
-- [AWS Certified Advanced Networking – Specialty **ANS-C01**](https://github.com/jakir-ruet/aws-practitioner-professionals)
-- [AWS Certified Security – Specialty **SCS-C02**](https://github.com/jakir-ruet/aws-practitioner-professionals)
-- [AWS Certified Machine Learning – Specialty **MLS-C01**](https://github.com/jakir-ruet/aws-practitioner-professionals)
-- [AWS Certified Data Analytics – Specialty **DAS-C01**](https://github.com/jakir-ruet/aws-practitioner-professionals)
-- [AWS Certified Database – Specialty **DBS-C01**](https://github.com/jakir-ruet/aws-practitioner-professionals)
-- [AWS Certified SAP on AWS – Specialty **PAS-C01**](https://github.com/jakir-ruet/aws-practitioner-professionals)
+- [AWS Certified Advanced Networking – Specialty **ANS-C01**](https://github.com/jakir-ruet/aws-practitioner-professional)
+- [AWS Certified Security – Specialty **SCS-C02**](https://github.com/jakir-ruet/aws-practitioner-professional)
+- [AWS Certified Machine Learning – Specialty **MLS-C01**](https://github.com/jakir-ruet/aws-practitioner-professional)
+- [AWS Certified Data Analytics – Specialty **DAS-C01**](https://github.com/jakir-ruet/aws-practitioner-professional)
+- [AWS Certified Database – Specialty **DBS-C01**](https://github.com/jakir-ruet/aws-practitioner-professional)
+- [AWS Certified SAP on AWS – Specialty **PAS-C01**](https://github.com/jakir-ruet/aws-practitioner-professional)
 
 ## With Regards, `Jakir`
 
