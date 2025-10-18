@@ -330,7 +330,19 @@ Multi-tenancy in the cloud refers to an architecture where a single instance of 
 ![Multi-Tenant Architectures](/img/multi-tenant-architectures.png)
 
 **Comparison Table: Silo Model vs. Bridge Model vs. Pool Model**
-![Multi-Tenant Architectures](/img/comparison-silo-bridge-pool.png)
+
+| Aspect               | **Silo**                                     | **Bridge**               | **Pool**                         |
+| -------------------- | -------------------------------------------- | ------------------------ | -------------------------------- |
+| **Isolation**        | High                                         | Medium                   | Low                              |
+| **Connectivity**     | None                                         | Peer-to-peer             | Centralized (Hub-and-Spoke)      |
+| **Scalability**      | High                                         | Limited (many peers)     | Very High                        |
+| **Management**       | Decentralized                                | Mixed                    | Centralized                      |
+| **Cost Efficiency**  | Low                                          | Medium                   | High                             |
+| **Complexity**       | Simple                                       | Moderate                 | High (setup), easy later         |
+| **Use Case**         | Strict isolation (e.g., finance, healthcare) | Limited resource sharing | Enterprise shared services       |
+| **Key AWS Services** | Separate VPCs/Accounts                       | VPC Peering, PrivateLink | Transit Gateway, Shared VPC      |
+| **Shared Services**  | None                                         | Selective                | Centralized (DNS, NAT, Firewall) |
+
 
 #### Management and Governance
 
