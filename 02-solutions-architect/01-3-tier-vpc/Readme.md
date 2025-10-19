@@ -40,4 +40,19 @@
 
 #### Step 03
 
+- Create a rt `public-rt`
+- Go to VPC > Your VPC's > vpc-07e4f92321f78kht > my-test-vpc
+- Set main route table
+
+#### Step 04
+
+- Create `public-ngw` NAT Gateway
+- Select `subnet-07e4f92321fd08768 (my-test-vpc-public-1-us-east-1a)`
+- Connectivity type `Public`
+- Assign Elastic IP allocation ID `eipalloc-0738578gd8978432`
+
+#### Step 05
+
+- Create a rt `private-rt` for four private subnet
+- Go to VPC > Route tables > rtb-0kd788cf68g3435 > edit subnet associations
 - Set main route table
