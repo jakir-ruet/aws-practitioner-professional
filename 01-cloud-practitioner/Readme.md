@@ -665,6 +665,7 @@ Unify your cloud security operations and prioritizes your critical security issu
   2. `AWS Audit Manager` - Continually audit your AWS usage to simplify risk and compliance assessment.
 
 - Security Hub
+
 ![Security Hub](/img/security-hub.png)
 
 ##### Identity and Access Management - Each compontent's breif discussion
@@ -1366,3 +1367,4 @@ BYOL is a licensing model that lets you use your existing software licenses (lik
 [facebook-url-jakir]: https://www.facebook.com/jakir.ruet/
 [youtube-shield-jakir]: https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white
 [youtube-url-jakir]: https://www.youtube.com/@mjakaria-ruet/featured
+
