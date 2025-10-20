@@ -319,12 +319,92 @@ The AWS Well-Architected Framework helps you understand the `pros` and `cons` of
 
 It's leverages AWS experience and best practices to help you digitally transform and accelerate your business outcomes through innovative use of AWS. AWS CAF identifies specific organizational capabilities that underpin successful cloud transformations. These capabilities provide best practice guidance that helps you improve your cloud readiness. AWS CAF groups its capabilities in `six` perspectives:
 
-- Business,
-- People,
-- Governance,
-- Platform,
-- Security, and
-- Operations.
+- Business perspective,
+- People perspective,
+- Governance perspective,
+- Platform perspective,
+- Security perspective, and
+- Operations perspective.
+
+##### Briefly discuss `six` perspective
+
+1. Business Perspective
+
+Ensure that cloud adoption aligns with business outcomes and delivers measurable value.
+
+- Focus Areas:
+  - Business case development
+  - Measuring ROI and KPIs
+  - Value realization and cost optimization
+  - Strategic alignment of IT with business goals
+
+> Key Stakeholders:
+Business executives, finance teams, portfolio managers, strategy leaders
+
+2. People Perspective
+
+Prepare and support the organization through cultural and staff transformation.
+
+- Focus Areas:
+  - Organizational change management
+  - Cloud training and up-skilling
+  - Redefining roles and responsibilities
+  - Talent management and communication
+
+> Key Stakeholders:
+HR, training departments, change management leaders, team managers
+
+3. Governance Perspective
+
+Ensure that the cloud adoption process complies with organizational policies and risk management frameworks.
+
+- Focus Areas:
+  - Risk management and compliance
+  - Cost control and budgeting
+  - Portfolio management
+  - Policy enforcement and decision-making processes
+
+> Key Stakeholders:
+Chief Information Officer - CIO, risk and compliance officers, finance controllers, enterprise architects
+
+4. Platform Perspective
+
+Design, build, and operate the cloud infrastructure environment.
+
+- Focus Areas:
+  - Cloud architecture (compute, network, storage)
+  - Application modernization
+  - Infrastructure automation
+  - CI/CD pipelines and DevOps practices
+
+> Key Stakeholders:
+Cloud architects, DevOps engineers, system administrators, infrastructure teams
+
+5. Security Perspective
+
+Protect data, systems, and assets in the cloud while enabling business agility.
+
+- Focus Areas:
+  - Identity and Access Management (IAM)
+  - Data protection and encryption
+  - Security monitoring and compliance
+  - Incident response and vulnerability management
+
+> Key Stakeholders:
+Chief Information Security Officer - CISO, security engineers, compliance teams, risk managers
+
+6. Operations Perspective
+
+Manage and optimize day-to-day operations of cloud and hybrid environments.
+
+- Focus Areas:
+  - Monitoring and performance management
+  - Incident and problem management
+  - Backup, recovery, and business continuity
+  - Continuous improvement and automation
+
+> Key Stakeholders:
+IT operations teams, service managers, support engineers
 
 ##### How AWS CAF brings tangible benefits across different business goals:
 
@@ -334,7 +414,7 @@ It's leverages AWS experience and best practices to help you digitally transform
    - Regulatory Compliance: The framework guides compliance with industry and government regulations, reducing legal and financial risk.
 2. Improved ESG (Environmental, Social, and Governance) Performance
    - Environmental: Migrating to AWS can reduce carbon emissions as AWS operates on renewable energy and efficiently manages data centers.
-   - Social: Upskilling employees for cloud roles creates new career opportunities and enhances workforce development.
+   - Social: Up-skilling employees for cloud roles creates new career opportunities and enhances workforce development.
    - Governance: CAF promotes transparency, accountability, and strong governance models that align with ethical and compliance standards.
 3. Increased Revenue
    - Faster Time-to-Market: With cloud agility, businesses can innovate faster, roll out products more quickly, and capitalize on market opportunities.
@@ -342,7 +422,7 @@ It's leverages AWS experience and best practices to help you digitally transform
    - Global Reach: Access to AWS's global infrastructure supports expansion into new regions and customer bases.
 4. Increased Operational Efficiency
    - Automation & Optimization: CAF encourages automating routine tasks and optimizing cloud resources, reducing manual work and costs.
-   - Scalability & Flexibility: Resources can be scaled up or down based on demand, avoiding overprovisioning
+   - Scalability & Flexibility: Resources can be scaled up or down based on demand, avoiding over provisioning
    - Process Improvements: The framework helps streamline operations through best practices, monitoring, and continuous improvement models.
 
 #### Multi-Tenant Architectures
@@ -1523,7 +1603,7 @@ Amazon Route 53 is a scalable and highly available Domain Name System (DNS) web 
 
 | Record Type | Value             |
 | ----------- | ----------------- |
-| Name:       | <www.example.com> |
+| Name:       | `www.example.com` |
 | Type:       | A                 |
 | Value       | : 54.123.45.67    |
 | TTL:        | 300 (seconds)     |
@@ -1553,11 +1633,11 @@ There are `three` types of storage in Amazon Web Services
 3. Block Storage
    - **Elastic Block Storage (EBS):** Persistent block-level storage volumes for EC2 instances.
      - **SSD Storage volumes:**
-       - *General Purpose (GP2):* Balanced price/performance for a wide variety of workloads.
-       - *Provisioned IOPS SSD (io1/io2):* High-performance volumes for latency-sensitive applications.
+       - **General Purpose (GP2):** Balanced price/performance for a wide variety of workloads.
+       - **Provisioned IOPS SSD (io1/io2):** High-performance volumes for latency-sensitive applications.
      - **HDD Storage:**
-       - *Throughput Optimized (ST1):* Low-cost HDD for frequently accessed, throughput-intensive workloads.
-       - *Cold HDD (SC1):* Lowest cost HDD for less frequently accessed data.
+       - **Throughput Optimized (ST1):** Low-cost HDD for frequently accessed, throughput-intensive workloads.
+       - **Cold HDD (SC1):** Lowest cost HDD for less frequently accessed data.
      - **Magnetic Storage:** Legacy magnetic volumes for infrequent access with low cost.
    - **EC2 Instance Storage:** Temporary block storage physically attached to the host instance (ephemeral).
 
@@ -1628,8 +1708,11 @@ Average Seek Time = (`Read Time` + `Write Time`)/`2`
 IOPS = 1 / (`RPM Average Latency Time` + `Average Seek Time`)
 
 Suppose,
+
 Rotational Speed = 15,000,
+
 RPM Average Latency Time = 3 ms = 0.003 Seconds,
+
 Average Seek Time = {4.2 (R) + 4.45 (W)}/2 = 4.45 ms = 0.0045 Second
 
 IOPS = 1 / (0.003 + 0.0045) = 133 IOPS (Approximately)
