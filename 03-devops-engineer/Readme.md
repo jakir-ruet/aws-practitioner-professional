@@ -235,7 +235,7 @@ Items in the Product Backlog are ordered based on:
 - Risk/complexity
 - Dependencies
 - Time sensitivity
-_Helps the team stay focused on high-impact work._
+- Helps the team stay focused on high-impact work.
 
 #### BOARD (TASK TRACKING)
 
@@ -268,7 +268,7 @@ A relative unit for estimating effort, used instead of hours to avoid bias and p
 ##### User Story
 
 A short description of functionality from the user's perspective:
-_"As a [user], I want [feature], so that [benefit]."_
+"As a [user], I want [feature], so that [benefit]."
 
 ##### Burndown Chart
 
