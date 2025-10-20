@@ -1159,7 +1159,27 @@ AWS Secrets Manager is a Dedicated secrets management service
 
 1. `AWS Artifact` - No cost, self-service portal for on-demand access to AWS’ compliance reports.
 
+AWS Artifact is a self-service portal that provides on-demand access to AWS’s security and compliance reports. It helps customers assess the compliance of AWS services and manage their own compliance requirements by providing audit artifacts like certifications and attestations.
+
+- Key Features
+  - **Access to Compliance Reports:** Get access to AWS compliance reports such as SOC, ISO, PCI DSS, HIPAA, and more.
+  - **On-Demand Downloads:** Download audit artifacts and certifications whenever you need them.
+  - **Compliance Management:** Helps customers understand the security and compliance posture of AWS services they use.
+  - **Agreement Management:** Manage, review, and accept AWS business agreements and compliance documents.
+  - **Centralized Portal:** Single location to access all AWS compliance-related documentation.
+
 2. `AWS Audit Manager` - Continually audit your AWS usage to simplify risk and compliance assessment.
+
+AWS Audit Manager is a service that helps you continuously audit your AWS usage to simplify how you assess risk and compliance with industry standards and regulations. It automates evidence collection and organizes it to help reduce manual effort during audits.
+
+- Key Features
+  - **Automated Evidence Collection:** Continuously collects evidence from AWS services to simplify audits.
+  - **Pre-built Frameworks:** Supports popular compliance frameworks such as PCI DSS, HIPAA, GDPR, SOC 2, and more.
+  - **Custom Frameworks:** Create custom audit frameworks tailored to your organization’s specific requirements.
+  - **Centralized Audit Management:** Organize and manage audit reports and evidence in a single place.
+  - **Collaboration:** Allows multiple team members to work on audits and review evidence.
+  - **Integration with AWS Services:** Works with AWS Config, CloudTrail, and others to gather relevant data.
+  - **Compliance Reporting:** Generates audit-ready reports to support compliance assessments.
 
 #### Security Group
 
@@ -1366,11 +1386,35 @@ You simply upload your code, and Elastic Beanstalk automatically handles provisi
 | **Supported Programming Languages** | Limited to pre-configured stacks (e.g., LAMP, Node.js)        | Supports multiple programming languages and frameworks         |
 | **Integration with AWS**            | Limited to Lightsail-specific features (e.g., S3, RDS)        | Full integration with AWS services (e.g., RDS, S3, CloudWatch) |
 
-#### [DNS, Networking and content delivery](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html)
+#### [Amazon VPC, DNS, Networking and content delivery](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html)
 
-##### [Amazon VPC](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html)
+- Amazon Route 53
+  - **Highly available and scalable DNS web service.**
+  - **Domain registration:** Register domain names directly.
+  - **DNS Routing:** Supports routing policies like Simple, Weighted, Latency-based, Failover, and Geo DNS.
+  - **Health Checks & Monitoring:** Route traffic away from unhealthy endpoints.
+  - **Integration:** Works with other AWS services and external endpoints.
 
-##### [AWS VPN](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html)
+- Amazon VPC (Virtual Private Cloud) - Networking
+  - **Create isolated virtual networks within AWS.**
+  - **Customizable IP address ranges, subnets, route tables, and gateways.**
+  - **Security:** Use security groups and network ACLs to control traffic.
+  - **VPC Peering:** Connect different VPCs privately.
+  - **VPN & Direct Connect:** Secure hybrid connectivity between on-premises and AWS.
+
+- AWS Transit Gateway
+  - **Central hub for connecting multiple VPCs and on-premises networks.**
+  - **Simplifies network management and scales connectivity.**
+
+- Content Delivery - Amazon CloudFront
+  - **Global Content Delivery Network (CDN).**
+  - **Delivers websites, APIs, video content, and other assets with low latency.**
+  - **Supports SSL/TLS encryption and DDoS protection with AWS Shield.**
+  - **Edge locations worldwide for caching content close to users.**
+
+- AWS Global Accelerator
+  - **Improves availability and performance of applications with static IP addresses.**
+  - **Uses AWS global network to route traffic optimally.**
 
 ##### [Elastic Load Balancing](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html)
 
@@ -1443,9 +1487,19 @@ A Target Group in AWS is a configuration that defines the set of targets (like E
   - Port Configuration: Defines the port for sending traffic to targets.
   - Multiple Target Groups: Supports multiple groups per load balancer for fine-grained routing.
 
-#### [Amazon API Gateway](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html)
+#### [Amazon API Gateway](https://aws.amazon.com/api-gateway/)
 
-#### [Amazon CloudFront](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html)
+Amazon API Gateway is a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. It acts as a front door for applications to access data, business logic, or functionality from backend services like AWS Lambda, EC2, or other web services.
+
+- Key Features
+  - **Create RESTful and WebSocket APIs:** Support for HTTP-based APIs including REST and real-time communication with WebSocket APIs.
+  - **Scalable and Fully Managed:** Automatically handles traffic management, authorization, and access control.
+  - **Security:** Supports AWS IAM, Amazon Cognito, and custom authorizers for securing APIs.
+  - **Throttling and Quotas:** Protect backend systems by setting request limits.
+  - **Monitoring and Analytics:** Integration with Amazon CloudWatch for logging and metrics.
+  - **Request and Response Transformation:** Modify incoming requests and outgoing responses without changing backend code.
+  - **Caching:** Reduce backend load and improve latency by enabling response caching.
+  - **API Versioning and Stages:** Manage multiple versions and deployment stages of APIs easily.
 
 #### [Amazon Route 53](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html)
 
@@ -1625,41 +1679,535 @@ Running applications on-premises but keeping a disaster recovery copy in AWS.
 > Use Case
 Replacing old tape backup systems with a cloud-based solution.
 
-#### Services from other in-scope AWS Service Categories
+#### Services from Additional Relevant AWS Categories
 
 - `Application Integration Services`
-  - `Amazon EventBridge:` Event bus for building event-driven applications at scale.
-  - `Amazon SNS (Simple Notification Service):` Pub/sub messaging for decoupled microservices.
-  - `Amazon SQS (Simple Queue Service):` Managed message queuing for distributed systems.
+  1. `Amazon EventBridge:` Event bus for building event-driven applications at scale.
+  2. `Amazon SNS (Simple Notification Service):` Pub/sub messaging for decoupled microservices.
+  3. `Amazon SQS (Simple Queue Service):` Managed message queuing for distributed systems.
 - `Business Application Services`
-  - `Amazon Connect:` Cloud-based contact center service.
-  - `Amazon SES (Simple Email Service):` Scalable email sending for marketing or transactional purposes.
+  1. `Amazon Connect:` Cloud-based contact center service.
+  2. `Amazon SES (Simple Email Service):` Scalable email sending for marketing or transactional purposes.
 - `Customer Engagement Services`
-  - `AWS Activate for Startups:` Credits, training, and support for startup growth.
-  - `AWS IQ:` Connects customers with AWS-certified freelancers and consultants.
-  - `AWS Managed Services (AMS):` Operational support and automation for AWS infrastructure.
-  - `AWS Support:` Tiered support plans offering guidance and troubleshooting.
+  1. `AWS Activate for Startups:` Credits, training, and support for startup growth.
+  2. `AWS IQ:` Connects customers with AWS-certified freelancers and consultants.
+  3. `AWS Managed Services (AMS):` Operational support and automation for AWS infrastructure.
 - `Developer Tools`
-  - `AWS AppConfig:` Feature flagging and configuration management.
-  - `AWS Cloud9:` Cloud-based IDE for writing, running, and debugging code.
-  - `AWS CloudShell:` Browser-based shell for command-line access to AWS.
-  - `AWS CodeArtifact:` Artifact repository for software packages.
-  - `AWS CodeBuild:` Continuous integration service to compile and test code.
-  - `AWS CodeCommit:` Fully managed Git-based source control.
-  - `AWS CodeDeploy:` Automates code deployments to compute services.
-  - `AWS CodePipeline:` CI/CD pipeline orchestration tool.
-  - `AWS CodeStar:` Unified interface for software development.
-  - `AWS X-Ray:` Distributed tracing system for analyzing and debugging applications.
+  1. `AWS AppConfig:` Feature flagging and configuration management.
+  2. `AWS Cloud9:` Cloud-based IDE for writing, running, and debugging code.
+  3. `AWS CloudShell:` Browser-based shell for command-line access to AWS.
+  4. `AWS CodeArtifact:` Artifact repository for software packages.
+  5. `AWS CodeBuild:` Continuous integration service to compile and test code.
+  6. `AWS CodeCommit:` Fully managed Git-based source control.
+  7. `AWS CodeDeploy:` Automates code deployments to compute services.
+  8. `AWS CodePipeline:` CI/CD pipeline orchestration tool.
+  9. `AWS CodeStar:` Unified interface for software development.
+  10. `AWS X-Ray:` Distributed tracing system for analyzing and debugging applications.
 - `End-User Computing Services`
-  - `Amazon AppStream 2.0:` Stream desktop apps to users over the web.
-  - `Amazon WorkSpaces:` Managed virtual desktops in the cloud.
-  - `Amazon WorkSpaces Web:` Secure browser access to internal websites and apps.
+  1. `Amazon AppStream 2.0:` Stream desktop apps to users over the web.
+  2. `Amazon WorkSpaces:` Managed virtual desktops in the cloud.
+  3. `Amazon WorkSpaces Web:` Secure browser access to internal websites and apps.
 - `Frontend Web and Mobile Services`
-  - `AWS Amplify:` Set of tools to build, ship, and host full-stack applications.
-  - `AWS AppSync:` Managed GraphQL service for querying and syncing data in real-time.
+  1. `AWS Amplify:` Set of tools to build, ship, and host full-stack applications.
+  2. `AWS AppSync:` Managed GraphQL service for querying and syncing data in real-time.
 - `IoT Services`
-  - `AWS IoT Core:` Secure device communication with cloud apps and services.
-  - `AWS IoT Greengrass:` Brings AWS compute, messaging, and data caching to edge devices.
+  1. `AWS IoT Core:` Secure device communication with cloud apps and services.
+  2. `AWS IoT Greengrass:` Brings AWS compute, messaging, and data caching to edge devices.
+
+#### Services from Additional Relevant AWS Categories - brief discuss
+
+- `Application Integration Services`
+  1. `Amazon EventBridge:` Event bus for building event-driven applications at scale.
+
+Amazon EventBridge is a fully managed event bus service from AWS that enables event-driven architecture by connecting applications using events from your own apps, AWS services, and SaaS providers.
+
+- Key Features
+  - **Event Routing:** Filter and route events based on rules to various AWS targets (Lambda, SNS, SQS, Step Functions, etc.).
+  - **AWS Service Integration:** Seamless integration with many AWS services like EC2, S3, Lambda.
+  - **SaaS Integrations:** Ingest events from popular SaaS platforms such as Zendesk, Datadog, and more.
+  - **Schema Registry:** Discover, create, and manage event schemas for better development experience.
+  - **Fully Managed:** No infrastructure management required, scales automatically.
+
+- Common Use Cases
+  - Automating workflows triggered by system or application events.
+  - Building event-driven microservices architectures.
+  - Monitoring system changes and triggering alerts.
+  - Integrating third-party SaaS event data into AWS environments.
+
+  2. `Amazon SNS (Simple Notification Service):` Pub/sub messaging for decoupled microservices.
+
+Amazon SNS is a fully managed pub/sub messaging service from AWS that enables message delivery to distributed systems, microservices, and event-driven serverless applications.
+
+- Key Features
+  - **Pub/Sub Messaging:** Publish messages to topics and deliver them to multiple subscribers.
+  - **Multiple Protocols Supported:** Push notifications to HTTP/S endpoints, AWS Lambda, SQS queues, email, SMS, and mobile push notifications.
+  - **Scalable & Durable:** Automatically scales to handle high throughput and guarantees message durability.
+  - **Fan-out Pattern:** Send a single message to multiple subscribers simultaneously.
+  - **Message Filtering:** Subscribers can filter messages based on message attributes.
+  - **Security:** Supports encryption at rest and in transit, and integrates with AWS IAM for access control.
+
+- Common Use Cases
+  - Sending notifications to distributed systems and microservices.
+  - Fan-out message delivery to multiple subscribers (e.g., Lambda, SQS).
+  - Mobile push notifications for apps.
+  - Alerting and monitoring systems.
+  - Workflow triggering in event-driven architectures.
+
+  3. `Amazon SQS (Simple Queue Service):` Managed message queuing for distributed systems.
+
+Amazon SQS is a fully managed message queuing service from AWS that enables decoupling and scaling of microservices, distributed systems, and serverless applications.
+
+- Key Features
+  - **Message Queues:** Provides reliable, highly scalable hosted queues for storing messages as they travel between components.
+  - **Two Queue Types:**
+    - **Standard Queues:** Offer maximum throughput, at-least-once delivery, and best-effort ordering.
+    - **FIFO Queues:** Guarantee exactly-once processing and strict message ordering.
+  - **Decoupling:** Helps decouple application components to improve fault tolerance and scalability.
+  - **Visibility Timeout:** Controls the period a message is hidden after being received, preventing multiple consumers from processing it simultaneously.
+  - **Dead-Letter Queues (DLQ):** Handle messages that can’t be processed successfully after multiple attempts.
+  - **Security:** Supports encryption at rest, access control via IAM, and VPC endpoints.
+
+- Common Use Cases
+  - Buffering and decoupling microservices or distributed systems.
+  - Asynchronous task processing.
+  - Workload leveling and throttling.
+  - Managing retries and error handling with DLQs.
+
+**Amazon SNS vs Amazon SQS**
+
+| Feature                | Amazon SNS (Simple Notification Service)                       | Amazon SQS (Simple Queue Service)                             |
+| ---------------------- | -------------------------------------------------------------- | ------------------------------------------------------------- |
+| **Type of Service**    | Pub/Sub messaging (push-based delivery)                        | Message queueing (pull-based delivery)                        |
+| **Message Delivery**   | Pushes messages to subscribers (e.g., Lambda, HTTP/S, email)   | Stores messages until consumers poll and process them         |
+| **Use Case**           | Broadcast notifications to multiple subscribers simultaneously | Decouple components with reliable, ordered message processing |
+| **Message Ordering**   | No guaranteed ordering (best effort only)                      | FIFO queues guarantee ordering; standard queues do not        |
+| **Message Durability** | Durable, but designed for real-time notifications              | Durable storage with retry and dead-letter queue support      |
+| **Message Retention**  | Messages delivered immediately, no long-term storage           | Messages stored up to 14 days if not processed                |
+| **Delivery Protocols** | HTTP/S, Lambda, SQS, Email, SMS, Mobile Push                   | Consumers poll via API or SDK                                 |
+| **Fan-out Pattern**    | Supports fan-out to multiple subscribers                       | Typically one consumer processes each message                 |
+| **Scaling**            | Automatically scales to millions of messages per second        | Scales with workload, can handle high throughput              |
+| **Use Case Examples**  | Notifications, alerts, mobile push, triggering workflows       | Asynchronous task queues, buffering, decoupling services      |
+
+> Summary
+
+- **Use SNS when you want to broadcast messages to multiple subscribers in real-time.**
+- **Use SQS when you need reliable message queuing, asynchronous processing, and decoupling between components.**
+
+- `Business Application Services`
+  1. `Amazon Connect:` Cloud-based contact center service.
+
+Amazon Connect is a cloud-based contact center service from AWS that enables businesses to deliver better customer service at lower cost. It provides an easy-to-use, scalable, and flexible solution for inbound and outbound customer communications.
+
+- Key Features
+  - **Omnichannel Support:** Handle voice calls, chat, and task management from a single platform.
+  - **Easy Setup:** No specialized skills needed to set up or manage the contact center.
+  - **AI and Automation:** Built-in integrations with AWS AI services like Amazon Lex for chatbots, and Amazon Polly for text-to-speech.
+  - **Scalable & Pay-as-you-go:** Scales automatically to handle any volume, you pay only for usage.
+  - **Real-time & Historical Analytics:** Track agent performance, customer satisfaction, and operational metrics.
+  - **Customizable Workflows:** Create and modify contact flows visually using drag-and-drop tools.
+  - **Integration:** Integrates with CRM systems, AWS Lambda, and other AWS services for custom workflows and data retrieval.
+
+- Common Use Cases
+  - Customer support centers (voice and chat).
+  - Automated self-service using chatbots.
+  - Outbound campaigns and notifications.
+  - Interactive voice response (IVR) systems.
+
+  2. `Amazon SES (Simple Email Service):` Scalable email sending for marketing or transactional purposes.
+
+Amazon SES is a cloud-based email sending service designed to help businesses send marketing, notification, and transactional emails reliably and at scale.
+
+- Key Features
+  - **High Deliverability:** Uses a global network of trusted IP addresses to maximize email deliverability.
+  - **Flexible Email Sending:** Supports SMTP interface, AWS SDKs, and API for sending emails.
+  - **Bulk & Transactional Emails:** Suitable for marketing campaigns, notifications, and transactional emails.
+  - **Email Receiving:** Can receive inbound emails, which can be processed, stored, or forwarded.
+  - **Email Authentication:** Supports DKIM, SPF, and DMARC to improve email authenticity.
+  - **Reputation Dashboard:** Monitor your sending statistics, bounce rates, complaints, and reputation.
+  - **Cost-Effective:** Pay-as-you-go pricing with a generous free tier for AWS users.
+
+- Common Use Cases
+  - Sending transactional emails (order confirmations, password resets).
+  - Sending marketing newsletters and promotions.
+  - Handling inbound emails for processing (e.g., support tickets).
+  - Bulk email sending with deliverability tracking.
+
+- `Customer Engagement Services`
+  1. `AWS Activate for Startups:` Credits, training, and support for startup growth.
+
+AWS Activate is a program designed to provide startups with the resources they need to get started quickly on AWS. It offers credits, training, technical support, and other resources to help startups build and scale their businesses on AWS.
+
+- Key Features
+  - **AWS Credits:** Startup credits to help offset the cost of AWS services.
+  - **Technical Support:** Access to AWS Support plans to assist with architecture, troubleshooting, and best practices.
+  - **Training & Resources:** Free training materials, webinars, and tutorials tailored for startups.
+  - **Exclusive Offers:** Discounts and offers from AWS partners and third-party tools.
+  - **Architectural Guidance:** Access to AWS solutions architects and best practice guidance.
+  - **Community Access:** Connect with other startups and AWS experts through forums and events.
+
+- Eligibility
+  - Early-stage startups (generally less than 10 years old).
+  - Must be associated with an approved accelerator, incubator, seed fund, or VC, or apply as a self-startup in certain cases.
+  - Subject to program terms and conditions.
+
+- Common Benefits
+  - AWS credits ranging from $1,000 to $100,000+ depending on the package.
+  - Access to AWS Business Support or Developer Support plans.
+  - Invitations to startup-focused events and bootcamps.
+
+  2. `AWS IQ:` Connects customers with AWS-certified freelancers and consultants.
+
+AWS IQ is a service that connects AWS customers with certified AWS experts and consultants for on-demand project help, guidance, and professional services.
+
+- Key Features
+  - **Access Certified Experts:** Connect with AWS Certified professionals who can assist with architecture, migrations, troubleshooting, and more.
+  - **On-Demand Engagement:** Request help for specific tasks or projects without long-term contracts.
+  - **Secure & Transparent:** Work through AWS IQ platform with clear pricing and project tracking.
+  - **Wide Range of Expertise:** Includes architects, developers, DevOps engineers, security specialists, and more.
+  - **Direct Communication:** Collaborate directly with experts via chat and video calls.
+  - **Payment & Billing:** Managed through AWS billing, providing easy payment and invoicing.
+
+- Common Use Cases
+  - AWS infrastructure design and optimization.
+  - Cloud migration projects.
+  - Troubleshooting and performance tuning.
+  - Security audits and compliance assistance.
+  - Custom development and automation.
+
+  3. `AWS Managed Services (AMS):` Operational support and automation for AWS infrastructure.
+
+AWS Managed Services (AMS) is a fully managed offering that helps enterprises operate their AWS infrastructure securely and efficiently. AMS handles day-to-day infrastructure management, allowing organizations to focus on their applications and business outcomes.
+
+- Key Features
+  - **Infrastructure Operations:** Automated provisioning, monitoring, patching, backup, and security management.
+  - **Security & Compliance:** Enforces AWS best practices, compliance frameworks (e.g., HIPAA, PCI), and continuous security monitoring.
+  - **Change Management:** Standardized change requests and incident management to minimize risk.
+  - **Cost Optimization:** Provides reporting and recommendations to optimize AWS usage and cost.
+  - **Integration with Existing Processes:** Works alongside enterprise IT processes and tools.
+  - **24/7 Support:** Around-the-clock operational support by AWS experts.
+
+- Common Use Cases
+  - Enterprises needing secure, compliant AWS operations.
+  - Organizations lacking internal cloud operations expertise.
+  - Companies wanting to reduce operational overhead.
+  - Migration projects requiring managed post-migration operations.
+
+- `Developer Tools`
+  1. `AWS AppConfig:` Feature flagging and configuration management.
+
+AWS AppConfig is a feature of AWS Systems Manager that enables you to deploy application configurations safely and quickly. It helps reduce errors and downtime by validating configurations before deployment and controlling how changes are rolled out.
+
+- Key Features
+  - **Safe Configuration Deployment:** Validates configurations using validators such as JSON schema or AWS Lambda functions.
+  - **Controlled Rollouts:** Supports gradual deployment strategies like canary or linear rollouts to minimize risk.
+  - **Integration:** Works with applications, containers, and serverless architectures.
+  - **Immediate Updates:** Allows applications to retrieve updated configurations without redeploying code.
+  - **Environment Segmentation:** Supports multiple environments (e.g., dev, test, prod) with isolated configurations.
+  - **Monitoring and Rollback:** Monitors deployments and can roll back automatically if issues are detected.
+
+- Common Use Cases
+  - Feature flag management and gradual feature releases.
+  - Dynamic configuration updates without redeploying applications.
+  - Managing operational parameters (e.g., thresholds, connection strings).
+  - Safely deploying configuration changes in distributed applications.
+
+  2. `AWS Cloud9:` Cloud-based IDE for writing, running, and debugging code.
+
+AWS Cloud9 is a cloud-based integrated development environment (IDE) that allows developers to write, run, and debug code with just a browser. It provides a rich code-editing experience with built-in tools and seamless integration with AWS.
+
+- Key Features
+  - **Cloud-Based IDE:** Accessible from anywhere without installing software locally.
+  - **Multi-Language Support:** Supports popular programming languages such as Python, JavaScript, PHP, Java, and more.
+  - **Collaboration:** Enables multiple developers to collaborate in real-time within the same environment.
+  - **Pre-Configured Environment:** Comes with essential tools, AWS CLI, SDKs, and debuggers pre-installed.
+  - **Seamless AWS Integration:** Direct access to AWS resources, making it easy to develop and test cloud applications.
+  - **Terminal Access:** Full Linux terminal access within the browser.
+  - **Customizable Environment:** Allows configuration of compute and storage resources as needed.
+
+- Common Use Cases
+  - Developing and testing AWS Lambda functions.
+  - Building serverless applications.
+  - Collaborative coding sessions.
+  - Quick prototyping and experimenting with AWS services.
+  - Learning and teaching programming in a cloud environment.
+
+  3. `AWS CloudShell:` Browser-based shell for command-line access to AWS.
+
+AWS CloudShell is a browser-based, pre-authenticated shell environment provided by Amazon Web Services (AWS). It gives you command-line access to AWS resources without needing to install or configure anything on your local machine.
+
+- Key Features
+  - **Pre-authenticated:** Automatically uses your AWS Management Console credentials.
+  - **Pre-configured tools:** Comes with popular AWS CLI, SDKs, and utilities like Python, Node.js, git, Docker, etc.
+  - **Temporary storage:** Provides 1 GB of persistent storage for your scripts and files.
+  - **Runs in your browser:** No need for local setup or VPN.
+  - **Access to AWS resources:** You can manage your AWS services and resources directly via CLI.
+
+- Common Use Cases
+  - Quickly running AWS CLI commands.
+  - Testing scripts or commands without installing software.
+  - Debugging and managing AWS resources on the fly.
+  - Learning and experimenting with AWS services.
+
+  4. `AWS CodeArtifact:` Artifact repository for software packages.
+
+AWS CodeArtifact is a fully managed artifact repository service that makes it easy for organizations to securely store, publish, and share software packages used in their software development process. It supports popular package managers and formats like Maven, npm, PyPI, and NuGet.
+
+- Key Features
+  - **Fully managed:** No infrastructure to set up or maintain.
+  - **Secure:** Integrated with AWS IAM for fine-grained access control.
+  - **Supports multiple package formats:** Maven, npm, PyPI (Python), NuGet (Microsoft), and more.
+  - **Dependency resolution:** Automatically fetches packages from public repositories if not found locally.
+  - **Version control:** Manage multiple versions of packages.
+  - **Integration:** Works well with AWS CodeBuild, CodePipeline, and CI/CD tools.
+
+- Common Use Cases
+  - Hosting private software packages for internal use.
+  - Sharing packages securely across teams or projects.
+  - Proxying public repositories to improve build stability and security.
+  - Managing dependencies in build pipelines.
+
+  5. `AWS CodeBuild:` Continuous integration service to compile and test code.
+
+AWS CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces software packages ready for deployment. It scales automatically, so you don’t need to provision, manage, or scale your own build servers.
+
+- Key Features
+  - **Fully managed:** No infrastructure to provision or manage.
+  - **Scalable:** Automatically scales to handle multiple builds concurrently.
+  - **Supports multiple build environments:** Java, Python, Node.js, Docker, and more.
+  - **Integration:** Works seamlessly with AWS CodePipeline, GitHub, Bitbucket, and other source repositories.
+  - **Customizable builds:** Define build steps with buildspec.yml.
+  - **Secure:** Integrated with AWS IAM and supports encrypted environment variables and artifacts.
+
+- Common Use Cases
+  - Building and testing code in CI/CD pipelines.
+  - Automating build and test workflows for multiple environments.
+  - Creating Docker images as part of the build process.
+  - Running automated unit, integration, or end-to-end tests.
+
+  6. `AWS CodeCommit:` Fully managed Git-based source control.
+
+AWS CodeCommit is a fully managed source control service that hosts secure Git-based repositories. It makes it easy for teams to collaborate on code and securely store and version their source code.
+
+- Key Features
+  - **Fully managed:** No need to host, scale, or maintain Git servers.
+  - **Secure:** Data is encrypted at rest and in transit; integrates with AWS IAM for access control.
+  - **High availability:** Designed for durability and uptime.
+  - **Supports Git:** Works with standard Git tools and clients.
+  - **Integration:** Works with AWS CodePipeline, CodeBuild, and other AWS services.
+  - **Collaboration:** Supports pull requests, code reviews, and notifications.
+
+- Common Use Cases
+  - Hosting private Git repositories for teams.
+  - Managing source code in secure and scalable infrastructure.
+  - Integrating source control with AWS CI/CD pipelines.
+  - Enabling collaboration with built-in code review workflows.
+
+  7. `AWS CodeDeploy:` Automates code deployments to compute services.
+
+AWS CodeDeploy is a fully managed deployment service that automates application deployments to Amazon EC2 instances, on-premises servers, AWS Lambda functions, or Amazon ECS services. It helps you rapidly release new features, avoid downtime during deployment, and handle the complexity of updating applications.
+
+- Key Features
+  - **Automated deployments:** Deploy applications automatically across multiple compute platforms.
+  - **Flexible deployment targets:** Supports EC2, on-premises servers, AWS Lambda, and Amazon ECS.
+  - **Deployment strategies:** Supports in-place and blue/green deployments.
+  - **Monitoring & rollback:** Monitors deployment health and can automatically roll back on failures.
+  - **Integration:** Works with CodePipeline, CodeBuild, CloudWatch, and other AWS services.
+  - **Customizable lifecycle hooks:** Run scripts at various deployment stages for advanced deployment workflows.
+
+- Common Use Cases
+  - Deploying updates to web servers or backend services.
+  - Rolling out new features with minimal or zero downtime.
+  - Managing deployments in hybrid environments (cloud + on-premises).
+  - Automating Lambda function version updates.
+
+  8. `AWS CodePipeline:` CI/CD pipeline orchestration tool.
+
+AWS CodePipeline is a fully managed continuous integration and continuous delivery (CI/CD) service that automates the building, testing, and deploying of your applications every time there is a code change.
+
+It helps you rapidly deliver features and updates with high quality and reliability.
+
+- Key Features
+  - **Fully managed:** No need to manage or provision servers.
+  - **Automated workflows:** Automates the entire release process from source to deployment.
+  - **Integrations:** Supports AWS services like CodeCommit, CodeBuild, CodeDeploy, and third-party tools like GitHub, Jenkins, etc.
+  - **Customizable:** Build pipelines with multiple stages, actions, and approval steps.
+  - **Parallel execution:** Supports parallel and sequential actions within pipelines.
+  - **Visual monitoring:** Provides a visual interface to track pipeline execution and status.
+
+- Common Use Cases
+  - Automating build-test-deploy workflows for applications.
+  - Implementing CI/CD pipelines for rapid software delivery.
+  - Coordinating multiple build and deploy actions across environments.
+  - Enforcing manual approval steps for production deployments.
+
+  9. `AWS CodeStar:` Unified interface for software development.
+
+AWS CodeStar is a cloud-based service that provides a unified user interface, enabling you to easily manage software development activities in one place. It simplifies setting up complete continuous delivery toolchains for developing, building, and deploying applications on AWS.
+
+- Key Features
+  - **Integrated experience:** Combines project management, code, build, and deploy tools in a single dashboard.
+  - **Quick project setup:** Launch ready-to-use templates for various programming languages and platforms.
+  - **Collaboration:** Enables teams to work together with role-based access and notifications.
+  - **CI/CD pipelines:** Automatically provisions AWS CodePipeline, CodeCommit, CodeBuild, and CodeDeploy.
+  - **Pre-built templates:** Supports popular frameworks like Java, Node.js, Python, .NET, and more.
+  - **Project management:** Integrates with issue tracking and Agile tools.
+
+- Common Use Cases
+  - Quickly starting new AWS development projects with best-practice pipelines.
+  - Centralizing team collaboration and project tracking.
+  - Accelerating software delivery with automated CI/CD.
+  - Managing multi-role access and project permissions easily.
+
+  10. `AWS X-Ray:` Distributed tracing system for analyzing and debugging applications.
+
+AWS X-Ray is a distributed tracing service that helps developers analyze and debug production, distributed applications, such as those built using a microservices architecture.
+
+It provides insights into the performance of your applications by tracing requests as they travel through your system.
+
+- Key Features
+  - **Distributed tracing:** Tracks requests across services and resources.
+  - **Service map:** Visualizes application components and their interactions.
+  - **Performance analysis:** Identifies latency bottlenecks and errors.
+  - **Root cause analysis:** Pinpoints where failures or exceptions occur.
+  - **Integration:** Works with AWS Lambda, EC2, ECS, API Gateway, Elastic Beanstalk, and more.
+  - **Annotations & metadata:** Customize traces with additional data for deeper insights.
+
+- Common Use Cases
+  - Debugging and troubleshooting microservices.
+  - Monitoring latency and performance across distributed systems.
+  - Understanding application dependencies.
+  - Detecting errors and performance issues in production.
+
+- `End-User Computing Services`
+  1. `Amazon AppStream 2.0:` Stream desktop apps to users over the web.
+
+Amazon AppStream 2.0 is a fully managed, secure application streaming service that allows you to stream desktop applications to any device running a web browser, without rewriting them. It enables users to access desktop apps from anywhere, with centralized management and scalable infrastructure.
+
+- Key Features
+  - **Fully managed:** No infrastructure to manage or scale.
+  - **Secure:** Data never leaves AWS; secure user access with AWS IAM and SSO.
+  - **Broad device support:** Stream apps to Windows, Mac, Linux, Chromebooks, and tablets.
+  - **Scalable:** Automatically scales capacity based on user demand.
+  - **Customizable:** Build custom application images and fleets.
+  - **Integration:** Integrates with Active Directory and AWS services.
+
+- Common Use Cases
+  - Providing remote access to desktop applications.
+  - Enabling secure application delivery for remote or mobile workforces.
+  - Supporting Bring Your Own Device (BYOD) policies.
+  - Delivering resource-intensive applications without local installation.
+
+  2. `Amazon WorkSpaces:` Managed virtual desktops in the cloud.
+
+Amazon WorkSpaces is a fully managed, secure Desktop-as-a-Service (DaaS) solution that allows you to provision cloud-based Windows or Linux desktops for your users. It provides users with a persistent, cloud-hosted desktop experience accessible from anywhere.
+
+- Key Features
+  - **Fully managed:** No hardware to provision or manage.
+  - **Flexible desktop options:** Choose from Windows or Linux desktops with various hardware configurations.
+  - **Secure:** Data is stored securely in AWS; supports multi-factor authentication and encryption.
+  - **Anywhere access:** Access desktops from Windows, macOS, Linux, iOS, Android, or web browsers.
+  - **Scalable:** Easily scale up or down based on user demand.
+  - **Integration:** Works with AWS Directory Service and on-premises Active Directory.
+
+- Common Use Cases
+  - Providing remote desktops for telecommuting or contractors.
+  - Secure desktop environments for regulated industries.
+  - Supporting Bring Your Own Device (BYOD) policies.
+  - Quickly provisioning desktops for temporary or seasonal workers.
+
+  3. `Amazon WorkSpaces Web:` Secure browser access to internal websites and apps.
+
+Amazon WorkSpaces Web is a fully managed, cloud-based web browsing service that provides secure, fast, and scalable access to internal websites and SaaS applications through a browser. It helps organizations enable secure remote web access without the need for traditional VPNs or complex network configurations.
+
+- Key Features
+  - **Secure browsing:** Isolates user browsing sessions from your corporate network to reduce risk.
+  - **Fully managed:** No infrastructure to manage or maintain.
+  - **Simple access:** Users access internal web apps via standard web browsers.
+  - **Scalable:** Automatically scales to meet demand.
+  - **Integration:** Integrates with AWS Directory Service and identity providers for authentication.
+  - **Policy enforcement:** Control access with fine-grained policies.
+
+- Common Use Cases
+  - Providing secure remote access to internal web applications.
+  - Protecting corporate networks from web-based threats.
+  - Enabling browser-based access for contractors or remote employees.
+  - Reducing reliance on VPNs or remote desktops for web access.
+
+- `Frontend Web and Mobile Services`
+  1. `AWS Amplify:` Set of tools to build, ship, and host full-stack applications.
+
+AWS Amplify is a set of tools and services that enables frontend web and mobile developers to build scalable full-stack applications powered by AWS. It simplifies backend development, hosting, and integration with AWS services, so developers can focus on building great user experiences.
+
+- Key Features
+  - **Backend as a Service:** Easily configure and manage backend services like authentication, APIs, databases, and storage.
+  - **Frontend Framework Support:** Integrates with React, Angular, Vue, iOS, Android, and more.
+  - **Hosting & CI/CD:** Provides continuous deployment and hosting for web apps with built-in workflows.
+  - **GraphQL & REST APIs:** Automatically generate scalable APIs with AWS AppSync or API Gateway.
+  - **Authentication:** Built-in support for user sign-up, sign-in, and multi-factor authentication via Amazon Cognito.
+  - **Storage & Data:** Manage file storage and real-time data syncing.
+
+- Common Use Cases
+  - Building serverless web and mobile apps quickly.
+  - Adding user authentication and authorization.
+  - Creating real-time collaborative apps.
+  - Deploying frontend apps with global content delivery.
+  - Integrating with AI/ML services easily.
+
+  2. `AWS AppSync:` Managed GraphQL service for querying and syncing data in real-time.
+
+AWS AppSync is a fully managed service that makes it easy to develop GraphQL APIs by handling the heavy lifting of securely connecting to data sources like DynamoDB, Lambda, and more. It enables real-time data synchronization and offline capabilities for applications.
+
+- Key Features
+  - **Managed GraphQL API:** Simplifies building flexible APIs with GraphQL.
+  - **Real-time subscriptions:** Supports real-time updates with WebSockets.
+  - **Offline support:** Enables apps to work seamlessly offline and sync changes later.
+  - **Multiple data sources:** Integrates with DynamoDB, Lambda, Elasticsearch, RDS, and HTTP APIs.
+  - **Fine-grained access control:** Integrates with AWS IAM, Cognito, and API keys.
+  - **Scalable:** Automatically scales with your application needs.
+
+- Common Use Cases
+  - Building real-time collaborative apps (chat, dashboards).
+  - Mobile and web apps needing offline access and sync.
+  - Simplifying backend data integration for frontend developers.
+  - Creating unified APIs aggregating multiple data sources.
+
+- `IoT Services`
+  1. `AWS IoT Core:` Secure device communication with cloud apps and services.
+
+AWS IoT Core is a managed cloud service that lets connected devices securely interact with cloud applications and other devices. It enables you to easily build Internet of Things (IoT) solutions that gather, process, analyze, and act upon data generated by connected devices.
+
+- Key Features
+  - **Secure device connectivity:** Supports mutual authentication and encryption.
+  - **Device registry:** Manage and organize devices at scale.
+  - **Message broker:** Enables bi-directional communication between devices and cloud.
+  - **Rules engine:** Filters, processes, and routes device data to AWS services.
+  - **Device shadows:** Maintain a virtual representation of device state for apps.
+  - **Integration:** Works with AWS Lambda, S3, DynamoDB, Kinesis, and more.
+
+- Common Use Cases
+  - Collecting telemetry and sensor data from devices.
+  - Remote monitoring and control of connected devices.
+  - Building smart home, industrial, or automotive IoT applications.
+  - Real-time analytics and machine learning on IoT data.
+
+  2. `AWS IoT Greengrass:` Brings AWS compute, messaging, and data caching to edge devices.
+
+AWS IoT Greengrass is a software that extends AWS cloud capabilities to local devices, allowing them to collect and analyze data closer to the source, respond quickly to local events, and operate with intermittent cloud connectivity. It enables edge computing by running AWS Lambda functions, managing device messaging, and maintaining device shadows locally.
+
+- Key Features
+  - **Local compute:** Run AWS Lambda functions on edge devices.
+  - **Secure communication:** Encrypts messages and authenticates devices locally.
+  - **Offline operation:** Devices can operate and sync data when reconnected.
+  - **Seamless cloud integration:** Sync data and device state with AWS IoT Core.
+  - **Machine learning inference:** Run ML models on edge devices.
+  - **Device management:** Manage and update devices and software remotely.
+
+- Common Use Cases
+  - Industrial automation and predictive maintenance.
+  - Smart homes and buildings with local control.
+  - Autonomous vehicles and robotics requiring low latency.
+  - Processing data locally to reduce cloud costs and latency.
+  - Running machine learning inference at the edge.
 
 ### Domain 4: Billing, Pricing, and Support
 
