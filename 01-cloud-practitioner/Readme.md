@@ -620,9 +620,13 @@ In AWS Organizations used to manage and enforce governance rules across multiple
 
 Unify your cloud security operations and prioritizes your critical security issues and helps you respond at scale.
 
+Security Hub
+
+![Security Hub](/img/security-hub.png)
+
 - `Identity and Access Management`
   1. `AWS Identity and Access Management (IAM)` - Securely manage identities and access to AWS services and resources.
-  2. `AWS IAM Identity Center` - Centrally manage workforce access to multiple AWS accounts and applications.
+  2. `AWS IAM Identity Center (formerly AWS SSO)` - Centrally manage workforce access to multiple AWS accounts and applications.
   3. `Amazon Cognito` - Implement secure, frictionless customer identity and access management that scales.
   4. `Amazon Verified Permissions` - Manage fine-grained permissions and authorization within custom applications.
   5. `AWS Directory Service` - Gain efficiency with a fully managed Microsoft Active Directory service.
@@ -637,10 +641,11 @@ Unify your cloud security operations and prioritizes your critical security issu
   5. `Amazon Detective` - Analyze and visualize security data to investigate potential security issues.
   6. `AWS Security Incident Response` - Prepare for, respond to, and recover from security events
   7. `AWS Config` - Assess, audit, and evaluate configurations of your resources.
-  8. `Amazon CloudWatch` - Observe and monitor resources and applications on AWS, on premises, and on other clouds.
-  9. `AWS CloudTrail` - Track user activity and API usage.
-  10. `AWS IoT Device Defender` - Security management across your IoT devices and fleets.
-  11. `AWS Elastic Disaster Recovery`- Scalable, cost-effective application recovery to AWS.
+  8. `AWS Trusted Advisor` - AWS Trusted Advisor is a service that inspects your AWS accounts.
+  9. `Amazon CloudWatch` - Observe and monitor resources and applications on AWS, on premises, and on other clouds.
+  10. `AWS CloudTrail` - Track user activity and API usage.
+  11. `AWS IoT Device Defender` - Security management across your IoT devices and fleets.
+  12. `AWS Elastic Disaster Recovery`- Scalable, cost-effective application recovery to AWS.
 
 - `Network and Application Protection`
   1. `AWS Firewall Manager` - Centrally configure and manage firewall rules across your accounts.
@@ -664,58 +669,307 @@ Unify your cloud security operations and prioritizes your critical security issu
   1. `AWS Artifact` - No cost, self-service portal for on-demand access to AWS’ compliance reports.
   2. `AWS Audit Manager` - Continually audit your AWS usage to simplify risk and compliance assessment.
 
-- Security Hub
-
-![Security Hub](/img/security-hub.png)
-
 ##### Identity and Access Management - Each compontent's breif discussion
 
 1. `AWS Identity and Access Management (IAM)` - Securely manage identities and access to AWS services and resources.
 
-2. `AWS IAM Identity Center` - Centrally manage workforce access to multiple AWS accounts and applications.
+AWS Identity and Access Management (IAM) is a foundational security service in AWS that lets you control who can access your AWS resources, and what actions they can perform.
+
+- AWS IAM allows you to:
+  - `Authenticate:` Verify who is making the request (user, role, application).
+  - `Authorize:` Decide whether they’re allowed to perform an action on a resource.
+
+###### Core Concepts of IAM
+
+| **IAM Component**             | **Description**                                                                 |
+| ----------------------------- | ------------------------------------------------------------------------------- |
+| **Users**                     | Individuals with long-term credentials (passwords, access keys).                |
+| **Groups**                    | User collections sharing the same permissions via attached policies.            |
+| **Roles**                     | Identities with temporary credentials for apps, services, or cross-account use. |
+| **Policies**                  | JSON rules defining allowed or denied actions on AWS resources.                 |
+| **Permissions Boundaries**    | Set a max limit on a user's or role’s effective permissions.                    |
+| **Identity Providers (IdPs)** | Enable external user access via SAML, OIDC, or social logins.                   |
+
+> IAM defines who can do what on which resources — and under what conditions.
+
+2. `AWS IAM Identity Center (formerly AWS SSO)` - Centrally manage workforce access to multiple AWS accounts and applications.
+
+AWS IAM Identity Center is a centralized service for managing workforce access to AWS accounts and business applications.
+
+- IAM Identity Center enables:
+  - Single Sign-On (SSO) for AWS accounts and cloud/SaaS apps
+  - User and group management, or connection to external identity providers (like Microsoft AD, Okta, etc.)
+  - Centralized access control across AWS Organizations
+  - Attribute-based access control (ABAC) for fine-grained permissions
+
+- Key Features
+
+| **Feature**                  | **Description**                                                                 |
+| ---------------------------- | ------------------------------------------------------------------------------- |
+| **SSO Access**               | Sign in once to access multiple AWS accounts and apps (e.g., Salesforce, O365). |
+| **User Directory Options**   | Use built-in directory or connect external IdPs (like Azure AD, Okta, AD).      |
+| **Fine-Grained Permissions** | Assign IAM roles and permissions based on groups or user attributes.            |
+| **Multi-Account Access**     | Grant users access to multiple AWS accounts from a single portal.               |
+| **Audit & Monitoring**       | Logs activity with AWS CloudTrail; supports access reviews.                     |
 
 3. `Amazon Cognito` - Implement secure, frictionless customer identity and access management that scales.
 
+Amazon Cognito is a user authentication, authorization, and user management service provided by AWS (Amazon Web Services). It's designed to help developers easily add secure sign-up, sign-in, and access control to web and mobile apps.
+
+- Core Features
+
+  1. User Pools (Authentication)
+
+  - User directories to manage sign-up/sign-in.
+  - Supports
+    - Email, phone, username/password
+    - Social identity providers (Google, Facebook, Apple, etc.)
+    - SAML and OpenID Connect (OIDC) providers
+    - Multi-factor authentication (MFA)
+    - Password policies and account recovery
+
+  2. Identity Pools (Authorization via Federated Identities)
+
+  - Grants temporary AWS credentials to users to access AWS services.
+  - Can work with
+    - Cognito User Pools
+    - Social and SAML identity providers
+    - Anonymous guest users
+
+  3. User Directory Management
+
+  - Manage users, groups, and roles
+  - Enable/disable accounts, reset passwords, etc.
+
 4. `Amazon Verified Permissions` - Manage fine-grained permissions and authorization within custom applications.
+
+Amazon Verified Permissions is a fully managed authorization service from AWS that enables fine‑grained, policy‑based access control for custom applications (not just AWS resources).
+
+- Key points:
+  - It helps decouple authorization logic from your application code → you define policies separately, and your app asks: “Is this principal allowed to perform action X on resource Y, given context Z?”
+  - Uses the open‑source policy language Cedar to express policies (both role‑based and attribute‑based) rather than the AWS IAM policy language
+  - Enables centralization of permissions (policy store) + auditing + continuous enforcement → helps implement Zero Trust, least‑privilege models.
 
 5. `AWS Directory Service` - Gain efficiency with a fully managed Microsoft Active Directory service.
 
+AWS Directory Service is a fully managed service that lets you run Microsoft Active Directory (AD) or connect to existing AD environments in the cloud. It’s designed to support Windows-based applications that rely on directory services, user authentication, group policies, and domain-joining of instances.
+
+- Key Use Case:
+Enable Windows workloads and applications (like SharePoint, SQL Server, or custom apps) to integrate with Active Directory in AWS — without needing to manage domain controllers yourself.
+
 6. `AWS Resource Access Manager` - Simply and securely share your AWS resources across multiple accounts.
 
+AWS Resource Access Manager (RAM) is a service that lets you securely share AWS resources across:
+
+- Accounts in your AWS Organization
+- Organizational Units (OUs)
+- Or individual AWS accounts
+
 7. `AWS Organizations` - Centrally manage your environment as you scale your AWS resources.
+
+AWS Organizations is a free AWS service that lets you centrally manage and govern multiple AWS accounts in a scalable, secure way. Instead of managing each AWS account individually, Organizations allows you to:
+
+- Group accounts into organizational units (OUs)
+- Apply service control policies (SCPs) across accounts
+- Automate account creation and management
+- Use consolidated billing for all linked accounts
 
 ##### Detection and Response - Each compontent's breif discussion
 
 1. `Amazon GuardDuty` - Protect AWS accounts with intelligent threat detection.
 
+GuardDuty is a managed threat‑detection service from Amazon Web Services (AWS) that continuously monitors your AWS environment (accounts, workloads, data) for suspicious or malicious activity.
+
+- Key points:
+  - It analyzes AWS “data sources” like logs (CloudTrail, VPC Flow Logs, DNS logs) to spot anomalies.
+  - It uses threat intelligence (known malicious IPs/domains/hashes), machine learning (ML), behavioral monitoring.
+  - It is fully managed — you don’t need to deploy sensors/appliances (for the baseline features).
+  - It can be enabled across multiple AWS accounts (integrates with AWS Organizations) to centralize detection.
+
 2. `Amazon Inspector` - Automated and continual vulnerability management at scale.
 
-3. `AWS Security Hub` - Automate AWS security checks and centralize security alerts.
+Amazon Inspector is a fully managed vulnerability management service by AWS that helps you identify and remediate software vulnerabilities and unintended network exposure across your AWS workloads. It automates the discovery and scanning of resources such as Amazon EC2 instances, container images in Amazon ECR, AWS Lambda functions, and code repositories
+
+- Key points:
+  - `Resource Discovery:` Amazon Inspector automatically discovers resources like EC2 instances, Lambda functions, and container images in Amazon ECR.
+  - `Continuous Scanning:` It continuously scans these resources for software vulnerabilities and unintended network exposure, ensuring up-to-date security assessments.
+  - `Findings Generation:` When a vulnerability or exposure is detected, Amazon Inspector generates a detailed finding, which includes information about the issue and recommendations for remediation.
+  - `Integration for Remediation:` Findings can be integrated with other AWS services like AWS Security Hub and Amazon EventBridge to automate remediation workflows, such as triggering AWS Systems Manager Automation runbooks or creating tickets in issue tracking systems
 
 4. `Amazon Security Lake` - Automatically centralize your security data in a few steps.
 
+Amazon Security Lake is a fully managed service that centralizes security data from AWS, SaaS, on-premises, and other cloud sources into a secure data lake in your AWS account. It normalizes data using the Open Cybersecurity Schema Framework (OCSF) for easier analysis and better protection.
+
+- Key Features
+  - Centralized Data Aggregation: Automatically collects and stores security data from AWS, on-premises, and third-party sources into your Amazon S3 buckets.
+  - Standardized Data Format: Converts data to Apache Parquet and normalizes it using OCSF for easy analysis.
+  - Multi-Account & Multi-Region Support: Provides centralized security data visibility across multiple AWS accounts and regions.
+  - Access Control & Data Sharing: Allows configurable access levels and supports data access notifications and query sharing.
+  - AWS Service Integration: Integrates with AWS AppFabric and Amazon OpenSearch for enhanced security analytics and incident response.
+
 5. `Amazon Detective` - Analyze and visualize security data to investigate potential security issues.
+
+Amazon Detective is an AWS security service that helps you investigate, analyze, and identify the root cause of security issues or suspicious activities in your AWS environment by automatically collecting and analyzing log data.
+
+- Key Features
+  - Automatically collects and analyzes logs from AWS services like CloudTrail, VPC Flow Logs, and GuardDuty.
+  - Uses machine learning and graph theory to visualize relationships between resources, users, and events.
+  - Supports multi-account analysis for centralized investigation.
+  - Integrates with AWS Security Hub and GuardDuty for seamless security findings investigation.
+  - No agents required — no impact on system performance.
+  - Pay-as-you-go pricing with a 30-day free trial.
 
 6. `AWS Security Incident Response` - Prepare for, respond to, and recover from security events
 
+Security incident response in AWS means preparing for, detecting, analyzing, containing, eradicating, and recovering from security incidents impacting your cloud environment.
+
+- Key Components
+- Preparation
+  - Define an incident response plan.
+  - Assign roles and responsibilities.
+  - Set up monitoring and alerting (CloudTrail, GuardDuty, Config).
+  - Automate evidence collection with AWS Lambda.
+- Detection & Analysis
+  - Use AWS GuardDuty for threat detection.
+  - Monitor AWS CloudTrail logs for suspicious API calls.
+  - Use Amazon CloudWatch for real-time alerts.
+  - Analyze logs with AWS Athena or ElasticSearch.
+- Containment, Eradication, and Recovery
+  - Isolate affected resources (e.g., by modifying security groups).
+  - Remove malicious code or compromised instances.
+  - Patch vulnerabilities.
+  - Restore services from known good backups.
+- Post-Incident
+  - Perform root cause analysis.
+  - Update incident response playbooks.
+  - Train teams based on lessons learned.
+  - Report incidents if needed (depending on compliance).
+
 7. `AWS Config` - Assess, audit, and evaluate configurations of your resources.
 
-8. `Amazon CloudWatch` - Observe and monitor resources and applications on AWS, on premises, and on other clouds.
+AWS Config is a fully managed service that provides you with an AWS resource inventory, configuration history, and configuration change notifications to enable security and governance.
 
-9. `AWS CloudTrail` - Track user activity and API usage.
+- Key Features
+  - Resource Inventory: Tracks AWS resources and their configurations.
+  - Configuration History: Records changes over time for audit and troubleshooting.
+  - Compliance Monitoring: Evaluates resource configurations against desired rules.
+  - Change Notifications: Sends alerts for configuration changes.
+  - Integration: Works with AWS CloudTrail, Security Hub, and other AWS security services.
 
-10. `AWS IoT Device Defender` - Security management across your IoT devices and fleets.
+8. `AWS Trusted Advisor` - AWS Trusted Advisor is a service that inspects your AWS accounts.
 
-11. `AWS Elastic Disaster Recovery`- Scalable, cost-effective application recovery to AWS.
+AWS Trusted Advisor is a service that inspects your AWS account's, gives you recommendations and helps you optimize costs, increase performance, improve security and resilience, and operate at scale in the cloud. to help you follow AWS best practices — specifically to:
+
+- Reduce costs,
+- Improve performance,
+- Strengthen security,
+- Increase fault tolerance/resilience, and
+- Monitor service limits (quotas).
+
+- Benefits of AWS Trusted Advisor:
+  - Cost savings: Finds unused or idle resources to reduce spend.
+  - Better performance: Flags misconfigurations or under-optimized resources.
+  - Improved security: Detects open ports, missing encryption, and other risks.
+  - Higher resilience: Identifies single points of failure or missing redundancy.
+  - Quota awareness: Alerts on service limit usage to prevent disruptions.
+  - Best practice alignment: Keeps your setup aligned with AWS recommendations.
+
+9. `Amazon CloudWatch` - Observe and monitor resources and applications on AWS, on premises, and on other clouds.
+
+Amazon CloudWatch provides data and **actionable insights** to monitor your applications, respond to system-wide performance changes, optimize resource utilization, and get a unified view of operational health.
+
+Key Features
+
+| Feature                | Description                                                                                             |
+| ---------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Metrics Monitoring** | Collects and tracks standard and custom metrics from AWS services and your applications.                |
+| **Logs Monitoring**    | Ingests, stores, and analyzes log data from AWS resources and on-premises servers.                      |
+| **Alarms**             | Triggers actions (like sending notifications or auto-scaling) based on defined thresholds.              |
+| **Dashboards**         | Visualizes your metrics and logs in customizable, real-time dashboards.                                 |
+| **Events**             | Responds to changes in your AWS resources using **CloudWatch Events/EventBridge**.                      |
+| **Insights**           | Provides analytics on logs using **CloudWatch Logs Insights**, useful for querying and troubleshooting. |
+
+10. `AWS CloudTrail` - Track user activity and API usage.
+
+CloudTrail records all API calls and related events made on your AWS account. This includes actions taken through the AWS Management Console, SDKs, command line tools, and other AWS services.
+
+Key Features
+
+| Feature                              | Description                                                                                                            |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| **Event Logging**                    | Captures details of every API call, including who made it, when, from where, and what was requested or returned.       |
+| **Multi-Region Logging**             | Records events across all AWS regions.                                                                                 |
+| **Management and Data Events**       | Tracks both high-level operations (e.g., creating a user) and low-level data access (e.g., reading an object from S3). |
+| **Integration with CloudWatch Logs** | Sends logs to CloudWatch for real-time monitoring and alerts.                                                          |
+| **Insights**                         | Detects unusual activity patterns in your account (e.g., sudden spikes in access or usage).                            |
+| **Long-Term Archival**               | Stores logs in S3 for auditing, analysis, or forensic purposes.                                                        |
+
+CloudTrail Components
+
+| Component           | Purpose                                                                                        |
+| ------------------- | ---------------------------------------------------------------------------------------------- |
+| **Trail**           | A configuration that delivers log files to an S3 bucket. Can be single-region or multi-region. |
+| **Event**           | A record of an individual API call, including parameters and results.                          |
+| **CloudTrail Lake** | A managed data lake for querying events using SQL.                                             |
+| **Insights Events** | Automatically detects unusual operational activity in your account.                            |
+
+CloudWatch vs CloudTrail
+
+|         | CloudWatch                          | CloudTrail                           |
+| ------- | ----------------------------------- | ------------------------------------ |
+| Purpose | Monitoring and operational insights | Governance, compliance, and auditing |
+| Data    | Metrics and logs                    | API calls and activity               |
+| Use     | Performance and health monitoring   | Security and auditing                |
+
+11. `AWS IoT Device Defender` - Security management across your IoT devices and fleets.
+
+AWS IoT Device Defender is a fully‑managed service from Amazon Web Services that helps you audit, monitor, and secure your fleet of IoT devices (especially those connected via AWS IoT Core).
+
+- Key points:
+  - It audits your device‑related resources (certificates, policies, etc.) against IoT security best practices.
+  - It monitors device behaviour (traffic, connection patterns, ports, etc.) for anomalies either via rules you set or via built‑in machine‑learning models.
+  - It supports mitigation — when issues are found it can trigger alerts and help you act (for example isolate a device, update a certificate, etc.).
+
+12. `AWS Elastic Disaster Recovery`- Scalable, cost-effective application recovery to AWS.
+
+AWS Elastic Disaster Recovery (AWS DRS) is a managed disaster‑recovery service that lets you replicate on‑premises, virtual, and cloud workloads into AWS and recover them quickly when needed.
+
+- Key points:
+  - It continuously replicates your source servers (physical, virtual, or cloud) into a “staging area” in AWS, minimizing downtime and data loss.
+  - It supports launching the replicated workloads in AWS (failover) within minutes, either from the latest replicated state or a prior point‑in‑time.
+  - After recovery, you can either continue running in AWS or fail back (“return”) to your original site.
+  - It’s designed to reduce the cost and complexity of maintaining a dedicated DR site (on‑premises or in a data centre) by using AWS infrastructure as your recovery site.
 
 ##### Network and Application Protection - Each compontent's breif discussion
 
-1. `AWS Firewall Manager` - Centrally configure and manage firewall rules across your accounts.
-   - `AWS Network Firewall` - Deploy network firewall security across your VPCs.
+1. `AWS Firewall Manager > AWS Network Firewall` - Deploy network firewall security across your VPCs.
 
-   - `AWS Shield` - Maximize application availability and responsiveness with managed DDoS protection.
+AWS Network Firewall is a managed security service offered by Amazon Web Services (AWS) that helps you protect your Amazon Virtual Private Cloud (VPC) networks by filtering traffic at the perimeter of your VPC.
 
-   - `AWS Web Application Firewall (WAF)` - Protect your web applications from common exploits.
+- Key Features
+  - **Deep Packet Inspection (DPI)** - Inspects beyond IP headers (e.g., HTTP, DNS) to detect malware and threats.
+  - **Stateless and Stateful Rule Engines** - Stateless: Fast, simple IP/port/protocol matching, Stateful: Tracks connections for complex packet stream inspection.
+  - **Integration with AWS Services** Works seamlessly with VPC routing, CloudWatch logging, and Firewall Manager.
+  - **Suricata-Compatible Rules** Supports Suricata open-source rule sets for customizable stateful inspection.
+
+2. `AWS Firewall Manager > AWS Shield` - Maximize application availability and responsiveness with managed DDoS protection.
+
+AWS Shield is a managed Distributed Denial of Service (DDoS) protection service that safeguards applications running on AWS by automatically detecting and mitigating DDoS attacks, helping to maintain application availability and performance.
+
+- **Managed DDoS Protection Service** for applications running on AWS.
+- Provides **automatic detection and mitigation** of Distributed Denial of Service (DDoS) attacks.
+- Comes in two tiers:
+  - **AWS Shield Standard** (free)
+    - Protects against common, large-scale network and transport layer attacks.
+    - Automatically enabled for all AWS customers.
+  - **AWS Shield Advanced** (paid)
+    - Provides enhanced detection, mitigation, and 24/7 access to the AWS DDoS Response Team (DRT).
+    - Includes cost protection against scaling charges during attacks.
+    - Offers detailed attack diagnostics and integration with AWS WAF.
+- Helps maintain **application availability and performance** during attacks.
+- Integrates with **Amazon CloudFront, Route 53, ELB, and Global Accelerator**.
+
+3. `AWS Firewall Manager > AWS Web Application Firewall (WAF)` - Protect your web applications from common exploits.
 
 AWS WAF is a web application firewall that helps secure your web applications and APIs by blocking requests before they reach your servers. For more information, see Accelerate and protect your websites using CloudFront and AWS WAF and Guidelines for Implementing AWS WAF.
 
@@ -742,9 +996,29 @@ AWS WAF is a web application firewall that helps secure your web applications an
   - API Gateway
   - AppSync (GraphQL)
 
-2. `AWS Verified Access` - Provide secure access to corporate applications without a VPN.
+4. `AWS Verified Access` - Provide secure access to corporate applications without a VPN.
 
-3. `Amazon Route 53 Resolver DNS Firewall` - Filter and control outbound DNS traffic for your VPCs.
+AWS Verified Access is a zero-trust access control service that enables secure, conditional access to your applications and resources without using traditional VPNs or bastion hosts. It verifies every user and device before granting access, improving security and simplifying remote access management.
+
+- Key Points
+  - Zero-trust access service: verifies every user and device before granting access.
+  - No VPN or bastion host required: simplifies remote access to applications and resources.
+  - Conditional access: enforces policies based on user identity, device posture, location, and more.
+  - Seamless integration: works with existing identity providers like AWS IAM Identity Center, Okta, etc.
+  - Improves security: reduces risk of unauthorized access with strict access controls.
+  - Centralized management: manage access policies and audit logs from a single console.
+
+5. `Amazon Route 53 Resolver DNS Firewall` - Filter and control outbound DNS traffic for your VPCs.
+
+Amazon Route 53 Resolver DNS Firewall helps protect your Amazon VPC by filtering and controlling outbound DNS requests. It allows you to block or allow DNS queries based on domain lists, helping prevent access to malicious or unwanted domains.
+
+- Key Features
+  - **Domain Filtering:** Block or allow DNS requests based on domain lists (blocklists/allowlists).
+  - **Integration with Route 53 Resolver:** Works seamlessly with DNS queries in your VPC.
+  - **Customizable Rule Groups:** Create and manage multiple domain lists with different filtering policies.
+  - **Logging and Monitoring:** Provides DNS query logs for visibility and auditing.
+  - **Protects Against Malware & Phishing:** Prevents communication with known malicious domains.
+  - **Easy to Deploy:** Managed service, no infrastructure to maintain.
 
 ##### Data Protection - Each compontent's breif discussion
 
@@ -773,13 +1047,68 @@ Amazon Macie is a fully managed data security and data privacy service `AI` tool
 
 2. `AWS Key Management Service (KMS)` - Create and control keys to encrypt or digitally sign your data.
 
+AWS Key Management Service (KMS) is a managed service that makes it easy to create and control the cryptographic keys used to encrypt your data. It integrates with many AWS services to help protect data at rest and in transit.
+
+- Key Features
+  - **Centralized Key Management:** Create, rotate, disable, and audit cryptographic keys centrally.
+  - **Integrated with AWS Services:** Works seamlessly with services like S3, EBS, RDS, Lambda, and more.
+  - **High Security:** Keys are stored securely in hardware security modules (HSMs) validated under FIPS 140-2.
+  - **Access Control:** Use AWS Identity and Access Management (IAM) policies and key policies to control who can use and manage keys.
+  - **Auditability:** Integration with AWS CloudTrail allows tracking of key usage for compliance and auditing.
+  - **Automatic Key Rotation:** Supports automatic yearly rotation of customer-managed keys.
+  - **Symmetric and Asymmetric Keys:** Supports both symmetric encryption keys (for encrypt/decrypt) and asymmetric keys (for digital signing and verification).
+
 3. `AWS CloudHSM` - Manage single-tenant hardware security modules (HSMs) on AWS.
+
+AWS CloudHSM is a cloud-based hardware security module (HSM) that allows you to generate and use your own encryption keys in a dedicated, single-tenant hardware appliance. It provides secure key storage and cryptographic operations with high performance and compliance.
+
+- Key Features
+  - **Dedicated Hardware Security Modules:** You get exclusive access to physical HSMs, providing strong security and isolation.
+  - **FIPS 140-2 Level 3 Compliance:** The HSMs meet stringent federal security standards.
+  - **Full Control Over Keys:** You manage and control your encryption keys directly, with no AWS access.
+  - **Integration with AWS Services:** Can be integrated with services like Amazon RDS, Amazon Redshift, and others.
+  - **High Performance:** Designed for applications with intensive cryptographic workloads.
+  - **Scalable and Highly Available:** You can cluster multiple HSMs for redundancy and increased throughput.
+  - **Support for Industry Standards:** Compatible with PKCS#11, Java Cryptography Architecture (JCA), and Microsoft CryptoNG (CNG).
 
 4. `AWS Certificate Manager` - Provision and manage SSL/TLS certificates with AWS services and connected resources.
 
+AWS Certificate Manager (ACM) is a service that lets you easily provision, manage, and deploy SSL/TLS certificates for your AWS-based websites and applications. It helps you secure network communications and establish the identity of websites over the internet.
+
+- Key Features
+  - **Easy Provisioning:** Quickly request public and private SSL/TLS certificates with just a few clicks.
+  - **Automatic Renewal:** ACM automatically renews certificates before they expire, minimizing downtime.
+  - **Integration with AWS Services:** Seamlessly integrates with services like Elastic Load Balancing, CloudFront, and API Gateway.
+  - **Free Public Certificates:** AWS provides public SSL/TLS certificates at no extra cost.
+  - **Private Certificate Authority:** Supports issuing private certificates for internal use with ACM Private CA (additional charges apply).
+  - **Managed Deployment:** Automatically deploy certificates to supported AWS services.
+  - **Secure and Reliable:** Uses industry-standard encryption and follows best practices for certificate management.
+
 5. `AWS Payment Cryptography` - Simplify cryptography operations in your cloud-hosted payment applications.
 
+AWS Payment Cryptography is a fully managed service designed to help financial institutions and payment service providers securely process payment transactions and protect sensitive payment data. It offers a scalable and compliant environment for cryptographic operations specific to the payments industry.
+
+- Key Features
+  - **Industry-Standard Support:** Supports payment-specific cryptographic algorithms and protocols such as DES, TDES, AES, and more.
+  - **Hardware Security Module (HSM) Backed:** Uses FIPS 140-2 Level 3 validated HSMs to protect keys and cryptographic operations.
+  - **Integrated Payment Workflows:** Facilitates key management, encryption, decryption, and tokenization workflows required in payment processing.
+  - **Regulatory Compliance:** Helps meet PCI DSS and other payment industry compliance requirements.
+  - **Scalable and Highly Available:** Built on AWS infrastructure for high availability and scalability.
+  - **Simplified Key Management:** Centralized management of payment keys with fine-grained access control.
+  - **Audit and Monitoring:** Integration with AWS CloudTrail for monitoring and audit logging of cryptographic operations.
+
 6. `AWS Private Certificate Authority` - Create private certificates to identify resources and protect data.
+
+AWS Private Certificate Authority (Private CA) is a managed private certificate authority service that helps you create and manage your own private certificates for internal applications, devices, and users. It enables secure communication within your organization without relying on public certificate authorities.
+
+- Key Features
+  - **Private PKI Management:** Easily create and manage private certificate authorities in the AWS Cloud.
+  - **Integration with AWS Services:** Works with AWS Certificate Manager (ACM) and other AWS services to automate certificate issuance and renewal.
+  - **Customizable Certificate Templates:** Define policies and templates to control certificate issuance.
+  - **High Security:** Keys are stored securely in hardware security modules (HSMs) validated at FIPS 140-2 Level 3.
+  - **Automated Certificate Lifecycle:** Simplifies issuing, renewing, and revoking private certificates.
+  - **Scalable and Highly Available:** Built on AWS infrastructure to provide availability and scalability.
+  - **Compliance and Auditability:** Supports logging with AWS CloudTrail for auditing certificate-related activities.
 
 7. `AWS System Manager` - It's manage Session Manager, Parameter Store, or Patch Manager.
 
@@ -798,7 +1127,7 @@ AWS Systems Manager is an integrated, Operations management service for AWS infr
   - Operational tasks automation
   - System maintenance
 
-1. `AWS Secrets Manager` - Centrally manage the lifecycle of secrets.
+8. `AWS Secrets Manager` - Centrally manage the lifecycle of secrets.
 
 AWS Secrets Manager is a Dedicated secrets management service
 
@@ -1367,4 +1696,3 @@ BYOL is a licensing model that lets you use your existing software licenses (lik
 [facebook-url-jakir]: https://www.facebook.com/jakir.ruet/
 [youtube-shield-jakir]: https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white
 [youtube-url-jakir]: https://www.youtube.com/@mjakaria-ruet/featured
-
