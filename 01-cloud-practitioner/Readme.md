@@ -1496,6 +1496,17 @@ You simply upload your code, and Elastic Beanstalk automatically handles provisi
   - **Improves availability and performance of applications with static IP addresses.**
   - **Uses AWS global network to route traffic optimally.**
 
+##### Virtual Private Cloud
+
+Amazon VPC is a logically isolated virtual network within the AWS cloud where you can launch and manage AWS resources (like EC2, RDS, Lambda, etc.) in a secure and controlled environment.
+
+- Design patterns for VPCs
+  - Internet-accessible VPC
+  - VPC with public and private subnets
+  - VPN access to private subnet
+  - Internal-only VPC
+  - VPC peering
+
 ##### [Elastic Load Balancing](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html)
 
 Elastic Load Balancing (ELB) is an AWS service that automatically distributes incoming traffic across multiple targets — such as EC2 instances, containers, IP addresses, or Lambda functions — to ensure high availability, fault tolerance, and scalability of your application.
@@ -1616,6 +1627,10 @@ Amazon Route 53 is a scalable and highly available Domain Name System (DNS) web 
 | Type:           | A (Alias)            |
 | Alias Target:   | d1234.cloudfront.net |
 | Routing Policy: | Simple               |
+
+#### Cloud Front
+
+Amazon CloudFront is a Content Delivery Network (CDN) service provided by AWS that securely delivers content (like websites, videos, APIs, and applications) to users with low latency and high transfer speeds.
 
 #### [AWS Storage Services](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/storage-services.html)
 
