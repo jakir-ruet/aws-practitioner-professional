@@ -1507,6 +1507,37 @@ Amazon VPC is a logically isolated virtual network within the AWS cloud where yo
   - Internal-only VPC
   - VPC peering
 
+###### Design patterns for VPCs
+
+VPC Flow Logs are an AWS feature that lets you capture information about the IP traffic going to and from network interfaces in your Amazon Virtual Private Cloud (VPC). They’re extremely useful for security analysis, troubleshooting connectivity issues, and auditing traffic patterns. A VPC Flow Log records details such as:
+
+- Source and destination IP addresses
+- Ports
+- Protocol (e.g., TCP, UDP, ICMP)
+- Traffic direction (inbound/outbound)
+- Action (ACCEPT or REJECT)
+- Bytes and packets transferred
+- Timestamps
+
+- Where You Can Enable Flow Logs > You can enable flow logs at different levels:
+  - `VPC level` – Captures all traffic within a VPC.
+  - `Subnet level` – Captures traffic for all network interfaces in a subnet.
+  - `Network Interface (ENI) level` – Captures traffic for a specific instance or interface.
+
+- Where Flow Logs Are Stored > Flow logs can be published to:
+  - `Amazon CloudWatch Logs` – for real-time monitoring and queries.
+  - `Amazon S3` – for long-term storage and analytics (e.g., with Athena).
+  - `Amazon Kinesis Data Firehose` – for streaming analytics.
+
+- How to Enable `VPC Flow Logs`
+- Go to VPC `Console` > `Your VPCs`.
+- Select a `VPC` > choose `Actions` > Create `flow log`.
+- Choose:
+  - Filter: `All`, `Accept`, or `Reject`
+  - Destination: `CloudWatch Logs`, `S3`, or `Kinesis`
+  - IAM role (if `CloudWatch` or `Kinesis`)
+  - Click Create `flow log`.
+
 ##### [Elastic Load Balancing](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html)
 
 Elastic Load Balancing (ELB) is an AWS service that automatically distributes incoming traffic across multiple targets — such as EC2 instances, containers, IP addresses, or Lambda functions — to ensure high availability, fault tolerance, and scalability of your application.
