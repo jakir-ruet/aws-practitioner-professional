@@ -1703,9 +1703,9 @@ Amazon CloudFront is a Content Delivery Network (CDN) service provided by AWS th
 - Amazon EC2 or Elastic Load Balancer (for dynamic content)
 - Custom origin (any publicly accessible HTTP/HTTPS server)
 
-##### CloudFront deliver content process
-
 > Make sure your S3 bucket or server is public or has the correct permissions for CloudFront to access content.
+
+##### CloudFront deliver content process
 
 ![CloudFront deliver content process](/img/cloudfront.png)
 
