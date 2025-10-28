@@ -26,6 +26,25 @@
 - `aws ec2 describe-vpcs`
 - If it is done then we will see the details of the default vpc.
 
+### Bastion host/Jump host/Jump server
+
+A `bastion host` (also called a `jump host` or `jump server`) is a special-purpose server used to securely access devices or servers in a private network from an external network, usually the internet. Think of it as a “gateway” that you pass through to reach internal systems that are otherwise inaccessible directly.
+
+#### Work flow
+
+- `[Your Laptop]` --> `SSH/RDP` --> `[Bastion Host]` --> `SSH/RDP` --> `[Internal Server]`
+
+> Use cases:
+
+- Secure access to private/internal servers (databases, apps)
+- Centralized logging and auditing for compliance
+- Temporary or controlled access for contractors or temporary staff
+- Single access point for multi-cloud or hybrid networks
+- Remote work access without a full VPN
+- Emergency recovery and troubleshooting of internal servers
+- Reducing attack surface by exposing only the bastion host to the internet
+- Enforcing multi-factor authentication and strong security policies
+
 ### Virtual Private Cloud (VPC) Analysis
 
 A VPC (Virtual Private Cloud) is a logically isolated virtual network within AWS where you can launch and manage your AWS resources securely. Two types VPC default VPC and Custom VPC.

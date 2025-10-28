@@ -1629,17 +1629,17 @@ Amazon Route 53 is a scalable and highly available Domain Name System (DNS) web 
 
 - DNS Record
 
-| Record Type | Purpose                                                     |
-| ----------- | ----------------------------------------------------------- |
-| A           | Maps a domain to an IPv4 address.                           |
-| AAAA        | Maps a domain to an IPv6 address.                           |
-| CNAME       | Maps a domain to another domain (used for aliasing).        |
-| MX          | Specifies mail servers for email delivery.                  |
-| TXT         | Holds arbitrary text (e.g., SPF, domain verification).      |
-| NS          | Lists authoritative name servers for the domain.            |
-| SOA         | Start of Authority – provides info about the domain/zone.   |
-| SRV         | Specifies location of services (e.g., SIP, XMPP).           |
-| Alias       | AWS-specific alias to AWS resources (e.g., S3, CloudFront). |
+| Record Type | Purpose                                                          |
+| ----------- | ---------------------------------------------------------------- |
+| A           | Maps (Translate) a domain to an IPv4 address.                    |
+| AAAA        | Maps (Translate) a domain to an IPv6 address.                    |
+| CNAME       | Maps (Translate) a domain to another domain (used for aliasing). |
+| MX          | Specifies mail servers for email delivery.                       |
+| TXT         | Holds arbitrary text (e.g., SPF, domain verification).           |
+| NS          | Lists authoritative name servers for the domain.                 |
+| SOA         | Start of Authority – provides info about the domain/zone.        |
+| SRV         | Specifies location of services (e.g., SIP, XMPP).                |
+| Alias       | AWS-specific alias to AWS resources (e.g., S3, CloudFront).      |
 
 - A Record Example
 
@@ -1659,9 +1659,68 @@ Amazon Route 53 is a scalable and highly available Domain Name System (DNS) web 
 | Alias Target:   | d1234.cloudfront.net |
 | Routing Policy: | Simple               |
 
+##### Comparison of A Record, CNAME, and Alias in Route 53
+
+| **Type**                 | **Points To**                                                 | **Key Use**                                        | **Notes**                                                |
+| ------------------------ | ------------------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------------- |
+| **A Record**             | IPv4 address (e.g., 192.0.2.1)                                | Directly points a domain/subdomain to an IP        | Can’t point to another domain name                       |
+| **CNAME**                | Another domain name (e.g., `www.example.com` → `example.com`) | Points one domain/subdomain to another domain      | Cannot be used for the root domain (`example.com`)       |
+| **Alias (AWS-specific)** | AWS resources (e.g., S3 bucket, CloudFront, ELB)              | Like CNAME, but for root domains and AWS resources | Free, supports root domain, resolves automatically to IP |
+
+##### Routing Policies
+
+- Simple Routing
+  - `What it does:` Routes traffic to a single resource (like an EC2 instance or an S3 bucket).
+  - `Use case:` Basic website with one endpoint.
+  - `Example:` example.com → single EC2 server.
+- Weighted Routing
+  - `What it does:` Distributes traffic across multiple resources based on weights you assign.
+  - `Use case:` Gradual deployments or A/B testing.
+  - `Example:`
+    - `EC2 instance A:` weight 70 → gets 70% of traffic
+    - `EC2 instance B:` weight 30 → gets 30% of traffic
+- Latency-Based Routing
+  - `What it does:` Sends users to the AWS region with the lowest latency for them.
+  - `Use case:` Global applications needing fast response times.
+- Failover Routing
+  - `What it does:` Routes traffic to a primary resource normally, and a secondary resource if the primary fails.
+  - `Use case:` High availability and disaster recovery.
+- Geolocation Routing
+  - `What it does:` Sends traffic based on the user’s geographic location.
+  - `Use case:` Localized content or compliance with regional laws.
+- Geoproximity Routing
+  - `What it does:` Routes traffic based on user location relative to AWS resources.
+  - `Use case:` Direct traffic to specific regions, manage load, or optimize latency.
+- Multi-Value Answer Routing
+  - `What it does:` Returns multiple healthy IP addresses for a single domain.
+  - `Use case:` Simple load balancing with health checks.
+
 #### Cloud Front
 
-Amazon CloudFront is a Content Delivery Network (CDN) service provided by AWS that securely delivers content (like websites, videos, APIs, and applications) to users with low latency and high transfer speeds.
+Amazon CloudFront is a Content Delivery Network (CDN) service provided by AWS that securely delivers content (like websites, videos, APIs, and applications) to users with low latency and high transfer speeds. CloudFront needs an origin server where your content is stored. Common origins include:
+
+- Amazon S3 bucket (for static files like images, JS, CSS)
+- Amazon EC2 or Elastic Load Balancer (for dynamic content)
+- Custom origin (any publicly accessible HTTP/HTTPS server)
+
+##### CloudFront deliver content process
+
+> Make sure your S3 bucket or server is public or has the correct permissions for CloudFront to access content.
+
+![CloudFront deliver content process](/img/cloudfront.png)
+
+> Key features
+
+- **Global Content Delivery** – Uses edge locations worldwide for low-latency content delivery.
+- **Caching & Performance** – Caches static and dynamic content at edge locations for faster access.
+- **Multiple Origins Support** – Works with Amazon S3, EC2, Elastic Load Balancers, or custom HTTP servers.
+- **Dynamic Content & API Acceleration** – Efficiently delivers dynamic content and APIs.
+- **Security** – Supports HTTPS, integrates with AWS WAF, and protects against DDoS with AWS Shield.
+- **Custom Domain & SSL** – Allows custom domains with SSL/TLS certificates via AWS Certificate Manager.
+- **Lambda@Edge** – Run serverless code at edge locations to customize requests and responses.
+- **Content Invalidation** – Update cached content by invalidating specific files or paths.
+- **Logging & Analytics** – Track requests and monitor performance using access logs and CloudWatch.
+- **Flexible Pricing & Regions** – Pay per usage and optionally limit delivery regions to reduce costs.
 
 #### [AWS Storage Services](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/storage-services.html)
 
@@ -1741,7 +1800,13 @@ There are `three` types of storage in Amazon Web Services
 
 ##### IOPS (eye-ops):
 
-Input/Output Operation per Second is use as I/O performance management measurement to characterize computer storage devices like HDD, SSD & Storage Area Network (SAN). This Operations (reads or writes) that a storage system can perform in one second. It focuses on the speed at which individual read and write operations can be completed. Its measure in KiB.
+IOPS measures the number of individual input/output operations (read or write requests) that a `storage volume` can handle per second. It determines how fast your volume can process small, random read/write requests, which is especially important for databases and transactional systems.
+
+> Key Characteristics
+
+- Focus: > Speed and efficiency of small, random I/O operations.
+- Used In: > HDDs, SSDs, and Storage Area Networks (SANs).
+- Measured In: >Operations per second (IOPS) — though each operation transfers a certain amount of data, typically measured in KiB (Kibibytes).
 
 - Maximum amount of data that a volume type counts as 'Single I/O'.
 - I/O size capped at 256 KiB for SSD.
@@ -1750,22 +1815,58 @@ Input/Output Operation per Second is use as I/O performance management measureme
 
 - `IOPS Calculation`
 
-Average Seek Time = (`Read Time` + `Write Time`)/`2`
-IOPS = 1 / (`RPM Average Latency Time` + `Average Seek Time`)
+Average Seek Time = `(Read Time` + `Write Time)`/`2`
+
+RPM Average Latency Time/Average Rotational Latency= `60 Seconds` / `(2 × RPM​)`
+
+IOPS = `1` / `(RPM Average Latency Time + Average Seek Time)`
 
 Suppose,
 
+I/O size = 8 KB
+
 Rotational Speed = 15,000,
 
-RPM Average Latency Time = 3 ms = 0.003 Seconds,
+RPM Average Latency Time/Average Rotational Latency = 3 ms = 0.003 Seconds,
 
-Average Seek Time = {4.2 (R) + 4.45 (W)}/2 = 4.45 ms = 0.0045 Second
+Read Seek Time = 4.2 ms
+
+Write Seek Time = 4.7 ms
+
+Average Seek Time = (Read Seek Time + Write Seek Time) / 2 = (4.2 + 4.7) ms = 4.45 ms = 0.0045 Second
 
 IOPS = 1 / (0.003 + 0.0045) = 133 IOPS (Approximately)
 
-- `Throughput`
+##### Throughput
 
-Its refers to the rate at which data is transferred successfully between two points in a system, such as between a storage device and a server, or within a network. Throughput can be affected by IOPS & packet size.
+Throughput measures the amount of data transferred per second between a `storage device` (like an EBS volume, SSD, or HDD) and the `host system`.
+
+> It’s usually expressed in:
+
+- MB/s (Megabytes per second) or
+- MiB/s (Mebibytes per second)
+
+- `Throughput Calculation`
+
+Throughput = `IOPS`× `I/O Size`
+
+Throughput (MB/s) = `IOPS` × `I/O Size (KB)` / `1024` = 133 × 8 / 1024 = 1.039 MB/s
+
+##### IOPS vs Throughput
+
+| Metric         | Measures                           | Affected By                                                     | Typical Use Case                                           |
+| -------------- | ---------------------------------- | --------------------------------------------------------------- | ---------------------------------------------------------- |
+| **IOPS**       | Speed of individual I/O operations | Disk type (SSD vs HDD), block size, random vs sequential access | Databases, transactional workloads, latency-sensitive apps |
+| **Throughput** | Total data transfer rate (MB/s)    | IOPS × I/O size, sequential access                              | Large file transfers, streaming, backups, data warehouses  |
+
+##### AWS EBS volume comparison
+
+| Volume Type | Optimized For                   | IOPS Limit                      | Throughput Limit                       | Typical Use Case                       |
+| ----------- | ------------------------------- | ------------------------------- | -------------------------------------- | -------------------------------------- |
+| **gp3**     | Balanced performance & cost     | Up to 16,000                    | Up to 1,000 MB/s                       | Boot volumes, app servers, dev/test    |
+| **io1/io2** | High-performance, low-latency   | Up to 64,000 (256,000 on Nitro) | Up to 1,000 MB/s (4,000 MB/s on Nitro) | Databases, latency-sensitive workloads |
+| **st1**     | Large, sequential I/O           | <500                            | Up to 500 MB/s                         | Big data, logs, ETL, data warehouses   |
+| **sc1**     | Low-cost, infrequently accessed | Lowest                          | Up to 250 MB/s                         | Cold data, backups, archival           |
 
 #### Storage Gateway
 
