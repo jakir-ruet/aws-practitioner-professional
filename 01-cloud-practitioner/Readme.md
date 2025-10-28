@@ -1722,6 +1722,26 @@ Amazon CloudFront is a Content Delivery Network (CDN) service provided by AWS th
 - **Logging & Analytics** – Track requests and monitor performance using access logs and CloudWatch.
 - **Flexible Pricing & Regions** – Pay per usage and optionally limit delivery regions to reduce costs.
 
+##### HTTP verbs (methods) and status codes
+
+| **HTTP Verb** | **Action**                   | **Common Status Codes**                      | **Meaning**                             |
+| ------------- | ---------------------------- | -------------------------------------------- | --------------------------------------- |
+| **GET**       | Retrieve a resource          | `200 OK`                                     | Request succeeded and resource returned |
+|               |                              | `404 Not Found`                              | Resource doesn’t exist                  |
+|               |                              | `304 Not Modified`                           | Cached version still valid              |
+| **POST**      | Create a new resource        | `201 Created`                                | Resource successfully created           |
+|               |                              | `400 Bad Request`                            | Invalid input or malformed request      |
+|               |                              | `409 Conflict`                               | Resource already exists                 |
+| **PUT**       | Replace an existing resource | `200 OK`                                     | Resource successfully updated           |
+|               |                              | `201 Created`                                | Resource created (if didn’t exist)      |
+|               |                              | `204 No Content`                             | Successfully updated, no body returned  |
+| **PATCH**     | Partially update a resource  | `200 OK` / `204 No Content`                  | Update successful                       |
+|               |                              | `400 Bad Request`                            | Invalid update data                     |
+| **DELETE**    | Remove a resource            | `200 OK` / `202 Accepted` / `204 No Content` | Resource deleted successfully           |
+|               |                              | `404 Not Found`                              | Resource not found                      |
+| **HEAD**      | Retrieve headers only        | `200 OK`                                     | Resource exists (no body returned)      |
+| **OPTIONS**   | Discover supported methods   | `204 No Content`                             | Returns allowed methods in headers      |
+
 #### [AWS Storage Services](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/storage-services.html)
 
 There are `three` types of storage in Amazon Web Services
