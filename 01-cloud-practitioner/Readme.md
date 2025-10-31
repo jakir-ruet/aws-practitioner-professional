@@ -1872,6 +1872,33 @@ Throughput = `IOPS`× `I/O Size`
 
 Throughput (MB/s) = `IOPS` × `I/O Size (KB)` / `1024` = 133 × 8 / 1024 = 1.039 MB/s
 
+###### Throughput mode
+
+Throughput mode in AWS defines how much data per second (MB/s) a storage volume can transfer between the instance and the EBS volume. Mainly, it controls how fast large amounts of data can flow in and out of the disk.
+
+`1. Enhanced`
+
+Enhanced Throughput or Provisioned Throughput Mode, it allows you to set a `fixed throughput level` independent of your data size.
+
+- `How it works`
+  - You manually configure desired throughput (in MB/s).
+  - EFS always provides that throughput — no bursting limits.
+  - Perfect for workloads needing consistent, high performance.
+
+`2. Bursting (default)`
+
+Allows your EFS file system to automatically burst to higher throughput levels depending on how much data is stored. Bursting in AWS refers to the ability of certain services to temporarily exceed their baseline performance when needed, using accumulated credits.
+
+- `How it works`
+  - Throughput scales with storage size.
+  - You earn burst credits when your usage is below baseline.
+  - When demand increases, EFS uses credits to burst above the baseline.
+
+- `Formula`
+  - Baseline throughput = 50 KB/s × file system size (in GiB)
+  - Bursting limit = Up to 100 MB/s (for small filesystems)
+  - The more data you store → the higher your baseline throughput.
+
 ##### IOPS vs Throughput
 
 | Metric         | Measures                           | Affected By                                                     | Typical Use Case                                           |
