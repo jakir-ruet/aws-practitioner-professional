@@ -1235,7 +1235,7 @@ AWS Secrets Manager is a Dedicated secrets management service
 | **Built-in Integrations** | Limited                                                        | Deep integrations with RDS, Redshift, DocumentDB, and others         |
 | **Compliance Focus**      | Operational management                                         | Security and compliance (e.g., audit, encryption rotation)           |
 
-##### Compliance - Each compontent's breif discussion
+##### Compliance - Each component's brief discussion
 
 1. `AWS Artifact` - No cost, self-service portal for on-demand access to AWS’ compliance reports.
 
@@ -1990,6 +1990,47 @@ Replacing old tape backup systems with a cloud-based solution.
 - `IoT Services`
   1. `AWS IoT Core:` Secure device communication with cloud apps and services.
   2. `AWS IoT Greengrass:` Brings AWS compute, messaging, and data caching to edge devices.
+
+#### OpenSearch
+
+Amazon OpenSearch (formerly Amazon Elasticsearch Service) is a fully managed search and analytics service for real-time application monitoring, log analytics, and search functionality.
+
+##### Key Features:
+
+- Search & Analytics:
+  - Full-text search capabilities
+  - Real-time analytics on large datasets
+  - Log analysis and monitoring
+  - Data visualization with OpenSearch Dashboards
+
+- Data Sources:
+  - Application logs from CloudWatch, CloudTrail
+  - Website search functionality
+  - Business intelligence and analytics
+  - Security monitoring and threat detection
+
+- Core Components:
+  - OpenSearch Engine:
+  - Based on Apache Lucene
+  - RESTful APIs for data operations
+  - Multi-tenant architecture
+  - Auto-scaling capabilities
+
+- OpenSearch Dashboards:
+  - Kibana-compatible visualization tool
+  - Interactive dashboards and charts
+  - Real-time monitoring displays
+  - Custom visualizations
+
+- Common Use Cases:
+  - Log Analytics:
+    - Application monitoring - Track errors, performance
+    - Security analysis - Monitor access patterns, threats
+    - Infrastructure monitoring - System metrics, alerts
+  - Search Applications:
+    - E-commerce search - Product catalogs
+    - Content search - Document repositories
+    - Site search - Website content indexing
 
 #### Services from Additional Relevant AWS Categories - brief discuss
 
