@@ -1928,7 +1928,7 @@ An AWS Storage Gateway is a hybrid cloud storage service that connects your on-p
 
 ##### Types of AWS Storage Gateway
 
-1. File Gateway (NFS/SMB)
+1. S3 File Gateway (NFS/SMB)
 
 - Acts like a network file share for on-premises servers.
 - Files are stored as objects in Amazon S3, while recently accessed data is cached locally.
@@ -1938,7 +1938,17 @@ An AWS Storage Gateway is a hybrid cloud storage service that connects your on-p
 > Use Case
 A company wants to store file server data in S3 but still access it locally.
 
-2. Volume Gateway (iSCSI Block Storage)
+2. FSx File Gateway
+
+- Provides low-latency, on-premises access to fully managed file systems in AWS.
+- Optimizes access to FSx for Windows File Server and FSx for Lustre.
+- Local cache for frequently accessed data with seamless cloud integration.
+- Supports SMB protocol for Windows environments.
+
+> Use Case
+High-performance computing workloads needing fast access to FSx file systems.
+
+3. Volume Gateway (iSCSI Block Storage)
 
 - Provides cloud-backed block storage volumes.
 - Cached Volumes: Primary data is stored in AWS, with frequently accessed data cached locally for low latency.
@@ -1947,7 +1957,7 @@ A company wants to store file server data in S3 but still access it locally.
 > Use Case
 Running applications on-premises but keeping a disaster recovery copy in AWS.
 
-3. Tape Gateway (VTL – Virtual Tape Library)
+4. Tape Gateway (VTL – Virtual Tape Library)
 
 - Emulates physical tape libraries.
 - Data is stored on Amazon S3 and can be archived to Amazon S3 Glacier or S3 Glacier Deep Archive.
@@ -1955,6 +1965,98 @@ Running applications on-premises but keeping a disaster recovery copy in AWS.
 
 > Use Case
 Replacing old tape backup systems with a cloud-based solution.
+
+#### Data Management
+
+Data management in AWS involves organizing, storing, protecting, and optimizing data across various AWS services to ensure efficient access, security, and compliance. Key aspects include:
+
+**Data Storage Solutions:**
+
+- **Amazon S3** - Object storage for websites, backups, data archiving
+- **Amazon EFS** - Shared file storage for Linux workloads
+- **Amazon RDS** - Managed relational databases
+- **Amazon DynamoDB** - NoSQL database for high-performance applications
+
+**Data Protection & Security:**
+
+- **Encryption** - At rest and in transit using AWS KMS
+- **Access Control** - IAM policies and bucket policies
+- **Backup & Recovery** - Automated backups, snapshots, cross-region replication
+- **Compliance** - GDPR, HIPAA, SOX compliance features
+
+**Data Lifecycle Management:**
+
+- **S3 Lifecycle Policies** - Automatic transition between storage classes
+- **Data Archiving** - Move to Glacier for long-term, cost-effective storage
+- **Data Retention** - Automated deletion based on business rules
+- **Version Control** - S3 versioning for data protection
+
+**Data Analytics & Processing:**
+
+- **Amazon Athena** - Query data in S3 using SQL
+- **AWS Glue** - ETL service for data preparation
+- **Amazon Redshift** - Data warehouse for analytics
+- **Amazon EMR** - Big data processing with Hadoop/Spark
+
+**Data Migration:**
+
+- **AWS DataSync** - Online data transfer service
+- **AWS Database Migration Service** - Migrate databases to AWS
+- **AWS Snow Family** - Offline data transfer for large datasets
+- **AWS Storage Gateway** - Hybrid cloud storage integration
+
+**Monitoring & Optimization:**
+
+- **CloudWatch** - Monitor storage metrics and performance
+- **AWS Cost Explorer** - Analyze and optimize storage costs
+- **S3 Storage Class Analysis** - Optimize storage class usage
+- **Trusted Advisor** - Storage optimization recommendations
+
+##### How AWS Backup Works
+
+**Step 1: Create Backup Plan**
+
+1. Define backup schedule (daily, weekly, monthly)
+2. Set retention period (7 days, 30 days, 1 year)
+3. Choose backup vault (encryption, access policies)
+4. Configure lifecycle rules (move to cold storage)
+
+**Step 2: Assign Resources**
+
+1. Tag-based assignment:
+   - Backup all resources with tag "Environment=Production"
+   - Include specific resource types (EC2, RDS, EFS)
+
+2. Resource ID assignment:
+   - Specify individual resource ARNs
+   - Select specific databases or volumes
+
+**Step 3: Backup Execution**
+
+1. AWS Backup automatically:
+   - Creates snapshots at scheduled times
+   - Applies retention policies
+   - Encrypts backup data
+   - Stores in designated vault
+
+**Step 4: Monitoring & Recovery**
+
+1. Monitor backup jobs in AWS Backup console
+2. Set up CloudWatch alarms for failed backups
+3. Restore from backup when needed:
+   - Point-in-time recovery
+   - Cross-region restore
+   - Cross-account restore
+
+**Example Backup Plan:**
+
+Daily Backup Plan:
+
+- Schedule: Every day at 2:00 AM UTC
+- Retention: 30 days
+- Resources: All EC2 instances with tag "Backup=Daily"
+- Vault: Production-Backup-Vault
+- Lifecycle: Move to cold storage after 7 days
 
 #### Services from Additional Relevant AWS Categories
 
