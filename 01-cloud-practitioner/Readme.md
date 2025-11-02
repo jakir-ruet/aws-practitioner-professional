@@ -854,7 +854,7 @@ AWS Organizations is a free AWS service that lets you centrally manage and gover
 - Automate account creation and management
 - Use consolidated billing for all linked accounts
 
-##### Detection and Response - Each compontent's breif discussion
+##### Detection and Response - Each component's brief discussion
 
 1. `Amazon GuardDuty` - Protect AWS accounts with intelligent threat detection.
 
@@ -1020,7 +1020,7 @@ AWS Elastic Disaster Recovery (AWS DRS) is a managed disaster‑recovery service
   - After recovery, you can either continue running in AWS or fail back (“return”) to your original site.
   - It’s designed to reduce the cost and complexity of maintaining a dedicated DR site (on‑premises or in a data centre) by using AWS infrastructure as your recovery site.
 
-##### Network and Application Protection - Each compontent's breif discussion
+##### Network and Application Protection - Each component's brief discussion
 
 1. `AWS Firewall Manager > AWS Network Firewall` - Deploy network firewall security across your VPCs.
 
@@ -1100,7 +1100,7 @@ Amazon Route 53 Resolver DNS Firewall helps protect your Amazon VPC by filtering
   - **Protects Against Malware & Phishing:** Prevents communication with known malicious domains.
   - **Easy to Deploy:** Managed service, no infrastructure to maintain.
 
-##### Data Protection - Each compontent's breif discussion
+##### Data Protection - Each component's brief discussion
 
 1. `Amazon Macie` - Discover and protect your sensitive data at scale.
 
@@ -2630,6 +2630,38 @@ AWS IoT Greengrass is a software that extends AWS cloud capabilities to local de
   - Running machine learning inference at the edge.
 
 ### Domain 4: Billing, Pricing, and Support
+
+Her we discuss how you can improve your overall AWS cost using AWS Budgets.
+
+- AWS Budgets
+  - Create and  manage budgets
+  - Refine your budget using filters
+  - Add notifications to your budget
+- Types of Budgets
+  - Cost budget > Track your AWS costs against a specified dollar amount.
+  - Usage Budget > Monitor you usage of one or more specified usage types of usage ty groups.
+  - Saving Plan > Track the utilization or coverage associated with your Saving plans.
+  - Reservation Budget > Monitor the utilization of coverage reservations for specified services.
+- Cost Budgets and Filters
+  - Filter by service
+  - Filter by Linked account
+  - Filter by Region
+  - Filter by Instance type
+  - Filter by Cost category
+  - Filter by API Operation
+  - Filter by Purchase option
+- Usage Type > Usage types ate the units that a service uses to measure the usage of a particular type of resource.
+  - EC2 Instance in `Hours`
+  - Lambda in `Seconds`
+  - CouldWatch in `Requests`
+- Usage Groups > Collect a specific category of usage type filters info one filter.
+  - EC2 in `Running Hours`
+  - RDS in `Running Hours`
+  - S3 Bucket `S3: Storage-Standard`
+  - 
+- Saving Plans
+- Utilization and Coverage Reservations
+- Alerting
 
 #### Total Cost of Ownership?
 
