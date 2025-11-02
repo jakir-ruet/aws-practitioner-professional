@@ -759,6 +759,16 @@ AWS Identity and Access Management (IAM) is a foundational security service in A
   - `Authenticate:` Verify who is making the request (user, role, application).
   - `Authorize:` Decide whether they’re allowed to perform an action on a resource.
 
+###### Difference between Customer Master Key (CMK) and Key Management Service (KMS)
+
+| Feature    | KMS                                              | CMK                                                   |
+| ---------- | ------------------------------------------------ | ----------------------------------------------------- |
+| What it is | The **service** that manages encryption keys     | An **individual key** managed within KMS              |
+| Scope      | System-level (includes APIs, IAM, logging, etc.) | Object-level (the key and its metadata)               |
+| Created by | AWS / Azure / GCP                                | You or the cloud provider (depending on type)         |
+| Purpose    | Manage lifecycle and access to keys              | Perform encryption/decryption operations              |
+| Example    | AWS KMS console, APIs, integrations              | `arn:aws:kms:us-east-1:123456789012:key/abcd-1234...` |
+
 ###### Core Concepts of IAM
 
 | **IAM Component**             | **Description**                                                                 |
@@ -954,7 +964,21 @@ AWS Trusted Advisor is a service that inspects your AWS account's, gives you rec
   - Quota awareness: Alerts on service limit usage to prevent disruptions.
   - Best practice alignment: Keeps your setup aligned with AWS recommendations.
 
-9. `Amazon CloudWatch` - Observe and monitor resources and applications on AWS, on premises, and on other clouds.
+9. `AWS Inspector` - a managed security assessment service from AWS that helps you automatically detect vulnerabilities and deviations
+
+- What Amazon Inspector Does
+  - Scans AWS resources such as EC2 instances, container images in ECR, and Lambda functions.
+  - Identifies vulnerabilities (CVEs) and security issues.
+  - Automatically updates assessments when new vulnerabilities are discovered.
+  - Prioritizes findings based on risk and exposure (e.g., whether the package is network-accessible).
+
+- What Amazon Inspector Does
+  - Scans AWS resources such as EC2 instances, container images in ECR, and Lambda functions.
+  - Identifies vulnerabilities (CVEs) and security issues.
+  - Automatically updates assessments when new vulnerabilities are discovered.
+  - Prioritizes findings based on risk and exposure (e.g., whether the package is network-accessible).
+
+10. `Amazon CloudWatch` - Observe and monitor resources and applications on AWS, on premises, and on other clouds.
 
 Amazon CloudWatch provides data and **actionable insights** to monitor your applications, respond to system-wide performance changes, optimize resource utilization, and get a unified view of operational health.
 
@@ -969,7 +993,7 @@ Key Features
 | **Events**             | Responds to changes in your AWS resources using **CloudWatch Events/EventBridge**.                      |
 | **Insights**           | Provides analytics on logs using **CloudWatch Logs Insights**, useful for querying and troubleshooting. |
 
-10. `AWS CloudTrail` - Track user activity and API usage.
+11. `AWS CloudTrail` - Track user activity and API usage.
 
 CloudTrail records all API calls and related events made on your AWS account. This includes actions taken through the AWS Management Console, SDKs, command line tools, and other AWS services.
 
@@ -1001,7 +1025,7 @@ CloudWatch vs CloudTrail
 | Data    | Metrics and logs                    | API calls and activity               |
 | Use     | Performance and health monitoring   | Security and auditing                |
 
-11. `AWS IoT Device Defender` - Security management across your IoT devices and fleets.
+12. `AWS IoT Device Defender` - Security management across your IoT devices and fleets.
 
 AWS IoT Device Defender is a fully‑managed service from Amazon Web Services that helps you audit, monitor, and secure your fleet of IoT devices (especially those connected via AWS IoT Core).
 
@@ -1010,7 +1034,7 @@ AWS IoT Device Defender is a fully‑managed service from Amazon Web Servi
   - It monitors device behaviour (traffic, connection patterns, ports, etc.) for anomalies either via rules you set or via built‑in machine‑learning models.
   - It supports mitigation — when issues are found it can trigger alerts and help you act (for example isolate a device, update a certificate, etc.).
 
-12. `AWS Elastic Disaster Recovery`- Scalable, cost-effective application recovery to AWS.
+13. `AWS Elastic Disaster Recovery`- Scalable, cost-effective application recovery to AWS.
 
 AWS Elastic Disaster Recovery (AWS DRS) is a managed disaster‑recovery service that lets you replicate on‑premises, virtual, and cloud workloads into AWS and recover them quickly when needed.
 
@@ -1019,6 +1043,18 @@ AWS Elastic Disaster Recovery (AWS DRS) is a managed disaster‑recovery service
   - It supports launching the replicated workloads in AWS (failover) within minutes, either from the latest replicated state or a prior point‑in‑time.
   - After recovery, you can either continue running in AWS or fail back (“return”) to your original site.
   - It’s designed to reduce the cost and complexity of maintaining a dedicated DR site (on‑premises or in a data centre) by using AWS infrastructure as your recovery site.
+
+##### AWS Inspector vs. Trusted Advisor
+
+| Feature               | **AWS Inspector**                       | **AWS Trusted Advisor**                |
+| --------------------- | --------------------------------------- | -------------------------------------- |
+| **Primary Goal**      | Security vulnerability management       | Best practice and cost optimization    |
+| **Scan Type**         | Automated vulnerability scanning        | Configuration & usage checks           |
+| **Scope**             | EC2, ECR, Lambda                        | All AWS accounts and services          |
+| **Frequency**         | Continuous or on-demand                 | Periodic (manual refresh or automated) |
+| **Output**            | Security findings (CVEs, exposures)     | Recommendations and advisories         |
+| **Integration Depth** | Deep integration with security services | Broad account-level checks             |
+| **Best For**          | Security and compliance teams           | DevOps, finance, and operations teams  |
 
 ##### Network and Application Protection - Each component's brief discussion
 
@@ -1339,6 +1375,35 @@ A network access control list (ACL) allows or denies specific inbound or outboun
 | **Real-Time Adaptation**    | Limited (static rules/policies)            | Advanced (dynamic mitigation, auto-scaling)    |
 | **Best Use Case**           | Network access control and filtering       | Protecting against service downtime            |
 | **Complementary?**          | Yes, part of overall security architecture | Yes, enhances firewall resilience              |
+
+#### AWS Compliance
+
+AWS Compliance refers to the set of programs, certifications, frameworks, and tools that help organizations using Amazon Web Services (AWS) meet legal, regulatory, and industry requirements related to security, privacy, and data protection.
+
+##### Key AWS Compliance Programs/Frameworks
+
+| Category                      | Framework                       | Description                                                            |
+| ----------------------------- | ------------------------------- | ---------------------------------------------------------------------- |
+| **Security & Risk**           | ISO 27001, ISO 27017, ISO 27018 | Information security, cloud-specific, and privacy management standards |
+| **Audit & Reporting**         | SOC 1, SOC 2, SOC 3             | Independent audits of AWS’s internal controls                          |
+| **Privacy & Data Protection** | GDPR, CCPA, HIPAA               | Data privacy and personal data handling                                |
+| **Government & Defense**      | FedRAMP, DoD SRG, IRAP          | U.S. and international government compliance                           |
+| **Finance & Commerce**        | PCI DSS                         | Payment card data security standards                                   |
+
+##### Common Compliance Scenarios
+
+- A healthcare app ensures HIPAA compliance using Amazon S3 with encryption and AWS KMS.
+- A fintech company aligns with PCI DSS by using AWS Shield and AWS WAF.
+- A public sector project uses FedRAMP-authorized AWS regions.
+
+##### Tools and Services for Compliance
+
+- AWS offers several tools to help meet compliance obligations:
+- AWS Artifact – On-demand access to AWS’s compliance reports and agreements (e.g., SOC reports, ISO certificates)
+- AWS Config – Tracks configuration changes and compliance with your policies
+- AWS Audit Manager – Automates evidence collection for audits
+- AWS Security Hub – Provides a central view of security and compliance posture
+- AWS Identity and Access Management (IAM) – Enforces least privilege and access controls
 
 ### Domain 3: Cloud Technology and Services
 
@@ -2656,12 +2721,16 @@ Her we discuss how you can improve your overall AWS cost using AWS Budgets.
   - CouldWatch in `Requests`
 - Usage Groups > Collect a specific category of usage type filters info one filter.
   - EC2 in `Running Hours`
+  - DynamoDB `Provisioned Throughput Capacity-Read/Write`
   - RDS in `Running Hours`
   - S3 Bucket `S3: Storage-Standard`
-  - 
-- Saving Plans
-- Utilization and Coverage Reservations
-- Alerting
+- Saving Plans > A pricing model allowing discounts on committed usages for EC2 and Farget.
+  - Utilization of saving plans > measures `uused` and `under-utilization` savings plans.
+  - Coverage of saving plans > Measures `how much` instance usage is covered by saving plans.
+- Utilization and Coverage Reservations > Allows you to serve compute capacity for your EC2 instance in an AZ for a specified duration.
+  - Utilization of Reservations > Measures `unused` and `under-utilized` reservations.
+  - Coverrage of reservation > Measures `how much` instance usage is covered by reservations.
+- Alerting > Using email, SNS topic with absolute value (% of Budget Amount) etc.
 
 #### Total Cost of Ownership?
 
@@ -2816,6 +2885,14 @@ Tag key examples:
 - `Department`
 - `Team`
 - `CostCenter`
+
+#### Reducing cost through managed services
+
+- Managed services > AWS responsible for managing infrastructure and software updates, like as
+  - AWS Fargate
+  - Elastic File Service (EFS)
+  - RDS
+  - Aurora Serverless
 
 ## With Regards, `Jakir`
 
