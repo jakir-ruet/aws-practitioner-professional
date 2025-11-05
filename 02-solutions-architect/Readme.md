@@ -345,6 +345,24 @@ chmod 400 "public-kp.pem"
 ssh -i "public-kp.pem" ubuntu@98.88.75.48
 ```
 
+### Three-Tier Architecture on AWS for Web Applications
+
+![Three-Tier Architecture on AWS for Web Applications](/img/vpc-design.jpg)
+
+#### Understanding and Plan
+
+##### Configuration CI/CD pipeline
+
+###### Frontend pipeline
+
+###### Backend pipeline
+
+##### Design three tier architecture
+
+##### Deployment from version and rollback plan
+
+##### Monitoring and logging for reliability
+
 ## With Regards, `Jakir`
 
 [![LinkedIn][linkedin-shield-jakir]][linkedin-url-jakir]
