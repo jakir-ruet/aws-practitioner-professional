@@ -353,6 +353,8 @@ ssh -i "public-kp.pem" ubuntu@98.88.75.48
 
 ##### Configuration CI/CD pipeline
 
+![CI/CD pipeline](/img/pipeline.jpg)
+
 ###### Frontend pipeline
 
 ###### Backend pipeline
