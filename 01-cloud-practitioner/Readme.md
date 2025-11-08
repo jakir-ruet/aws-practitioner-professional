@@ -1831,6 +1831,18 @@ There are `three` types of storage in Amazon Web Services
      - **Magnetic Storage:** Legacy magnetic volumes for infrequent access with low cost.
    - **EC2 Instance Storage:** Temporary block storage physically attached to the host instance (ephemeral).
 
+##### S3 Storage Classes
+
+| Storage Class                       | Use Case                                  | Durability    | Availability | Retrieval Time | Cost       |
+| ----------------------------------- | ----------------------------------------- | ------------- | ------------ | -------------- | ---------- |
+| **Standard**                        | Frequently accessed data                  | 99.999999999% | 99.99%       | Immediate      | 💲💲         |
+| **Intelligent-Tiering**             | Unknown or changing access patterns       | 99.999999999% | 99.9%        | Immediate      | 💲💲         |
+| **Standard-IA (Infrequent Access)** | Long-lived but infrequently accessed data | 99.999999999% | 99.9%        | Immediate      | 💲          |
+| **One Zone-IA**                     | Infrequent access, non-critical data      | 99.999999999% | 99.5%        | Immediate      | 💲          |
+| **Glacier Instant Retrieval**       | Archival, occasional instant access       | 99.999999999% | 99.9%        | ms–s           | 💲          |
+| **Glacier Flexible Retrieval**      | Archival, minutes–hours retrieval         | 99.999999999% | 99.9%        | mins–hours     | 💲          |
+| **Glacier Deep Archive**            | Long-term archival                        | 99.999999999% | 99.9%        | hrs (12–48)    | 💲 (lowest) |
+
 ##### Storage Types: Differences & Comparison
 
 | Feature / Storage Type        | Object Storage                                                                       | File Storage                                        | Block Storage                                                      |
