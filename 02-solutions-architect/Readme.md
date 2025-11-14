@@ -1,6 +1,6 @@
 ## More About Me – [Take a Look!](http://www.mjakaria.me)
 
-## Welcome to AWS Certified Solutions Architect - Associate **SAA-C03**
+## Welcome to AWS Certified Solutions Architect - Associate `SAA-C03`
 
 ### The Shared Responsibility Model and Well-architected Framework
 
@@ -81,7 +81,7 @@ Let’s understand the problem
 
 | Octet 1  | Octet 2  | Octet 3  | Octet 4  | Decimal Equivalent |
 | -------- | -------- | -------- | -------- | ------------------ |
-| 11111111 | 11111111 | 00000000 | 00000000 | **255.255.0.0**    |
+| 11111111 | 11111111 | 00000000 | 00000000 | `255.255.0.0`      |
 
 > Network Block: The `1s` in the binary mask (/16) represent the network portion (first two octets).
 > Host Block: The `0s` in the last two octets represent the host portion.
@@ -95,7 +95,7 @@ Given:
 - k = Default mask = 8 (Class A)
 - LOSM (Last Octet of Subnet Mask) = 2^7 + 2^6 + 2^5 + 2^4 + 2^3 + 2^2 + 2^1 + 2^0 = 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255
 
-**Answer**
+`Answer`
 
 - Subnet Mask is 255.255.0.0
 - Block size = 256 - LOSM = 256 - 255 = 1
@@ -178,6 +178,318 @@ Before you begin, ensure you have the following:
 ##### Deployment from version and rollback plan
 
 ##### Monitoring and logging for reliability
+
+### AWS Storage, Transfer, and Migration Services
+
+### Big Data
+
+Big Data on AWS refers to using Amazon’s cloud services to `store`, `process`, `analyze`, and `visualize massive volumes` of data at `high speed` and `low cost`. AWS provides a full ecosystem of managed tools that eliminate the complexity of building big data infrastructure yourself. In big data has three properties/dimension.
+
+#### The 5 V's of Big Data
+
+- `Volume` - Massive amounts of data (terabytes to petabytes)
+- `Velocity` - High-speed data generation and processing
+- `Variety` - Different data types (structured, semi-structured, unstructured)
+- `Veracity` - Data quality and accuracy concerns
+- `Value` - Extracting meaningful insights from data
+
+#### AWS Big Data Services
+
+- `Data Ingestion:`
+  - `Amazon Kinesis` - Real-time data streaming
+  - `AWS DataSync` - Online data transfer
+  - `AWS Snow Family` - Offline data transfer
+  - `Amazon MSK` - Managed Kafka service
+
+- `Data Storage:`
+  - `Amazon S3` - Data lake storage
+  - `Amazon Redshift` - Data warehouse
+  - `AWS Lake Formation` - Secure data lakes
+
+- `Data Processing:`
+  - `Amazon EMR` - Managed Hadoop/Spark
+  - `AWS Glue` - Serverless ETL
+  - `Amazon Athena` - Serverless SQL queries
+
+- `Analytics & ML:`
+  - `Amazon SageMaker` - Machine learning platform
+  - `Amazon QuickSight` - Business intelligence
+  - `Amazon OpenSearch` - Search and analytics
+
+#### Big Data Architecture Patterns
+
+`Batch Processing:`
+
+```
+S3 Data Lake → AWS Glue ETL → Amazon Redshift → QuickSight
+```
+
+`Real-time Streaming:`
+
+```
+Kinesis Data Streams → Kinesis Analytics → Lambda → DynamoDB
+```
+
+`Lambda Architecture:`
+
+```
+Batch Layer: S3 → EMR → Redshift
+Speed Layer: Kinesis → Lambda → DynamoDB
+Serving Layer: QuickSight
+```
+
+#### Cost Optimization
+
+- Use `Spot Instances` for EMR (up to 90% savings)
+- Implement `S3 lifecycle policies`
+- Use `serverless services` for sporadic workloads
+- `Compress data` with Parquet/ORC formats
+
+#### Security Best Practices
+
+- `Encrypt data` at rest and in transit
+- Use `IAM roles` for fine-grained access
+- Enable `VPC endpoints` for private connectivity
+- Implement `data lineage` tracking
+
+### Machine Learning
+
+Machine Learning on AWS provides a comprehensive set of services to build, train, and deploy ML models at scale. AWS offers tools for every skill level, from no-code solutions to advanced deep learning frameworks.
+
+#### AWS ML Service Categories
+
+- `AI Services (Pre-built Models):`
+  - `Amazon Rekognition` - Image and video analysis
+  - `Amazon Comprehend` - Natural language processing
+  - `Amazon Polly` - Text-to-speech service
+  - `Amazon Transcribe` - Speech-to-text service
+  - `Amazon Translate` - Language translation
+  - `Amazon Textract` - Extract text from documents
+  - `Amazon Forecast` - Time-series forecasting
+  - `Amazon Personalize` - Real-time recommendations
+  - `Amazon Fraud Detector` - Fraud detection
+  - `Amazon CodeGuru` - Code review and optimization
+
+- `ML Platform Services:`
+  - `Amazon SageMaker` - Complete ML platform
+  - `Amazon Bedrock` - Generative AI with foundation models
+  - `Amazon Q` - AI-powered assistant
+  - `AWS DeepLens` - Deep learning camera
+  - `AWS Panorama` - Computer vision at the edge
+
+- `ML Infrastructure Services:`
+  - `Amazon EC2 P4/G4 Instances` - GPU-powered compute
+  - `AWS Batch` - Batch processing for ML workloads
+  - `Amazon EKS` - Kubernetes for ML containers
+  - `AWS Lambda` - Serverless ML inference
+
+#### Amazon SageMaker Deep Dive
+
+- `Core Components:`
+  - `SageMaker Studio` - Integrated development environment
+  - `SageMaker Notebooks` - Jupyter notebook instances
+  - `SageMaker Training` - Managed training jobs
+  - `SageMaker Endpoints` - Real-time inference
+  - `SageMaker Batch Transform` - Batch inference
+  - `SageMaker Pipelines` - ML workflow orchestration
+
+- `SageMaker Features:`
+  - `AutoML` - Automated model building
+  - `Ground Truth` - Data labeling service
+  - `Model Registry` - Model versioning and governance
+  - `Feature Store` - Centralized feature repository
+  - `Clarify` - Model explainability and bias detection
+  - `Data Wrangler` - Visual data preparation
+  - `JumpStart` - Pre-built ML solutions
+
+#### ML Architecture Patterns
+
+`Pattern 1: Real-time Inference`
+
+```
+Application → API Gateway → Lambda → SageMaker Endpoint → Model
+```
+
+`Pattern 2: Batch Processing`
+
+```
+S3 Data → SageMaker Processing → Trained Model → Batch Transform → S3 Results
+```
+
+`Pattern 3: Streaming ML`
+
+```
+Kinesis Data Streams → Lambda → SageMaker Endpoint → Kinesis Analytics → Dashboard
+```
+
+`Pattern 4: MLOps Pipeline`
+
+```
+Code Commit → CodeBuild → SageMaker Training → Model Registry → SageMaker Endpoints
+```
+
+#### ML Workflow Steps
+
+`1. Data Preparation:`
+    - `Data Collection` - S3, databases, streaming sources
+    - `Data Labeling` - SageMaker Ground Truth
+    - `Data Processing` - SageMaker Processing, Glue
+    - `Feature Engineering` - SageMaker Feature Store
+
+`2. Model Development:`
+    - `Algorithm Selection` - Built-in algorithms, custom containers
+    - `Training` - SageMaker Training Jobs
+    - `Hyperparameter Tuning` - Automatic model tuning
+    - `Model Evaluation` - SageMaker Experiments
+
+`3. Model Deployment:`
+    - `Real-time Endpoints` - Low latency inference
+    - `Batch Transform` - Large-scale batch predictions
+    - `Multi-model Endpoints` - Host multiple models
+    - `Auto Scaling` - Scale based on traffic
+
+`4. Model Monitoring:`
+    - `Data Drift Detection` - SageMaker Model Monitor
+    - `Model Performance` - CloudWatch metrics
+    - `A/B Testing` - Traffic splitting
+    - `Model Retraining` - Automated pipelines
+
+#### AI Services Use Cases
+
+`Computer Vision:`
+
+```
+Amazon Rekognition:
+- Face detection and recognition
+- Object and scene detection
+- Content moderation
+- Celebrity recognition
+- Text in images (OCR)
+```
+
+`Natural Language Processing:`
+
+```
+Amazon Comprehend:
+- Sentiment analysis
+- Entity extraction
+- Language detection
+- Topic modeling
+- Custom classification
+```
+
+`Speech Services:`
+
+```
+Amazon Transcribe + Polly:
+- Call center analytics
+- Voice assistants
+- Accessibility features
+- Content creation
+```
+
+#### Cost Optimization for ML
+
+- `Training Optimization:`
+  - Use `Spot Instances` for training (up to 90% savings)
+  - `Managed Spot Training` in SageMaker
+  - `Multi-model training` to share resources
+  - `Distributed training` for large datasets
+
+- `Inference Optimization:`
+  - `Serverless Inference` for sporadic traffic
+  - `Multi-model Endpoints` for similar models
+  - `Auto Scaling` based on demand
+  - `Batch Transform` for non-real-time predictions
+
+- `Storage Optimization:`
+  - Use `S3 Intelligent Tiering` for training data
+  - `Compress datasets` before training
+  - `Delete unused model artifacts`
+  - `Use EFS for shared datasets`
+
+#### Security Best Practices
+
+- `Data Security:`
+  - `Encrypt data` at rest and in transit
+  - `VPC endpoints` for private connectivity
+  - `IAM roles` for service access
+  - `S3 bucket policies` for data access control
+
+- `Model Security:`
+  - `Model encryption` in SageMaker
+  - `Network isolation` for training and inference
+  - `Private Docker registries` for custom containers
+  - `Audit logging` with CloudTrail
+
+- `Compliance:`
+  - `HIPAA compliance` for healthcare data
+  - `GDPR compliance` for EU data
+  - `SOC compliance` for enterprise requirements
+  - `Data residency` controls
+
+#### ML Monitoring and Troubleshooting
+
+- `Key Metrics:`
+  - `Training metrics` - Loss, accuracy, convergence
+  - `Inference metrics` - Latency, throughput, errors
+  - `Resource utilization` - CPU, GPU, memory
+  - `Cost metrics` - Training and inference costs
+
+- `Common Issues:`
+  - `Overfitting` - Use regularization, cross-validation
+  - `Slow training` - Optimize data loading, use distributed training
+  - `High inference latency` - Model optimization, caching
+  - `Data drift` - Implement monitoring and retraining
+
+#### Real-World ML Examples
+
+`E-commerce Recommendation:`
+
+```
+User Behavior → Kinesis → S3 → SageMaker Training → Personalize → Real-time Recommendations
+```
+
+`Fraud Detection:`
+
+```
+Transaction Data → Feature Engineering → SageMaker → Fraud Detector → Real-time Scoring
+```
+
+`Document Processing:`
+
+```
+Document Upload → S3 → Textract → Comprehend → Processed Results → Database
+```
+
+`Predictive Maintenance:`
+
+```
+IoT Sensors → Kinesis → SageMaker → Forecast → Maintenance Alerts → Dashboard
+```
+
+#### Getting Started with AWS ML
+
+`For Beginners:`
+
+1. Start with `AI Services` (Rekognition, Comprehend)
+2. Use `SageMaker JumpStart` for pre-built solutions
+3. Try `SageMaker Canvas` for no-code ML
+4. Explore `SageMaker Studio` tutorials
+
+`For Data Scientists:`
+
+1. Use `SageMaker Notebooks` for experimentation
+2. Leverage `built-in algorithms` for common use cases
+3. Implement `SageMaker Pipelines` for MLOps
+4. Use `SageMaker Experiments` for tracking
+
+`For ML Engineers:`
+
+1. Build `custom containers` for specific frameworks
+2. Implement `multi-model endpoints` for efficiency
+3. Set up `automated retraining` pipelines
+4. Use `SageMaker Model Registry` for governance
 
 ## With Regards, `Jakir`
 
