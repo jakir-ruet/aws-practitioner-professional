@@ -491,6 +491,407 @@ IoT Sensors → Kinesis → SageMaker → Forecast → Maintenance Alerts → Da
 3. Set up `automated retraining` pipelines
 4. Use `SageMaker Model Registry` for governance
 
+### Load Balancer
+
+A Load Balancer distributes incoming network or application traffic across multiple servers to ensure high availability, fault tolerance, and optimal resource utilization.
+
+#### AWS Load Balancer Types
+
+`Application Load Balancer (ALB) - Layer 7:`
+
+- `HTTP/HTTPS traffic` routing
+- `Content-based routing` (path, host, headers)
+- `WebSocket and HTTP/2` support
+- `SSL termination` and certificate management
+- `Integration` with AWS WAF, Cognito
+- `Target types`: EC2, IP addresses, Lambda functions
+
+`Network Load Balancer (NLB) - Layer 4:`
+
+- `TCP/UDP/TLS` traffic routing
+- `Ultra-high performance` (millions of requests/second)
+- `Static IP addresses` and Elastic IP support
+- `Preserve source IP` addresses
+- `Cross-zone load balancing` optional
+- `Target types`: EC2, IP addresses, ALB
+
+`Gateway Load Balancer (GWLB) - Layer 3:`
+
+- `Third-party virtual appliances` (firewalls, IDS/IPS)
+- `Transparent network gateway`
+- `GENEVE protocol` on port 6081
+- `Target types`: EC2 instances, IP addresses
+
+`Classic Load Balancer (CLB) - Legacy:`
+
+- `Layer 4 and 7` support
+- `Basic load balancing` features
+- `Being phased out` (use ALB/NLB instead)
+
+#### Load Balancer Features
+
+`Health Checks:`
+
+- `Target health monitoring`
+- `Configurable intervals` and thresholds
+- `Custom health check paths`
+- `Automatic failover` for unhealthy targets
+
+`Routing Algorithms:`
+
+- `Round Robin` (default for ALB)
+- `Least Outstanding Requests` (ALB)
+- `Flow Hash` (NLB)
+- `Weighted routing` with target groups
+
+#### Load Balancing Algorithms Deep Dive
+
+`Application Load Balancer (ALB) Algorithms:`
+
+1. `Round Robin (Default)`
+
+   ```
+   How it works:
+   Request 1 → Server A
+   Request 2 → Server B
+   Request 3 → Server C
+   Request 4 → Server A (cycle repeats)
+
+   Pros:
+   - Simple and fair distribution
+   - Good for servers with similar capacity
+
+   Cons:
+   - Doesn't consider server load
+   - May not be optimal for varying request complexity
+   ```
+
+2. `Least Outstanding Requests`
+
+   ```
+   How it works:
+   - Routes to target with fewest active requests
+   - Considers pending/processing requests
+   - Dynamic load-aware routing
+
+   Example:
+   Server A: 5 active requests
+   Server B: 3 active requests ← Next request goes here
+   Server C: 7 active requests
+
+   Pros:
+   - Better performance under varying loads
+   - Adapts to server processing speed
+
+   Cons:
+   - Slightly more complex
+   - May cause request clustering
+   ```
+
+`Network Load Balancer (NLB) Algorithms:`
+
+1. `Flow Hash Algorithm`
+
+   ```
+   Hash Components:
+   - Source IP address
+   - Source port
+   - Destination IP address
+   - Destination port
+   - Protocol
+
+   How it works:
+   hash = hash(src_ip + src_port + dst_ip + dst_port + protocol)
+   target = targets[hash % target_count]
+
+   Benefits:
+   - Consistent routing for same flow
+   - Maintains connection affinity
+   - Stateless load balancing
+   ```
+
+#### Algorithm Selection Guidelines
+
+`Choose Round Robin when:`
+
+- Servers have similar specifications
+- Requests have similar processing complexity
+- Simple, predictable load distribution needed
+
+`Choose Least Outstanding Requests when:`
+
+- Servers have different processing capabilities
+- Request complexity varies significantly
+- Need optimal performance under load
+
+`Choose Flow Hash when:`
+
+- Need connection persistence (NLB)
+- Stateful applications requiring session affinity
+- Gaming or real-time applications
+
+#### Weighted Routing Implementation
+
+`Target Group Weights:`
+
+```yaml
+Target Group A (Weight: 70):
+  - 70% of traffic
+  - Production servers
+
+Target Group B (Weight: 30):
+  - 30% of traffic
+  - Canary deployment
+```
+
+#### Algorithm Performance Comparison
+
+| Algorithm           | Latency  | Throughput | Complexity | Use Case       |
+| ------------------- | -------- | ---------- | ---------- | -------------- |
+| `Round Robin`       | Low      | High       | Simple     | Stateless apps |
+| `Least Outstanding` | Medium   | Very High  | Medium     | Variable loads |
+| `Flow Hash`         | Very Low | Very High  | Medium     | Stateful apps  |
+| `Weighted`          | Low      | High       | Simple     | A/B testing    |
+
+`SSL/TLS Support:`
+
+- `SSL termination` at load balancer
+- `End-to-end encryption` support
+- `AWS Certificate Manager` integration
+- `SNI (Server Name Indication)` support
+
+#### Target Groups and Routing
+
+`ALB Routing Rules:`
+
+```yaml
+Path-based routing:
+  /api/* → API servers
+  /images/* → Image servers
+  /* → Web servers
+
+Host-based routing:
+  api.example.com → API target group
+  www.example.com → Web target group
+
+Header-based routing:
+  User-Agent: Mobile → Mobile target group
+  User-Agent: Desktop → Desktop target group
+```
+
+`Target Group Configuration:`
+
+```yaml
+Target Group Settings:
+  Protocol: HTTP/HTTPS
+  Port: 80/443
+  Health Check Path: /health
+  Health Check Interval: 30 seconds
+  Healthy Threshold: 2
+  Unhealthy Threshold: 5
+  Timeout: 5 seconds
+```
+
+#### Load Balancer Architecture Patterns
+
+`Pattern 1: Internet-facing ALB`
+
+```
+Internet → ALB (Public Subnets) → EC2 Instances (Private Subnets)
+```
+
+`Pattern 2: Internal Load Balancing`
+
+```
+Web Tier → Internal ALB → App Tier → Internal NLB → Database Tier
+```
+
+`Pattern 3: Multi-tier with NLB`
+
+```
+Internet → NLB → ALB → EC2 Instances
+```
+
+`Pattern 4: Cross-zone Load Balancing`
+
+```
+AZ-1: LB → Targets (25%)
+AZ-2: LB → Targets (25%)
+AZ-3: LB → Targets (50%)
+```
+
+#### Auto Scaling Integration
+
+`Auto Scaling Group Configuration:`
+
+```yaml
+Auto Scaling Group:
+  Min Size: 2
+  Max Size: 10
+  Desired Capacity: 4
+  Target Group: web-servers-tg
+  Health Check Type: ELB
+  Health Check Grace Period: 300 seconds
+```
+
+`Scaling Policies:`
+
+```yaml
+Scale Out Policy:
+  Metric: CPU Utilization > 70%
+  Duration: 2 minutes
+  Action: Add 2 instances
+
+Scale In Policy:
+  Metric: CPU Utilization < 30%
+  Duration: 5 minutes
+  Action: Remove 1 instance
+```
+
+#### Load Balancer Security
+
+`Security Groups:`
+
+```yaml
+ALB Security Group:
+  Inbound:
+    - HTTP (80) from 0.0.0.0/0
+    - HTTPS (443) from 0.0.0.0/0
+  Outbound:
+    - HTTP (80) to Target SG
+    - HTTPS (443) to Target SG
+
+Target Security Group:
+  Inbound:
+    - HTTP (80) from ALB SG
+    - HTTPS (443) from ALB SG
+  Outbound:
+    - All traffic
+```
+
+`SSL/TLS Configuration:`
+
+```yaml
+SSL Policy: ELBSecurityPolicy-TLS-1-2-2017-01
+Certificate: ACM Certificate ARN
+Redirect: HTTP to HTTPS (301)
+HSTS: Enabled
+```
+
+#### Monitoring and Logging
+
+`CloudWatch Metrics:`
+
+- `RequestCount` - Number of requests
+- `TargetResponseTime` - Response time from targets
+- `HTTPCode_Target_2XX_Count` - Successful responses
+- `HTTPCode_ELB_5XX_Count` - Load balancer errors
+- `HealthyHostCount` - Number of healthy targets
+- `UnHealthyHostCount` - Number of unhealthy targets
+
+`Access Logs:`
+
+```yaml
+Access Logs Configuration:
+  S3 Bucket: my-alb-access-logs
+  Prefix: alb-logs/
+  Enabled: true
+
+Log Format:
+  timestamp elb client:port target:port request_processing_time
+  target_processing_time response_processing_time elb_status_code
+  target_status_code received_bytes sent_bytes request
+```
+
+`Connection Logs (NLB):`
+
+```yaml
+Connection Logs:
+  S3 Bucket: my-nlb-connection-logs
+  Fields: timestamp, client_ip, client_port, target_ip,
+          target_port, connection_time, tls_handshake_time
+```
+
+#### Cost Optimization
+
+`ALB Pricing:`
+
+- `Fixed cost`: ~$16/month per ALB
+- `Variable cost`: $0.008 per LCU-hour
+- `LCU dimensions`: New connections, active connections, bandwidth, rule evaluations
+
+`NLB Pricing:`
+
+- `Fixed cost`: ~$16/month per NLB
+- `Variable cost`: $0.006 per NLCU-hour
+- `NLCU dimensions`: New connections, active connections, bandwidth
+
+`Cost Optimization Tips:`
+
+- `Consolidate` multiple applications on single ALB using path-based routing
+- `Use NLB` for high-performance, low-latency requirements
+- `Monitor LCU/NLCU` usage to optimize costs
+- `Delete unused` load balancers
+
+#### Troubleshooting Common Issues
+
+`HTTP 502 Bad Gateway:`
+
+- Check target health status
+- Verify security group rules
+- Check application response time
+- Review target group configuration
+
+`HTTP 503 Service Unavailable:`
+
+- No healthy targets available
+- Target group has no registered targets
+- All targets failing health checks
+
+`HTTP 504 Gateway Timeout:`
+
+- Target response time exceeds timeout
+- Increase idle timeout settings
+- Optimize application performance
+
+`Connection Timeouts:`
+
+- Check NACLs and security groups
+- Verify target group port configuration
+- Check target application binding
+
+#### Best Practices
+
+`High Availability:`
+
+- Deploy load balancers in `multiple AZs`
+- Use `cross-zone load balancing` for even distribution
+- Configure `health checks` appropriately
+- Set up `CloudWatch alarms` for monitoring
+
+`Security:`
+
+- Use `HTTPS` with valid SSL certificates
+- Implement `security groups` with least privilege
+- Enable `access logging` for audit trails
+- Use `AWS WAF` for application-layer protection
+
+`Performance:`
+
+- Choose appropriate `load balancer type` for use case
+- Configure `connection draining` for graceful shutdowns
+- Use `sticky sessions` only when necessary
+- Monitor and optimize `target response times`
+
+`Cost Management:`
+
+- `Right-size` load balancer capacity
+- Use `path-based routing` to consolidate
+- `Monitor usage` metrics regularly
+- `Clean up` unused resources
+
+Load balancers with their sophisticated algorithms are essential for building resilient, scalable applications on AWS.
+
 ## With Regards, `Jakir`
 
 [![LinkedIn][linkedin-shield-jakir]][linkedin-url-jakir]
