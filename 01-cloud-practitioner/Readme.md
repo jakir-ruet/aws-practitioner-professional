@@ -1617,14 +1617,43 @@ Elastic Load Balancing (ELB) is an AWS service that automatically distributes in
 
 - Types of Elastic Load Balancers
 
-| Type                                       | Description                                                                                         | Use Case                                |
-| ------------------------------------------ | --------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| **Application Load Balancer (ALB)**        | Works at **Layer 7 (HTTP/HTTPS)**. Routes requests based on **URL, host, headers**, etc.            | Web apps, microservices, REST APIs      |
-| **Network Load Balancer (NLB)**            | Works at **Layer 4 (TCP/UDP)**. Handles **millions of requests per second** with ultra-low latency. | Real-time apps, gaming, high-throughput |
-| **Gateway Load Balancer (GWLB)**           | Distributes traffic to **third-party virtual appliances** (firewalls, intrusion detection, etc.).   | Network security and monitoring         |
-| **Classic Load Balancer (CLB)** *(legacy)* | Supports both Layer 4 and Layer 7, but with **limited features**.                                   | Legacy applications only                |
+| **Load Balancer Type**              | **Layer** | **Algorithms Used**                                                                                | **Notes**                                                       |
+| ----------------------------------- | --------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| **Application Load Balancer (ALB)** | Layer 7   | **Round Robin**<br>**Least Outstanding Requests**                                                  | Can switch algorithm via Target Group settings                  |
+| **Network Load Balancer (NLB)**     | Layer 4   | **Flow Hash (5-tuple hash)**                                                                       | Preserves connection stickiness; optimized for high performance |
+| **Classic Load Balancer (CLB)**     | Layer 4/7 | **Round Robin** (HTTP/HTTPS)<br>**Least Outstanding Requests** (HTTP/HTTPS)<br>**Flow Hash** (TCP) | Older generation, not recommended for new architectures         |
+| **Gateway Load Balancer (GLB)**     | Layer 3/4 | **Flow Hash (consistent hashing)**                                                                 | Used for firewalls/IDS/IPS appliance chaining                   |
 
 ![Elastic Load Balancer](/img/elastic-load-balancer.png)
+
+- Types of Listener Rule Conditions
+
+| **Condition Type**      | **Example**           | **Use Case**                           |
+| ----------------------- | --------------------- | -------------------------------------- |
+| **Host-based**          | `api.example.com`     | Route subdomains to different services |
+| **Path-based**          | `/images/*`, `/api/*` | Microservices routing by endpoints     |
+| **HTTP Header**         | `User-Agent: mobile`  | Mobile vs desktop routing              |
+| **Query String**        | `?version=v2`         | Version-based routing                  |
+| **HTTP Request Method** | GET / POST            | Restrict paths to specific methods     |
+| **Source IP**           | CIDR ranges           | Geo or IP-based filtering              |
+
+- Important Components of ELB
+
+| **Component**                 | **Description**                                                                            |
+| ----------------------------- | ------------------------------------------------------------------------------------------ |
+| **Listeners**                 | Define **protocol & port** that ELB listens on (e.g., HTTP :80, HTTPS :443).               |
+| **Target Groups**             | A group of backend targets (EC2, ECS, IPs, Lambda) where the load balancer routes traffic. |
+| **Health Checks**             | Continuous checks on targets to ensure only **healthy** targets receive traffic.           |
+| **Load Balancer Nodes**       | AWS-managed nodes running in **multiple AZs** to ensure high availability.                 |
+| **Routing Algorithms**        | The logic used to distribute traffic (Round Robin, Least Outstanding Requests, Flow Hash). |
+| **Listeners Rules (ALB)**     | Rules for **path-based**, **host-based**, or **header-based** routing.                     |
+| **Security Groups** (ALB/CLB) | Firewall rules controlling inbound/outbound network traffic to the LB.                     |
+| **SSL/TLS Certificates**      | Used for HTTPS termination via **ACM** or uploaded certificates.                           |
+| **Cross-Zone Load Balancing** | Distributes traffic evenly across targets in **all AZs**, not just client AZ.              |
+| **Access Logs**               | Optional logs stored in S3 that capture client request details.                            |
+| **Idle Timeout Settings**     | Time after which inactive connections are closed.                                          |
+| **Sticky Sessions** (ALB/CLB) | Ensures same client goes to the same backend (via cookies).                                |
+| **Load Balancer Scheme**      | Either **Internet-facing** or **Internal**.                                                |
 
 ##### [Auto Scaling Group (ASG)](https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-groups.html)
 
