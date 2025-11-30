@@ -475,25 +475,15 @@ Deployment strategies define how you want to deliver your software. Organization
 
 **Key Differences at a Glance**
 
-| Deployment Type | Infrastructure Impact     | Risk Level | Rollback  | Speed     |
-| --------------- | ------------------------- | ---------- | --------- | --------- |
-| In-place        | No new infra              | High       | Hard      | Fast      |
-| Blue/Green      | Double infra temporarily  | Low        | Easy      | Moderate  |
-| Canary          | Small infra initially     | Very low   | Easy      | Slow      |
-| Linear          | Small infra per increment | Low        | Easy      | Moderate  |
-| All-at-once     | No new infra needed       | Very high  | Hard      | Very fast |
-| Rolling         | Partial infra replacement | Moderate   | Moderate  | Moderate  |
-| Immutable       | New infra for updates     | Very low   | Very easy | Moderate  |
-
-**Deployment Matrix**
-
-| Deployment Strategy | Amazon ECS | AWS Lambda | Amazon EC2/on-premises |
-| ------------------- | ---------- | ---------- | ---------------------- |
-| In-place            | ✓          | ✓          | ✓                      |
-| Blue/green          | ✓          | ✓          | ✓*                     |
-| Canary              | ✓          | ✓          | X                      |
-| Linear              | ✓          | ✓          | X                      |
-| All-at-once         | ✓          | ✓          | X                      |
+| Deployment Type | Infra Impact        | Risk      | Rollback  | Speed     | Real-World Usage          | **ECS** | **Lambda** | **EC2 / On-Prem** |
+| --------------- | ------------------- | --------- | --------- | --------- | ------------------------- | ------- | ---------- | ----------------- |
+| **In-place**    | No new infra        | High      | Hard      | Fast      | Rare in production        | ✓       | ✓          | ✓                 |
+| **Blue/Green**  | Double infra        | Low       | Easy      | Moderate  | Very common               | ✓       | ✓          | ✓*                |
+| **Canary**      | Small infra         | Very low  | Easy      | Slow      | Popular for microservices | ✓       | ✓          | X                 |
+| **Linear**      | Small increments    | Low       | Easy      | Moderate  | Sometimes used            | ✓       | ✓          | X                 |
+| **All-at-once** | No new infra        | Very high | Hard      | Very fast | Rare                      | ✓       | ✓          | X                 |
+| **Rolling**     | Partial replacement | Medium    | Medium    | Medium    | **Most used**             | ✓       | X          | ✓                 |
+| **Immutable**   | New infra           | Very low  | Very easy | Medium    | Common with ASG           | ✓       | X          | ✓                 |
 
 #### Migration
 
