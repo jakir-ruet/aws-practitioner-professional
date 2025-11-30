@@ -509,6 +509,18 @@ Deployment strategies define how you want to deliver your software. Organization
 | Retain     | Keep some apps on-premises (temporarily or permanently)                  |
 | Retire     | Decommission outdated or unused applications                             |
 
+**Comparison Table**
+
+| **Strategy**   | **Purpose/Goal**                         | **Effort/Complexity** | **Risk**   | **Typical Use Cases**                                   |
+| -------------- | ---------------------------------------- | --------------------- | ---------- | ------------------------------------------------------- |
+| **Refactor**   | Redesign app for cloud-native            | High                  | Medium     | Microservices, serverless, modern apps                  |
+| **Replatform** | Optimize with minimal changes            | Medium                | Low-Medium | Move DB to RDS, migrate middleware, minor optimizations |
+| **Repurchase** | Replace with SaaS                        | Low                   | Low        | CRM → Salesforce, ERP → NetSuite                        |
+| **Rehost**     | Lift & shift to cloud as-is              | Low                   | Medium     | VMs → EC2, legacy apps                                  |
+| **Relocate**   | Move infrastructure without rebuild      | Low-Medium            | Medium     | VMware → AWS, datacenter migration                      |
+| **Retain**     | Keep on-premises temporarily/permanently | Low                   | Low        | Sensitive apps, compliance-restricted workloads         |
+| **Retire**     | Decommission unused apps                 | Very Low              | Very Low   | Legacy, redundant, or obsolete systems                  |
+
 AWS offers a comprehensive suite of tools and services to facilitate cloud migration, including automated processes and specialized expertise.
 
 - [AWS Migration Evaluator](https://aws.amazon.com/migration-evaluator/?p=ft&c=mg&z=3)
