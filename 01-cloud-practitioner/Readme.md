@@ -473,6 +473,18 @@ Deployment strategies define how you want to deliver your software. Organization
   - [Immutable Deployment](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environmentmgmt-updates-immutable.html)
     Immutable environment updates are an alternative to rolling updates. Immutable environment updates ensure that configuration changes that require replacing instances are applied efficiently and safely. If an immutable environment update fails, the rollback process requires only terminating an Auto Scaling group.
 
+**Key Differences at a Glance**
+
+| Deployment Type | Infrastructure Impact     | Risk Level | Rollback  | Speed     |
+| --------------- | ------------------------- | ---------- | --------- | --------- |
+| In-place        | No new infra              | High       | Hard      | Fast      |
+| Blue/Green      | Double infra temporarily  | Low        | Easy      | Moderate  |
+| Canary          | Small infra initially     | Very low   | Easy      | Slow      |
+| Linear          | Small infra per increment | Low        | Easy      | Moderate  |
+| All-at-once     | No new infra needed       | Very high  | Hard      | Very fast |
+| Rolling         | Partial infra replacement | Moderate   | Moderate  | Moderate  |
+| Immutable       | New infra for updates     | Very low   | Very easy | Moderate  |
+
 **Deployment Matrix**
 
 | Deployment Strategy | Amazon ECS | AWS Lambda | Amazon EC2/on-premises |
@@ -543,7 +555,17 @@ AWS offers a comprehensive suite of tools and services to facilitate cloud migra
 - [Cloud Migration Factory (CMF)](https://aws.amazon.com/solutions/implementations/cloud-migration-factory-on-aws/)
   A Cloud Migration Factory is a centralized migration model that industrializes the migration process, breaking it into repeatable units. Think of it like an assembly line for cloud migration—each step is standardized to improve speed, reduce errors, and ensure consistency.
 
-![Here's a comparison table that highlights the key differences between the AWS migration-related services you mentioned:](/img/cloud-migration.png)
+**Comparison Table**
+
+| Service / Tool                           | Purpose                          | Key Features                                    | Type of Migration            | Stage / Use Case                 |
+| ---------------------------------------- | -------------------------------- | ----------------------------------------------- | ---------------------------- | -------------------------------- |
+| **Migration Evaluator**                  | Cost analysis & planning         | Agentless data, cost projections                | Server / Workload            | Pre-migration planning           |
+| **Application Discovery Service (ADS)**  | Inventory & dependency mapping   | Resource usage, app dependencies                | Server / App                 | Assessment & planning            |
+| **Migration Hub**                        | Tracking & monitoring            | Central dashboard, integrates with MGN/DMS      | Multi-service                | Migration tracking               |
+| **Application Migration Service (MGN)**  | Lift-and-shift (rehost)          | Real-time replication, minimal downtime         | Server / VM / Cloud          | Execution of rehost              |
+| **Database Migration Service (DMS)**     | Database migration & replication | Homogenous & heterogeneous, ongoing replication | Database                     | Database migration               |
+| **Migration Acceleration Program (MAP)** | Structured migration framework   | Best practices, methodology, funding            | Enterprise-wide              | Planning & large-scale migration |
+| **Cloud Migration Factory (CMF)**        | Standardized repeatable process  | Industrialized workflow, repeatable units       | Multi-service / Applications | Execution & scaling migrations   |
 
 #### Data Transfer
 
@@ -581,7 +603,26 @@ AWS Data Transfer Services, which help you move data to, from, and within the AW
     - Supports: S3, RDS, Redshift, JDBC, and more.
     - Best for: Data lakes, data warehouse migrations.
 
-![Here's a comparison table that highlights the key differences between the AWS Data Transfer-related services you mentioned:](/img/data-transfer.png)
+**Comparison Table**
+
+| Service / Tool                           | Purpose / Use Case                  | Key Features / Highlights                       | Scale / Limits      | Best Fit / Stage                   |
+| ---------------------------------------- | ----------------------------------- | ----------------------------------------------- | ------------------- | ---------------------------------- |
+| **Migration Evaluator**                  | Pre-migration cost analysis         | Agentless data, cost projections                | N/A                 | Planning & assessment              |
+| **Application Discovery Service (ADS)**  | Inventory & dependency mapping      | Resource usage, app dependencies                | Agent/agentless     | Assessment & planning              |
+| **Migration Hub**                        | Migration tracking                  | Central dashboard, integrates with MGN/DMS      | N/A                 | Tracking migrations                |
+| **Application Migration Service (MGN)**  | Lift-and-shift (rehost)             | Real-time replication, minimal downtime         | Server / VM / Cloud | Execution of rehost                |
+| **Database Migration Service (DMS)**     | Database migration & replication    | Homogenous & heterogeneous, ongoing replication | Most DB engines     | Database migration                 |
+| **Migration Acceleration Program (MAP)** | Structured migration framework      | Best practices, methodology, funding support    | Enterprise-wide     | Planning & large-scale migration   |
+| **Cloud Migration Factory (CMF)**        | Repeatable migration process        | Industrialized workflow, standardized steps     | Multi-service       | Execution & scaling migrations     |
+| **Snowcone**                             | Small offline data transfer         | Portable, rugged                                | Up to 8 TB          | Small offline transfers            |
+| **Snowball**                             | Medium offline data transfer        | Tamper-resistant, high capacity                 | 50–80 TB/device     | Medium offline transfers           |
+| **Snowmobile**                           | Exabyte-scale offline transfer      | Truck-sized, massive storage                    | Exabytes            | Massive offline transfers          |
+| **AWS Transfer Family**                  | Managed file transfer               | SFTP/FTPS/FTP, integrates with S3/EFS           | N/A                 | Legacy file integration            |
+| **AWS Mainframe Modernization**          | Mainframe migration & modernization | Cloud-native mainframe execution                | Enterprise-scale    | Mainframe app migration            |
+| **AWS DataSync**                         | Automated data transfer             | NFS/SMB/S3/EFS/FSx, fast, schedulable           | TBs–PBs             | Recurring/large-scale migration    |
+| **AWS CLI & SDKs**                       | Programmatic AWS access             | Automation, scripting, app integration          | N/A                 | Developer automation               |
+| **Kinesis Data Firehose**                | Streaming data ingestion            | Real-time capture & load to S3/Redshift/ES      | Streaming at scale  | Logs, metrics, real-time pipelines |
+| **AWS Glue**                             | ETL & data integration              | Serverless, supports S3/RDS/Redshift/JDBC       | Scales to PBs       | Data lakes, warehouse migrations   |
 
 #### IaC, Provisioning - CloudFormation, Terraform
 
@@ -644,7 +685,13 @@ Some responsibilities are shared, depending on the service and use case:
 - AWS manages infrastructure-level encryption, but you manage application-level encryption.
 - AWS offers compliance certifications, but you need to ensure your workloads follow them.
 
-![Comparison](/img/security-share-responsibilty.png)
+**Summary Table**
+
+| Service                 | Customer Responsibility                            | AWS Responsibility                        |
+| ----------------------- | -------------------------------------------------- | ----------------------------------------- |
+| **EC2 (IaaS)**          | OS, patches, updates, firewall, IAM, encryption    | Physical infra, host OS, hypervisor       |
+| **RDS (Managed)**       | DB config, IAM, encryption                         | DB engine patching, backups, infra        |
+| **Lambda (Serverless)** | Code, IAM roles, API permissions, input validation | Runtime, OS, scaling, infra, availability |
 
 #### Management and Governance
 
@@ -1505,6 +1552,28 @@ A serverless compute engine for containers, used with Amazon ECS or EKS. Lets yo
 
 #### Amazon Lightsail
 
+A simplified, beginner-friendly version of AWS EC2 + networking + database. It’s basically VPS hosting on AWS with predictable pricing.
+
+**Best for**
+
+- Simple web apps
+- WordPress / CMS
+- Small business websites
+- Students / beginners
+- Quick and cheap deployments
+
+**Key features**
+
+- Preconfigured OS (Linux/Windows)
+- One-click: WordPress, Node.js, LAMP, Django etc.
+- Static IP, load balancer, managed DB
+- Very low-cost plans
+
+**Not ideal for**
+
+- Large, scalable, enterprise apps
+- Kubernetes / microservices
+
 Amazon Lightsail is a simplified cloud platform by AWS that offers easy-to-use virtual private servers (VPS) with bundled compute, storage, and networking.
 It is designed for users who need a quick, cost-predictable, and beginner-friendly way to launch websites, web apps, or small databases without managing complex AWS infrastructure.
 
@@ -1512,24 +1581,87 @@ It is designed for users who need a quick, cost-predictable, and beginner-friend
 
 #### AWS Elastic Beanstalk
 
-AWS Elastic Beanstalk is a Platform as a Service (PaaS) that lets you deploy and manage web applications without worrying about the underlying infrastructure.
-You simply upload your code, and Elastic Beanstalk automatically handles provisioning, load balancing, scaling, and monitoring.
+A PaaS (Platform-as-a-Service) that automatically handles:
 
-> Best for: Developers building web apps or APIs who want AWS to manage the infrastructure but still need flexibility and control over the environment.
+- Deployment
+- Auto Scaling
+- Load Balancing
+- Monitoring
+- Application health
 
-##### Amazon Lightsail vs AWS Elastic Beanstalk
+> You just upload your code (Java, Node.js, Python, Go, .NET, PHP, Ruby).
 
-| **Feature**                         | **Amazon Lightsail**                                          | **AWS Elastic Beanstalk**                                      |
-| ----------------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------- |
-| **Target Audience**                 | Developers looking for simplicity, small businesses, startups | Developers requiring more flexibility and scaling options      |
-| **Infrastructure Control**          | Minimal control, focuses on ease of use                       | More control over the infrastructure and configurations        |
-| **Pricing**                         | Fixed, predictable pricing plans                              | Pay-as-you-go (EC2 instances, storage, etc.)                   |
-| **Ease of Use**                     | Very easy to use, minimal configuration required              | Easy to use, but requires some understanding of AWS services   |
-| **Scalability**                     | Limited scalability for larger apps                           | Autoscaling for high availability and large-scale apps         |
-| **Customizability**                 | Limited customizability                                       | High degree of customization and configuration                 |
-| **Supported Applications**          | Simple web apps, static sites, small applications             | Web apps, microservices, enterprise applications               |
-| **Supported Programming Languages** | Limited to pre-configured stacks (e.g., LAMP, Node.js)        | Supports multiple programming languages and frameworks         |
-| **Integration with AWS**            | Limited to Lightsail-specific features (e.g., S3, RDS)        | Full integration with AWS services (e.g., RDS, S3, CloudWatch) |
+**Best for**
+
+- Full-stack web apps
+- Microservices (small/medium)
+- Multi-environment apps (dev, test, prod)
+- Developers who want AWS power but simple deployment
+
+**Key features**
+
+- Automatically creates EC2, ELB, ASG, RDS etc.
+- You keep full control if needed (you can modify instances)
+- Easy rollback
+- Blue/Green deployments
+
+**Not ideal for**
+
+- Very complex infrastructure
+- Modern frontend-only apps (React/Next.js/Vue)
+
+#### AWS Amplify
+
+A service designed specifically for modern frontend apps, especially mobile and SPA (React, Next.js, Vue, Angular) with optional backend.
+
+**Best for**
+
+- React/Next.js/Vue/Angular apps
+- `Mobile apps` (iOS, Android, Flutter)
+- JAMStack
+- Full-stack serverless apps
+
+**Key features**
+
+- Hosting for static/SSR frontend
+- Serverless backend using:
+- Lambda
+- AppSync (GraphQL)
+- Cognito (Auth)
+- DynamoDB
+- Git-based CI/CD
+- Real-time data, push notifications, storage API
+
+**Not ideal for**
+
+- Traditional monolithic backend apps (Java, Python, .NET)
+- Apps needing custom servers
+
+#### Comparison Table
+
+| Feature / Category              | **Amazon Lightsail**                                             | **AWS Elastic Beanstalk**                                              | **AWS Amplify**                                                                            |
+| ------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| **Service Type**                | VPS (Virtual Private Server)                                     | PaaS (Platform as a Service)                                           | Frontend + Serverless Backend Platform                                                     |
+| **Primary Use Case**            | Simple apps, websites, WordPress, smaller workloads              | Full-stack backend apps (Java, Python, Node.js, .NET, PHP, Go)         | Modern frontend apps (React, Next.js, Vue, Angular) + mobile apps                          |
+| **Target Users**                | Beginners, small businesses, freelancers                         | Developers who want automated deployments + scaling                    | Frontend/mobile developers building serverless apps                                        |
+| **Deployment Method**           | Manual deployment using SSH or upload                            | Upload code zip / Git / EB CLI                                         | Git-based CI/CD                                                                            |
+| **Infrastructure Control**      | High (you manage OS/server)                                      | Medium (AWS manages infra but editable)                                | Low (fully managed)                                                                        |
+| **Scaling**                     | Manual (no autoscaling)                                          | Fully automatic (ASG, ELB)                                             | Automatic (serverless)                                                                     |
+| **Load Balancing**              | Optional Lightsail LB                                            | Built-in Elastic Load Balancer                                         | Built-in CDN + optimized hosting                                                           |
+| **Database Options**            | MySQL/PostgreSQL Lightsail DB                                    | RDS (MySQL, PostgreSQL, Aurora, SQL Server, Oracle)                    | DynamoDB serverless or RDS via API                                                         |
+| **Supported Backend Languages** | Any (you configure manually)                                     | Java, Python, Node.js, PHP, Go, Ruby, .NET                             | Serverless backend: Node.js (Lambda), GraphQL (AppSync)                                    |
+| **Frontend Hosting**            | Can host but not optimized                                       | No (requires S3/CloudFront manually)                                   | Yes (built-in hosting for React, Next.js, Vue, Angular)                                    |
+| **CI/CD**                       | No                                                               | Optional via EB extensions or CodePipeline                             | Built-in (Git → build → deploy)                                                            |
+| **Server Access**               | Full SSH access                                                  | SSH into EC2 possible                                                  | No server access (serverless)                                                              |
+| **Cost Predictability**         | Very predictable monthly plans                                   | Varies with EC2, ELB, RDS usage                                        | Depends on usage (serverless pay-per-use)                                                  |
+| **Complexity Level**            | Very easy                                                        | Medium                                                                 | Easy to medium                                                                             |
+| **Best For**                    | - WordPress<br>- Blogs<br>- Simple apps<br>- Low-budget projects | - Enterprise backend apps<br>- Monoliths<br>- Multi-tier architectures | - React/Next.js apps<br>- Mobile app backends<br>- GraphQL APIs<br>- Dev teams using CI/CD |
+| **Not Good For**                | Large scalable apps                                              | Pure frontend hosting                                                  | Monolithic backend systems                                                                 |
+| **Autoscaling**                 | ❌ No                                                             | ✅ Yes                                                                  | ✅ Yes (serverless)                                                                         |
+| **Monitoring**                  | Basic                                                            | CloudWatch integrated                                                  | Built-in monitoring                                                                        |
+| **Security Model**              | Manual setup                                                     | Managed with IAM, Security Groups                                      | Fully managed with Cognito/IAM                                                             |
+| **Learning Curve**              | Very low                                                         | Medium                                                                 | Low for frontend developers                                                                |
+| **Backup/Restore**              | Snapshots                                                        | Snapshots + RDS backups                                                | Automatic for storage (S3)                                                                 |
 
 #### [Amazon VPC, DNS, Networking and content delivery](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html)
 
