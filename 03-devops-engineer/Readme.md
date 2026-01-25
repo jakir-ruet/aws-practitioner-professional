@@ -282,7 +282,18 @@ Useful for forecasting future Sprints.
 
 #### Comparison between DevOps and Agile in terms of their key aspects:
 
-![Comparison between DevOps and Agile](/img/devops-agile.png)
+| Feature                   | **Agile**                        | **DevOps**                                                |
+| ------------------------- | -------------------------------- | --------------------------------------------------------- |
+| **Definition**            | Software development methodology | Culture & practices for delivery & operations             |
+| **Focus**                 | Building software iteratively    | Deploying & running software continuously                 |
+| **Scope**                 | Development (plan → code → test) | End-to-end lifecycle (dev → deploy → monitor)             |
+| **Teams**                 | Dev + QA + Product               | Dev + QA + Ops + Security                                 |
+| **Culture**               | Collaboration, flexibility       | Automation, shared responsibility, continuous improvement |
+| **Methodologies / Tools** | Scrum, Kanban, Jira              | CI/CD, Docker, Jenkins, IaC, Monitoring                   |
+| **Feedback**              | From stakeholders & users        | From production metrics & monitoring                      |
+| **Change & Risk**         | Incremental changes              | Automated testing, rollback, monitoring                   |
+| **Deployment**            | End of sprint / periodic         | Continuous / multiple per day                             |
+| **Goal**                  | Build the right software         | Deliver & run software reliably                           |
 
 #### [SDLC (Software Development Lifecycle)](https://aws.amazon.com/what-is/sdlc/)
 
@@ -402,3 +413,4 @@ It's a software development practice aimed at improving the quality and speed of
 [facebook-url-jakir]: https://www.facebook.com/jakir.ruet/
 [youtube-shield-jakir]: https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white
 [youtube-url-jakir]: https://www.youtube.com/@mjakaria-ruet/featured
+
