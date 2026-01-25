@@ -1737,6 +1737,32 @@ VPC Flow Logs are an AWS feature that lets you capture information about the IP 
   - IAM role (if `CloudWatch` or `Kinesis`)
   - Click Create `flow log`.
 
+- Design Virtual Private Cloud (VPC)
+  - VPC CIDR: 10.0.0.0/16
+  - Subnet CIDR: 10.0.0.0/24
+
+Reserved Subnet IP's
+
+| Title           | IP         |
+| --------------- | ---------- |
+| Network Address | 10.0.0.0   |
+| VPC Router      | 10.0.0.1   |
+| VPC DNS Server  | 10.0.0.2   |
+| Future Use      | 10.0.0.3   |
+| Broadcast IP    | 10.0.0.255 |
+
+> RFC 1918 – Address Allocation for Private Internets
+
+RFC 1918 defines the IPv4 address ranges reserved for private (non-public) networks. These addresses are not routable on the public Internet and are intended for internal use within organizations, homes, and cloud networks such as AWS VPCs.
+
+Private IPv4 Address Ranges (RFC 1918)
+
+| CIDR Block       | IP Range                      | Size          | Typical Usage                 |
+| ---------------- | ----------------------------- | ------------- | ----------------------------- |
+| `10.0.0.0/8`     | 10.0.0.0 – 10.255.255.255     | ~16.7 million | Large enterprises, cloud VPCs |
+| `172.16.0.0/12`  | 172.16.0.0 – 172.31.255.255   | ~1 million    | Medium-sized networks         |
+| `192.168.0.0/16` | 192.168.0.0 – 192.168.255.255 | 65,536        | Home & small office networks  |
+
 ##### [Elastic Load Balancing](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/networking-services.html)
 
 Elastic Load Balancing (ELB) is an AWS service that automatically distributes incoming traffic across multiple targets — such as EC2 instances, containers, IP addresses, or Lambda functions — to ensure high availability, fault tolerance, and scalability of your application.
